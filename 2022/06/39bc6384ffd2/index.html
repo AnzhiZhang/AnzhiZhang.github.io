@@ -1,0 +1,957 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://i.imgur.com/tr7r1iL.jpeg">
+  <link rel="icon" href="https://i.imgur.com/tr7r1iL.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Andy Zhang">
+  <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
+  
+    <meta name="description" content="GPG 简介和基本操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPG 入门教程">
+<meta property="og:url" content="https://blog.zhanganzhi.com/2022/06/39bc6384ffd2/index.html">
+<meta property="og:site_name" content="Andy&#39;s Blog">
+<meta property="og:description" content="GPG 简介和基本操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/QZRuBZO.png">
+<meta property="article:published_time" content="2022-06-08T03:17:08.000Z">
+<meta property="article:modified_time" content="2022-06-10T15:51:46.830Z">
+<meta property="article:author" content="Andy Zhang">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="密码学">
+<meta property="article:tag" content="GPG">
+<meta property="article:tag" content="GitHub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/QZRuBZO.png">
+  
+  
+  
+  <title>GPG 入门教程 - Andy&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.zhanganzhi.com","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":"G-PMM77KFF7F","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"n7I9EuYN7JyRKrHnyO7lKPvK-MdYXbMMI","app_key":"YmP05m7YTm0Fmzytbmf5FD5f","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Andy's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Andy&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://i.imgur.com/2albfwP.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="GPG 入门教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-08 11:17" pubdate>
+          2022年6月8日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          58 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">GPG 入门教程</h1>
+            
+            <div class="markdown-body">
+              
+              <h2 id="简介和概念"><a href="#简介和概念" class="headerlink" title="简介和概念"></a>简介和概念</h2><p>完整的官方文档可在 <a target="_blank" rel="noopener" href="https://www.gnupg.org/">官网</a> 阅读。</p>
+<blockquote>
+<p>GNU Privacy Guard（GnuPG 或 GPG）是一个密码学软件，用于加密、签名通信内容及管理非对称密码学的密钥。GnuPG 是自由软件，遵循 IETF 订定的 OpenPGP 技术标准设计，并与 PGP 保持兼容。</p>
+</blockquote>
+<p>GPG 有许多用途，包括文件和邮件加密、签名、Git 提交签名等。</p>
+<p><img src="https://i.imgur.com/yWTP9ET.png" srcset="/img/loading.gif" lazyload alt="经过 GPG 签名的提交可以在 GitHub 显示绿色的 Verified&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span class=&quot;hint--top hint--rounded&quot; aria-label=&quot;About commit signature verification. GitHub Docs. [2022-06-06]. （原始内容存档于2022-06-06）
+&quot;&gt;[1]&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;"></p>
+<p>以下概念建议先浏览一遍，操作后再回来看一遍，可以更好理解。</p>
+<h3 id="主密钥（Primary-Key）和子密钥（Subkey）"><a href="#主密钥（Primary-Key）和子密钥（Subkey）" class="headerlink" title="主密钥（Primary Key）和子密钥（Subkey）"></a>主密钥（Primary Key）和子密钥（Subkey）</h3><p>类似证书的根证书结构，GPG 密钥分为主密钥和子密钥。</p>
+<p><img src="https://i.imgur.com/Fy4PuOx.png" srcset="/img/loading.gif" lazyload alt="主密钥和子密钥的关系&lt;sup id=&quot;fnref:5&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:5&quot; rel=&quot;footnote&quot;&gt;&lt;span class=&quot;hint--top hint--rounded&quot; aria-label=&quot;嗯了个踢. 简明 GPG 概念. 知乎. 2020-05-02 [2022-06-06]. （原始内容存档于2022-06-06）
+&quot;&gt;[5]&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;"></p>
+<p>子密钥虽然有自己的公钥，但是实际使用导出的是一组公钥，发布这一个公钥即可认证所有子密钥。所有的变更都是通过这个公钥发布的，比如 UID 的更改、子密钥的新增或撤销等。</p>
+<h3 id="密钥类型"><a href="#密钥类型" class="headerlink" title="密钥类型"></a>密钥类型</h3><p>共有四种类型的密钥，对应的缩写<sup id="fnref:8" class="footnote-ref"><a href="#fn:8" rel="footnote"><span class="hint--top hint--rounded" aria-label="UlyC. 2021年，用更现代的方法使用PGP（上）. UlyC - C的博客. 2021-01-13 [2022-06-06]. （原始内容存档于2022-06-06）
+">[8]</span></a></sup>如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>全名</th>
+<th>缩写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主公钥</td>
+<td>Public Key</td>
+<td>pub</td>
+</tr>
+<tr>
+<td>子公钥</td>
+<td>Public Subkey</td>
+<td>sub</td>
+</tr>
+<tr>
+<td>主私钥</td>
+<td>Secret Key</td>
+<td>sec</td>
+</tr>
+<tr>
+<td>子私钥</td>
+<td>Secret Subkey</td>
+<td>ssb</td>
+</tr>
+</tbody></table>
+<h3 id="用途（Usage）"><a href="#用途（Usage）" class="headerlink" title="用途（Usage）"></a>用途（Usage）</h3><p>每个密钥可以用不同的用途，下表是不同用途的含义：</p>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>全名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>Certificating</td>
+<td>认证，如子密钥或证书，类似根证书的作用。</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Signing</td>
+<td>签名，如文件数字签名、邮件签名、Git 提交。</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Authenticating</td>
+<td>身份验证，如登录。</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Encrypting</td>
+<td>加密，如文件和文本。</td>
+</tr>
+</tbody></table>
+<p>具有 <code>C</code> 的密钥是主密钥，只有这个密钥可以用于：</p>
+<ul>
+<li>添加或撤销子密钥的用途</li>
+<li>添加、更改或撤销密钥关联的身份（UID）</li>
+<li>添加或更改本身或其他子密钥的到期时间</li>
+<li>为了网络信任目的为其它密钥签名<sup id="fnref:7" class="footnote-ref"><a href="#fn:7" rel="footnote"><span class="hint--top hint--rounded" aria-label="Konstantin Ryabitsev. 用 PGP 保护代码完整性（二）：生成你的主密钥. Linux 中国. 2018-04-09 [2022-06-06].
+">[7]</span></a></sup></li>
+</ul>
+<h3 id="用户-ID（User-ID）"><a href="#用户-ID（User-ID）" class="headerlink" title="用户 ID（User ID）"></a>用户 ID（User ID）</h3><p>用户 ID 用于将密钥和真人关联，可以有多个 UID，一般为以下格式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Name &lt;name@example.com&gt;<br></code></pre></td></tr></table></figure>
+
+<p>如果使用多个身份，比如个人邮箱、 GitHub 账号、公司邮箱<sup id="fnref:6" class="footnote-ref"><a href="#fn:6" rel="footnote"><span class="hint--top hint--rounded" aria-label="Konstantin Ryabitsev. 用 PGP 保护代码完整性（一）： 基本概念和工具. Linux 中国. 2018-04-08 [2022-06-06].
+">[6]</span></a></sup>，可以设置为这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">Name &lt;name@example.com&gt;<br>Name(GitHub) &lt;name@users.noreply.github.com&gt;<br>Name(Work) &lt;name@work.com&gt;<br></code></pre></td></tr></table></figure>
+
+<p>需要注意公钥会包含电子邮件地址，注意隐私和垃圾邮件问题。</p>
+<h3 id="密钥-ID（Key-ID）"><a href="#密钥-ID（Key-ID）" class="headerlink" title="密钥 ID（Key ID）"></a>密钥 ID（Key ID）</h3><p>每一个密钥 ID（Key ID）有三种形式，指定密钥的最好方式就是使用指纹，可以最大限度避免重复的 ID：</p>
+<ul>
+<li>指纹：证书的 SHA-1 哈希，20 字节；</li>
+<li>长 ID：指纹的最后 16 位，8 字节；</li>
+<li>短 ID：指纹的最后 8 位，4 字节；</li>
+</ul>
+<h3 id="过期（Expire）和撤销（Revoke）"><a href="#过期（Expire）和撤销（Revoke）" class="headerlink" title="过期（Expire）和撤销（Revoke）"></a>过期（Expire）和撤销（Revoke）</h3><p>GPG 密钥可以设置过期时间，可以是永久有效。很多人会给主密钥设置长期有效，对不同用途的子密钥设置较短的期限。</p>
+<p>GPG 可以发布撤销证书，发布撤销证书后，其他人收到后就知道之前发布的密钥失效了。</p>
+<h2 id="安装-GPG"><a href="#安装-GPG" class="headerlink" title="安装 GPG"></a>安装 GPG</h2><p>如果安装了 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a>，可直接使用 Git Bash。</p>
+<p>也可以到 <a target="_blank" rel="noopener" href="https://www.gnupg.org/download/">官网</a> 下载安装。</p>
+<h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gpg --full-gen-key<br></code></pre></td></tr></table></figure>
+
+<p>选择加密类型，推荐 RSA 4096。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs console">Please select what kind of key you want:<br>   (1) RSA and RSA (default)<br>   (2) DSA and Elgamal<br>   (3) DSA (sign only)<br>   (4) RSA (sign only)<br>  (14) Existing key from card<br>Your selection? 1<br>RSA keys may be between 1024 and 4096 bits long.<br>What keysize do you want? (3072) 4096<br>Requested keysize is 4096 bits<br></code></pre></td></tr></table></figure>
+
+<p>设置过期时间，<code>0</code> 为永久。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs console">Please specify how long the key should be valid.<br>         0 = key does not expire<br>      &lt;n&gt;  = key expires in n days<br>      &lt;n&gt;w = key expires in n weeks<br>      &lt;n&gt;m = key expires in n months<br>      &lt;n&gt;y = key expires in n years<br>Key is valid for? (0)<br>Key does not expire at all<br>Is this correct? (y/N) y<br></code></pre></td></tr></table></figure>
+
+<p>根据提示输入姓名和邮箱，<code>Comment</code> 留空即可，然后设置密钥的密码。密码用于对称加密本地存储的私钥，在文件泄露的情况下也能保护你的密钥，在使用 GPG 密钥时经常需要输入密码以验证身份。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs console">GnuPG needs to construct a user ID to identify your key.<br><br>Real name: Name<br>Email address: name@example.com<br>Comment:<br>You selected this USER-ID:<br>    &quot;Name &lt;name@example.com&gt;&quot;<br><br>Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/Ez5qpIO.png" srcset="/img/loading.gif" lazyload alt="设置密码"></p>
+<p>同时会自动生成一个用途为 <code>E</code> 的子密钥，生成的密钥将会列出。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs console">public and secret key created and signed.<br><br>pub   rsa4096 2022-06-06 [SC]<br>      5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23<br>uid                      Name &lt;name@example.com&gt;<br>sub   rsa4096 2022-06-06 [E]<br></code></pre></td></tr></table></figure>
+
+<h3 id="生成子密钥"><a href="#生成子密钥" class="headerlink" title="生成子密钥"></a>生成子密钥</h3><p><strong>在日常使用中，应当避免使用主密钥，而是为不同用途使用不同的子密钥。</strong><sup id="fnref:8" class="footnote-ref"><a href="#fn:8" rel="footnote"><span class="hint--top hint--rounded" aria-label="UlyC. 2021年，用更现代的方法使用PGP（上）. UlyC - C的博客. 2021-01-13 [2022-06-06]. （原始内容存档于2022-06-06）
+">[8]</span></a></sup></p>
+<p>进入密钥的编辑，参数为上一步输出的密钥指纹。加上 <code>--expert</code> 参数以在下一步使用 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Curve25519">Curve 25519</a> 算法生成子密钥<sup id="fnref:9" class="footnote-ref"><a href="#fn:9" rel="footnote"><span class="hint--top hint--rounded" aria-label="UlyC. 2021年，用更现代的方法使用PGP（中）. UlyC - C的博客. 2021-01-18 [2022-06-06]. （原始内容存档于2022-06-06）
+">[9]</span></a></sup>，这是一种安全性介于 RSA 2048 和 RSA 4096 之间的算法，且速度更快。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gpg --expert --edit-key 5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23<br></code></pre></td></tr></table></figure>
+
+<p>使用 <code>addkey</code> 添加子密钥，根据提示选择、输入密码、保存更改。</p>
+<p>注意不同用途的子密钥可能需要选择不同的加密方式。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">addkey</span><br>Please select what kind of key you want:<br>   (3) DSA (sign only)<br>   (4) RSA (sign only)<br>   (5) Elgamal (encrypt only)<br>   (6) RSA (encrypt only)<br>   (7) DSA (set your own capabilities)<br>   (8) RSA (set your own capabilities)<br>  (10) ECC (sign only)<br>  (11) ECC (set your own capabilities)<br>  (12) ECC (encrypt only)<br>  (13) Existing key<br>  (14) Existing key from card<br>Your selection? 10<br>Please select which elliptic curve you want:<br>   (1) Curve 25519<br>   (3) NIST P-256<br>   (4) NIST P-384<br>   (5) NIST P-521<br>   (6) Brainpool P-256<br>   (7) Brainpool P-384<br>   (8) Brainpool P-512<br>   (9) secp256k1<br>Your selection? 1<br>Please specify how long the key should be valid.<br>         0 = key does not expire<br>      &lt;n&gt;  = key expires in n days<br>      &lt;n&gt;w = key expires in n weeks<br>      &lt;n&gt;m = key expires in n months<br>      &lt;n&gt;y = key expires in n years<br>Key is valid for? (0)<br>Key does not expire at all<br>Is this correct? (y/N) y<br>Really create? (y/N) y<br></code></pre></td></tr></table></figure>
+
+<p>在弹出的对话框输入密码。生成完成后保存。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">save</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="撤销证书"><a href="#撤销证书" class="headerlink" title="撤销证书"></a>撤销证书</h3><p>默认情况下生成密钥后会在用户文件夹内的 <code>.gnupg\openpgp-revocs.d</code> 生成一份撤销证书，也可以使用 <code>gpg --output revoke.asc --gen-revoke mykey</code> 生成一份。</p>
+<h2 id="管理密钥"><a href="#管理密钥" class="headerlink" title="管理密钥"></a>管理密钥</h2><h3 id="列出密钥"><a href="#列出密钥" class="headerlink" title="列出密钥"></a>列出密钥</h3><p>使用 <code>gpg --list-keys</code> 即可列出本地所有公钥和子公钥，还有一个简便写法：<code>gpg -k</code>。</p>
+<p>私钥类似，<code>gpg --list-secret-keys</code> 和 <code>gpg -K</code>。</p>
+<hr>
+<p>我们在本地使用时，长 ID 和短 ID 更方便，使用 <code>--keyid-format &#123;none|short|0xshort|long|0xlong&#125;</code> 即可输出长 ID 或短 ID：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gpg -k --keyid-format short</span><br>~/.gnupg/pubring.kbx<br>---------------------------------<br>pub   rsa2048/3AFDEB23 2017-08-16 [SC]<br>      5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23<br>uid         [ultimate] GitHub (web-flow commit signing) &lt;noreply@github.com&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gpg -k --keyid-format long</span><br>~/.gnupg/pubring.kbx<br>---------------------------------<br>pub   rsa2048/4AEE18F83AFDEB23 2017-08-16 [SC]<br>      5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23<br>uid                 [ultimate] GitHub (web-flow commit signing) &lt;noreply@github.com&gt;<br></code></pre></td></tr></table></figure>
+
+<p>默认情况下会输出连续的 20 字节指纹，例如 <code>5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23</code>。使用 <code>--fingerprint</code> 参数可输出有空格分隔的指纹，例如 <code>5DE3 E050 9C47 EA3C F04A  42D3 4AEE 18F8 3AFD EB23</code>。</p>
+<p>以上两个参数可以在配置文件 <code>~/.gnupg/gpg.conf</code> 中添加以避免重复输入，文件需要手动创建。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">keyid-format long<br>fingerprint<br></code></pre></td></tr></table></figure>
+
+<h3 id="导入和导出"><a href="#导入和导出" class="headerlink" title="导入和导出"></a>导入和导出</h3><p>使用 <code>gpg --import key.gpg</code> 导入密钥，后面会提到导入 GitHub 的公钥。</p>
+<hr>
+<p>通过以下命令查看使用 ASCII-armored 格式的公钥：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gpg --<span class="hljs-built_in">export</span> --armor 4AEE18F83AFDEB23</span><br>-----BEGIN PGP PUBLIC KEY BLOCK-----<br>[...]<br>-----END PGP PUBLIC KEY BLOCK-----<br></code></pre></td></tr></table></figure>
+
+<p>增加 <code>--output</code> 参数以导出到文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gpg --armor --output public-key.gpg --<span class="hljs-built_in">export</span> 4AEE18F83AFDEB23<br></code></pre></td></tr></table></figure>
+
+<p>导出私钥，需要输入密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gpg --armor --output private-key.gpg --export-secret-keys 4AEE18F83AFDEB23<br></code></pre></td></tr></table></figure>
+
+<p>建议将导出的公私钥和撤销证书做好备份。</p>
+<h3 id="修改用户-ID（UID）"><a href="#修改用户-ID（UID）" class="headerlink" title="修改用户 ID（UID）"></a>修改用户 ID（UID）</h3><p>进入编辑密钥，然后修改 UID，可以添加、设置主 UID、撤销和删除。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">gpg --edit-key 4AEE18F83AFDEB23</span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">adduid</span><br>Real name: Name(Work)<br>Email address: name@work.com<br>Comment:<br>You selected this USER-ID:<br>    &quot;Name(Work) &lt;name@work.com&gt;&quot;<br><br>Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">uid 1</span><br>[ultimate] (1)* Name &lt;name@example.com&gt;<br>[ unknown] (2). Name(Work) &lt;name@work.com&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">primary</span><br>[ultimate] (1)* Name &lt;name@example.com&gt;<br>[ unknown] (2)  Name(Work) &lt;name@work.com&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">uid 1</span><br>[ultimate] (1). Name &lt;name@example.com&gt;<br>[ unknown] (2)  Name(Work) &lt;name@work.com&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">uid 2</span><br>[ultimate] (1). Name &lt;name@example.com&gt;<br>[ unknown] (2)* Name(Work) &lt;name@work.com&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">revuid</span><br>[ultimate] (1). Name &lt;name@example.com&gt;<br>[ revoked] (2)  Name(Work) &lt;name@work.com&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">uid 2</span><br>[ultimate] (1). Name &lt;name@example.com&gt;<br>[ revoked] (2)* Name(Work) &lt;name@work.com&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">deluid</span><br>[ultimate] (1). Name &lt;name@example.com&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">save</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Git-amp-GitHub-使用"><a href="#Git-amp-GitHub-使用" class="headerlink" title="Git &amp; GitHub 使用"></a>Git &amp; GitHub 使用</h2><p>Git 提交可以使用 GPG 密钥签名，增加 <code>--show-signature</code> 参数即可显示提交的签名信息。</p>
+<p>未信任的公钥签名的提交显示红色提示。</p>
+<p><img src="https://i.imgur.com/wrS8oMn.png" srcset="/img/loading.gif" lazyload alt="未信任公钥的签名"></p>
+<p>已信任的公钥签名的提交显示青色提示。</p>
+<p><img src="https://i.imgur.com/jqUhCsE.png" srcset="/img/loading.gif" lazyload alt="已信任公钥的签名"></p>
+<h3 id="Git-设置"><a href="#Git-设置" class="headerlink" title="Git 设置"></a>Git 设置</h3><p>密钥的 UID 需要包括 Git 使用的邮箱。</p>
+<p>首先告诉 Git 使用的密钥。<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="Telling Git about your signing key. GitHub Docs. [2022-06-06]. （原始内容存档于2022-05-29）
+">[3]</span></a></sup></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.signingkey 4AEE18F83AFDEB23<br></code></pre></td></tr></table></figure>
+
+<p>然后设置提交时使用 GPG 签名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global commit.gpgsign <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="信任-GitHub-公钥"><a href="#信任-GitHub-公钥" class="headerlink" title="信任 GitHub 公钥"></a>信任 GitHub 公钥</h3><p>使用以下命令导入并信任 GitHub 的公钥。<sup id="fnref:11" class="footnote-ref"><a href="#fn:11" rel="footnote"><span class="hint--top hint--rounded" aria-label="VonC. What is GitHub’s public GPG key?. Stack Overflow. 2022-03-02 [2022-06-06]. （原始内容存档于2021-11-23）
+">[11]</span></a></sup></p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">curl https://github.com/web-flow.gpg | gpg --import</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">gpg --edit-key noreply@github.com</span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">trust</span><br><span class="hljs-meta prompt_">gpg&gt; </span><span class="language-bash">save</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="上传公钥到-GitHub"><a href="#上传公钥到-GitHub" class="headerlink" title="上传公钥到 GitHub"></a>上传公钥到 GitHub</h3><p>打开 GitHub 设置，找到 <code>SSH and GPG Keys</code>。<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="Adding a new GPG key to your GitHub account. GitHub Docs. [2022-06-06]. （原始内容存档于2022-05-31）
+">[2]</span></a></sup></p>
+<p><img src="https://i.imgur.com/qqIgq7S.png" srcset="/img/loading.gif" lazyload alt="GitHub 设置"></p>
+<p>点击 <code>New GPG Key</code>，把导出的公钥复制进去。</p>
+<p><img src="https://i.imgur.com/u90FOOJ.png" srcset="/img/loading.gif" lazyload alt="新建 GPG 密钥"></p>
+<p><img src="https://i.imgur.com/RraJZSb.png" srcset="/img/loading.gif" lazyload alt="填写并保存"></p>
+<p>此时签名的提交在 GitHub 即可显示绿色的 <code>Verified</code>。</p>
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification">About commit signature verification</a>. GitHub Docs. [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220606095245/https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification">存档</a>于2022-06-06）
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account">Adding a new GPG key to your GitHub account</a>. GitHub Docs. [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220531040934/https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account">存档</a>于2022-05-31）
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key">Telling Git about your signing key</a>. GitHub Docs. [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220529202622/https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key">存档</a>于2022-05-29）
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span>阮一峰. <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/07/gpg.html">GPG入门教程</a>. 阮一峰的网络日志. 2013-07-12 [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220601090505/https://www.ruanyifeng.com/blog/2013/07/gpg.html">存档</a>于2022-06-01）
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:5" class="footnote-text"><span>嗯了个踢. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137801979">简明 GPG 概念</a>. 知乎. 2020-05-02 [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/save/https://zhuanlan.zhihu.com/p/137801979">存档</a>于2022-06-06）
+<a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:6" class="footnote-text"><span>Konstantin Ryabitsev. <a target="_blank" rel="noopener" href="https://linux.cn/article-9524-1.html">用 PGP 保护代码完整性（一）： 基本概念和工具</a>. Linux 中国. 2018-04-08 [2022-06-06].
+<a href="#fnref:6" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:7" class="footnote-text"><span>Konstantin Ryabitsev. <a target="_blank" rel="noopener" href="https://linux.cn/article-9529-1.html">用 PGP 保护代码完整性（二）：生成你的主密钥</a>. Linux 中国. 2018-04-09 [2022-06-06].
+<a href="#fnref:7" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:8" class="footnote-text"><span>UlyC. <a target="_blank" rel="noopener" href="https://ulyc.github.io/2021/01/13/2021%E5%B9%B4-%E7%94%A8%E6%9B%B4%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8PGP-%E4%B8%8A/">2021年，用更现代的方法使用PGP（上）</a>. UlyC - C的博客. 2021-01-13 [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220606133111/https://ulyc.github.io/2021/01/13/2021%E5%B9%B4-%E7%94%A8%E6%9B%B4%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8PGP-%E4%B8%8A/">存档</a>于2022-06-06）
+<a href="#fnref:8" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:9" class="footnote-text"><span>UlyC. <a target="_blank" rel="noopener" href="https://ulyc.github.io/2021/01/18/2021%E5%B9%B4-%E7%94%A8%E6%9B%B4%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8PGP-%E4%B8%AD/">2021年，用更现代的方法使用PGP（中）</a>. UlyC - C的博客. 2021-01-18 [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220606133131/https://ulyc.github.io/2021/01/18/2021%E5%B9%B4-%E7%94%A8%E6%9B%B4%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8PGP-%E4%B8%AD/">存档</a>于2022-06-06）
+<a href="#fnref:9" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:10" class="footnote-text"><span>UlyC. <a target="_blank" rel="noopener" href="https://ulyc.github.io/2021/01/26/2021%E5%B9%B4-%E7%94%A8%E6%9B%B4%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8PGP-%E4%B8%8B/">2021年，用更现代的方法使用PGP（下）</a>. UlyC - C的博客. 2021-01-26 [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220606170227/https://ulyc.github.io/2021/01/26/2021%E5%B9%B4-%E7%94%A8%E6%9B%B4%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8PGP-%E4%B8%8B/">存档</a>于2022-06-06）
+<a href="#fnref:10" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:11" class="footnote-text"><span>VonC. <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/60482588/what-is-githubs-public-gpg-key">What is GitHub’s public GPG key?</a>. Stack Overflow. 2022-03-02 [2022-06-06]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20211123035710/https://stackoverflow.com/questions/60482588/what-is-githubs-public-gpg-key">存档</a>于2021-11-23）
+<a href="#fnref:11" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">#计算机</a>
+      
+        <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">#密码学</a>
+      
+        <a href="/tags/GPG/">#GPG</a>
+      
+        <a href="/tags/GitHub/">#GitHub</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>GPG 入门教程</div>
+      <div>https://blog.zhanganzhi.com/2022/06/39bc6384ffd2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Andy Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/b583a6838537/" title="CurseForge 整合包下载器教程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CurseForge 整合包下载器教程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/d8ab5b806c7d/" title="Minecraft Forge Mod 开发环境搭建">
+                        <span class="hidden-mobile">Minecraft Forge Mod 开发环境搭建</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"comment.blog.zhanganzhi.com","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/tieba","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/tw-emoji","https://cdn.jsdelivr.net/gh/walinejs/emojis/tw-symbol","https://cdn.jsdelivr.net/gh/walinejs/emojis/tw-flag"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+    <!-- Google gtag.js -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-PMM77KFF7F', function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PMM77KFF7F');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
