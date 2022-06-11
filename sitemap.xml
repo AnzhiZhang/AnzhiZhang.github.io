@@ -13,7 +13,7 @@
   <url>
     <loc>https://blog.zhanganzhi.com/2022/06/d8ab5b806c7d/</loc>
     
-    <lastmod>2022-06-10</lastmod>
+    <lastmod>2022-06-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +22,7 @@
   <url>
     <loc>https://blog.zhanganzhi.com/2022/06/39bc6384ffd2/</loc>
     
-    <lastmod>2022-06-10</lastmod>
+    <lastmod>2022-06-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -45,6 +45,34 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
+    <lastmod>2022-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
+    <lastmod>2022-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/GPG/</loc>
+    <lastmod>2022-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/GitHub/</loc>
+    <lastmod>2022-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://blog.zhanganzhi.com/tags/Minecraft/</loc>
@@ -82,34 +110,6 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2022-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
-    <lastmod>2022-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/GPG/</loc>
-    <lastmod>2022-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/GitHub/</loc>
-    <lastmod>2022-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.zhanganzhi.com/tags/%E6%95%B4%E5%90%88%E5%8C%85/</loc>
     <lastmod>2022-06-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -126,14 +126,14 @@
 
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/Minecraft/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2022-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/Minecraft/</loc>
     <lastmod>2022-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
