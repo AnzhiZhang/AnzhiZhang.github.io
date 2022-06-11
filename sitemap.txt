@@ -8,12 +8,12 @@ https://blog.zhanganzhi.com/tags/Forge/
 https://blog.zhanganzhi.com/tags/Mod/
 https://blog.zhanganzhi.com/tags/Java/
 https://blog.zhanganzhi.com/tags/Gradle/
-https://blog.zhanganzhi.com/tags/%E6%95%B4%E5%90%88%E5%8C%85/
-https://blog.zhanganzhi.com/tags/CurseForge/
 https://blog.zhanganzhi.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/
 https://blog.zhanganzhi.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/
 https://blog.zhanganzhi.com/tags/GPG/
 https://blog.zhanganzhi.com/tags/GitHub/
+https://blog.zhanganzhi.com/tags/%E6%95%B4%E5%90%88%E5%8C%85/
+https://blog.zhanganzhi.com/tags/CurseForge/
 https://blog.zhanganzhi.com/categories/Minecraft/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/
 https://blog.zhanganzhi.com/categories/Minecraft/Mod/
