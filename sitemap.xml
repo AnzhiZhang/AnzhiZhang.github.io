@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.zhanganzhi.com/en/2022/06/7b049d0aa9ff/</loc>
+    
+    <lastmod>2022-06-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/zh-CN/2022/06/226b86b1999a/</loc>
     
-    <lastmod>2022-06-18</lastmod>
+    <lastmod>2022-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +22,7 @@
   <url>
     <loc>https://blog.zhanganzhi.com/zh-CN/2022/06/1c71f69657ed/</loc>
     
-    <lastmod>2022-06-18</lastmod>
+    <lastmod>2022-06-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +31,7 @@
   <url>
     <loc>https://blog.zhanganzhi.com/zh-CN/2022/06/7b049d0aa9ff/</loc>
     
-    <lastmod>2022-06-18</lastmod>
+    <lastmod>2022-06-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,7 +40,7 @@
   <url>
     <loc>https://blog.zhanganzhi.com/zh-CN/2022/06/0800d76d306e/</loc>
     
-    <lastmod>2022-06-18</lastmod>
+    <lastmod>2022-06-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,16 +49,7 @@
   <url>
     <loc>https://blog.zhanganzhi.com/about/index.html</loc>
     
-    <lastmod>2022-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/en/2022/06/7b049d0aa9ff/</loc>
-    
-    <lastmod>2022-06-18</lastmod>
+    <lastmod>2022-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
