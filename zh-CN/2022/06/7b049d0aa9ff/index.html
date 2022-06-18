@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
 
 
 
@@ -16,26 +16,26 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="Hexo 官方文档的 GitHub Pages 部署方案[1]需要注册第三方账号且绑定信用卡，所以创建博客时选择了一键部署[2]的方案，但是需要手动使用 hexo clean &amp;&amp; hexo d 部署博客，有些麻烦，于是决定改为 GitHub Actions 自动部署。">
+    <meta name="description" content="2022年5月16日，CurseForge 发布了官方 API，同时弃用了旧的 API，这导致第三方启动器无法下载，如 MultiMC 和 PCL2。[1]具体原因和详细情况在 《The CurseForge Official API is Now Live》 中有详细说明。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub Actions 自动部署 Hexo 博客">
-<meta property="og:url" content="https://blog.zhanganzhi.com/2022/06/0800d76d306e/index.html">
+<meta property="og:title" content="CurseForge 整合包下载器教程">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/06/7b049d0aa9ff/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="Hexo 官方文档的 GitHub Pages 部署方案[1]需要注册第三方账号且绑定信用卡，所以创建博客时选择了一键部署[2]的方案，但是需要手动使用 hexo clean &amp;&amp; hexo d 部署博客，有些麻烦，于是决定改为 GitHub Actions 自动部署。">
+<meta property="og:description" content="2022年5月16日，CurseForge 发布了官方 API，同时弃用了旧的 API，这导致第三方启动器无法下载，如 MultiMC 和 PCL2。[1]具体原因和详细情况在 《The CurseForge Official API is Now Live》 中有详细说明。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/wteJElk.png">
-<meta property="article:published_time" content="2022-06-17T19:09:42.000Z">
-<meta property="article:modified_time" content="2022-06-18T06:44:41.764Z">
+<meta property="og:image" content="https://i.imgur.com/w7rq0HQ.png">
+<meta property="article:published_time" content="2022-06-09T00:12:37.000Z">
+<meta property="article:modified_time" content="2022-06-18T07:17:36.242Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="博客">
-<meta property="article:tag" content="自动部署">
+<meta property="article:tag" content="Minecraft">
+<meta property="article:tag" content="整合包">
+<meta property="article:tag" content="CurseForge">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/wteJElk.png">
+<meta name="twitter:image" content="https://i.imgur.com/w7rq0HQ.png">
   
   
   
-  <title>GitHub Actions 自动部署 Hexo 博客 - Andy&#39;s Blog</title>
+  <title>CurseForge 整合包下载器教程 - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -224,13 +224,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://i.imgur.com/OEcAOfX.jpeg') no-repeat center center; background-size: cover;">
+     style="background: url('https://i.imgur.com/jGzF92V.jpeg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="GitHub Actions 自动部署 Hexo 博客"></span>
+            <span id="subtitle" data-typed-text="CurseForge 整合包下载器教程"></span>
           
         </div>
 
@@ -241,8 +241,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-17 19:09" pubdate>
-          2022年6月17日 晚上
+        <time datetime="2022-06-09 00:12" pubdate>
+          2022年6月9日 凌晨
         </time>
       </span>
     
@@ -253,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          1.2k 字
         
       </span>
     
@@ -264,7 +264,7 @@
         
         
         
-          18 分钟
+          11 分钟
         
       </span>
     
@@ -310,47 +310,51 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">GitHub Actions 自动部署 Hexo 博客</h1>
+            <h1 style="display: none">CurseForge 整合包下载器教程</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>Hexo 官方文档的 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a> 部署方案<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[将 Hexo 部署到 GitHub Pages](https://hexo.io/zh-cn/docs/github-pages). Hexo. 2022-06-11 [2022-06-17]. （原始内容[存档](https://web.archive.org/web/20220617122944/https://hexo.io/zh-cn/docs/github-pages)于2022-06-17）.">[1]</span></a></sup>需要注册第三方账号且绑定信用卡，所以创建博客时选择了一键部署<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[部署](https://hexo.io/zh-cn/docs/one-command-deployment). Hexo. 2022-06-11 [2022-06-17]. （原始内容[存档](https://web.archive.org/web/20220617122947/https://hexo.io/zh-cn/docs/one-command-deployment)于2022-06-17）.">[2]</span></a></sup>的方案，但是需要手动使用 <code>hexo clean &amp;&amp; hexo d</code> 部署博客，有些麻烦，于是决定改为 GitHub Actions 自动部署。</p>
+<p>2022年5月16日，CurseForge 发布了官方 API，同时弃用了旧的 API，这导致第三方启动器无法下载，如 MultiMC 和 PCL2。<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Moran Weiss. [The CurseForge Official API is Now Live](https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2). Overwolf Blog. 2022-05-16 [2022-05-23]. （原始内容[存档](https://web.archive.org/web/20220608151743/https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2)于2022-06-08）.">[1]</span></a></sup>具体原因和详细情况在 <a target="_blank" rel="noopener" href="https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2">《The CurseForge Official API is Now Live》</a> 中有详细说明。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>分别设置博客仓库和部署仓库，部署仓库为 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>。</p>
-<h2 id="配置-SSH"><a href="#配置-SSH" class="headerlink" title="配置 SSH"></a>配置 SSH</h2><p>在本地生成一对 SSH 密钥，注意更改文件名避免将正在使用的密钥覆盖。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t ed25519 -C <span class="hljs-string">&quot;your_email@example.com&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>在<strong>博客仓库</strong>的 <code>Settings -&gt; Secrets -&gt; Actions</code> 中添加 SSH <strong>私钥</strong>，命名为 <code>SSH_DEPLOY_KEY</code>。</p>
-<p><img src="https://i.imgur.com/khNBSSN.png" srcset="/img/loading.gif" lazyload alt="添加私钥"></p>
-<p>在<strong>部署仓库</strong>的 <code>Settings -&gt; Deploy keys</code> 中添加 SSH <strong>公钥</strong>，注意勾选 <code>Allow write access</code>。</p>
-<p><img src="https://i.imgur.com/AKr4DZY.png" srcset="/img/loading.gif" lazyload alt="添加公钥"></p>
-<p><img src="https://i.imgur.com/0qjRBZ8.png" srcset="/img/loading.gif" lazyload alt="勾选 Allow write access"></p>
-<h2 id="编写-Workflow"><a href="#编写-Workflow" class="headerlink" title="编写 Workflow"></a>编写 Workflow</h2><p>创建 <code>.github/workflows/deployment.yml</code>，写入以下内容，注意修改仓库地址和 Git 配置。此时当 <code>push</code> 到博客仓库时，GitHub Actions 将会自动部署。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Deployment</span><br><span class="hljs-attr">on:</span> <span class="hljs-string">push</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">deployment:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">Deployment</span><br><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">Out</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Clone</span> <span class="hljs-string">Repo</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">repository:</span> <span class="hljs-string">Username/Repository</span><br>          <span class="hljs-attr">path:</span> <span class="hljs-string">.deploy_git</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">node-version:</span> <span class="hljs-number">16</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Git</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          git config --global user.name &quot;Example&quot;</span><br><span class="hljs-string">          git config --global user.email &quot;email@example.com&quot;</span><br><span class="hljs-string"></span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">SSH</span> <span class="hljs-string">Key</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          mkdir -p ~/.ssh</span><br><span class="hljs-string">          echo &quot;$&#123;&#123; secrets.SSH_DEPLOY_KEY &#125;&#125;&quot; &gt; ~/.ssh/id_ed25519</span><br><span class="hljs-string">          chmod 600 ~/.ssh/id_ed25519</span><br><span class="hljs-string"></span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          npm install --location=global hexo-cli</span><br><span class="hljs-string">          npm install</span><br><span class="hljs-string">          hexo d</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="Workflow-解析"><a href="#Workflow-解析" class="headerlink" title="Workflow 解析"></a>Workflow 解析</h2><p>两个 Checkout 的作用是切换到博客仓库最新提交，并且将部署仓库克隆到 <code>.deploy_git</code>，也就是 Hexo 的部署目录。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">Out</span><br>    <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br><br><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Clone</span> <span class="hljs-string">Repo</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>  <span class="hljs-attr">with:</span><br>   <span class="hljs-attr">repository:</span> <span class="hljs-string">Username/Repository</span><br>   <span class="hljs-attr">path:</span> <span class="hljs-string">.deploy_git</span><br></code></pre></td></tr></table></figure>
-
-<p>下一步安装 Node，版本需要与博客使用的版本相同。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">node-version:</span> <span class="hljs-number">16</span><br></code></pre></td></tr></table></figure>
-
-<p>设置提交的用户名和邮箱。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Git</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    git config --global user.name &quot;Example&quot;</span><br><span class="hljs-string">    git config --global user.email &quot;email@example.com&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>将存储在仓库 Secrets 的 SSH 私钥存储到本地供 Git 使用。<code>mkdir</code> 是为了下一步可以在 <code>~/.ssh</code> 目录中创建文件，<code>chmod</code> 设置权限，Git 才能使用私钥<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[利用 Github Actions 自动部署 Hexo 博客](https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/). Sanonz. 2020-05-12 [2022-06-17]. （原始内容[存档](https://web.archive.org/web/20210618140206/https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/)于2021-06-18）.">[3]</span></a></sup>。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">SSH</span> <span class="hljs-string">Key</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    mkdir -p ~/.ssh</span><br><span class="hljs-string">    echo &quot;$&#123;&#123; secrets.SSH_DEPLOY_KEY &#125;&#125;&quot; &gt; ~/.ssh/id_ed25519</span><br><span class="hljs-string">    chmod 600 ~/.ssh/id_ed25519</span><br></code></pre></td></tr></table></figure>
-
-<p>最后安装 Hexo 和依赖，运行 <code>hexo d</code> 部署博客。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    npm install --location=global hexo-cli</span><br><span class="hljs-string">    npm install</span><br><span class="hljs-string">    hexo d</span><br></code></pre></td></tr></table></figure>
-
-<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">将 Hexo 部署到 GitHub Pages</a>. Hexo. 2022-06-11 [2022-06-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220617122944/https://hexo.io/zh-cn/docs/github-pages">存档</a>于2022-06-17）.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">部署</a>. Hexo. 2022-06-11 [2022-06-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220617122947/https://hexo.io/zh-cn/docs/one-command-deployment">存档</a>于2022-06-17）.
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/">利用 Github Actions 自动部署 Hexo 博客</a>. Sanonz. 2020-05-12 [2022-06-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20210618140206/https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/">存档</a>于2021-06-18）.
-<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<p>因此，我制作了一个软件 <a target="_blank" rel="noopener" href="https://github.com/AnzhiZhang/CurseForgeModpackDownloader">CurseForge Modpack Downloader</a> (CMPDL)，可以将 CurseForge 下载的整合包补全文件，制作为启动器支持的格式。目前已测试支持的启动器列表为：MultiMC，HMCL 和 PCL2。</p>
+<p>当前，据说 HMCL 和 PCL2 已重新支持下载，但显然不是官方认可的方式。MMC 作者表示没有短期支持的计划，长期可能支持 API Key 的方式。<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="phit. [Looks like CurseForge API in MultiMC is deprecated and unusable](https://github.com/MultiMC/Launcher/issues/4716#issuecomment-1135498404). GitHub. 2022-05-24 [2022-05-26]. （原始内容[存档](https://web.archive.org/web/20220608152954/https://github.com/MultiMC/Launcher/issues/4716)于2022-06-08）.">[2]</span></a></sup></p>
+<h2 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h2><p>打开 <a target="_blank" rel="noopener" href="https://github.com/AnzhiZhang/CurseForgeModpackDownloader">软件仓库</a>，在右侧的 Releases 下载最新版。您也可以点击 <a target="_blank" rel="noopener" href="https://github.com/AnzhiZhang/CurseForgeModpackDownloader/releases/latest">这里</a> 直接前往最新 Release。</p>
+<p><img src="https://i.imgur.com/7gTHmd3.png" srcset="/img/loading.gif" lazyload alt="找到 Releases"></p>
+<p><img src="https://i.imgur.com/JkBbzhe.png" srcset="/img/loading.gif" lazyload alt="下载 Asstest 的第一个"></p>
+<h3 id="直接使用-CMPDL-下载"><a href="#直接使用-CMPDL-下载" class="headerlink" title="直接使用 CMPDL 下载"></a>直接使用 CMPDL 下载</h3><p>在中间的列表可以直接选择整合包。</p>
+<p><img src="https://i.imgur.com/EMowJzh.png" srcset="/img/loading.gif" lazyload alt="选择整合包"></p>
+<p><img src="https://i.imgur.com/wQ21ny3.png" srcset="/img/loading.gif" lazyload alt="在上方输入关键词搜索"></p>
+<p><img src="https://i.imgur.com/R38zf7d.png" srcset="/img/loading.gif" lazyload alt="修改排序方式"></p>
+<p><img src="https://i.imgur.com/MQ79Evr.png" srcset="/img/loading.gif" lazyload alt="筛选游戏版本"></p>
+<p>选择整合包后，可以在右下方选择整合包版本。</p>
+<p><img src="https://i.imgur.com/CTXGGZk.png" srcset="/img/loading.gif" lazyload alt="选择整合包版本"></p>
+<p><img src="https://i.imgur.com/Tzb9WXc.png" srcset="/img/loading.gif" lazyload alt="点击下载并等待完成"></p>
+<h3 id="使用-CurseForge-下载"><a href="#使用-CurseForge-下载" class="headerlink" title="使用 CurseForge 下载"></a>使用 CurseForge 下载</h3><p>在 CourseForge 上找到喜欢的整合包，下载整合包文件，此处以 Restrict Skyblock 为例</p>
+<p><img src="https://i.imgur.com/kLceklJ.png" srcset="/img/loading.gif" lazyload alt="打开 Files"></p>
+<p><img src="https://i.imgur.com/Yp9G3g4.png" srcset="/img/loading.gif" lazyload alt="选择整合包版本"></p>
+<p><img src="https://i.imgur.com/pBBWQWq.png" srcset="/img/loading.gif" lazyload alt="点击 Download 下载"></p>
+<p><img src="https://i.imgur.com/sOzmscH.png" srcset="/img/loading.gif" lazyload alt="点击导入"></p>
+<p><img src="https://i.imgur.com/QOOCsFy.png" srcset="/img/loading.gif" lazyload alt="选择从 CurseForge 下载的文件"></p>
+<p><img src="https://i.imgur.com/D2dx39E.png" srcset="/img/loading.gif" lazyload alt="等待下载完成"></p>
+<h2 id="导入启动器"><a href="#导入启动器" class="headerlink" title="导入启动器"></a>导入启动器</h2><p>等待下载完成弹出下图提示。将压缩包（位于软件目录，如果是导入即为原路径）导入启动器即可。</p>
+<p><img src="https://i.imgur.com/1wT5PSP.png" srcset="/img/loading.gif" lazyload alt="提示下载完成"></p>
+<p><img src="https://i.imgur.com/XSKg9xE.png" srcset="/img/loading.gif" lazyload alt="导入 MultiMC"></p>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>感谢 <a target="_blank" rel="noopener" href="http://anyijun.com/">安逸菌</a>、<a target="_blank" rel="noopener" href="https://github.com/Cyl18">Cyl18</a> 和 <a target="_blank" rel="noopener" href="https://github.com/ShaBaiTianCN">安逸汉化组</a> 在本软件开发过程中提供的建议和帮助。</p>
+<h3 id="使用的-API-的文档"><a href="#使用的-API-的文档" class="headerlink" title="使用的 API 的文档"></a>使用的 API 的文档</h3><p><a target="_blank" rel="noopener" href="https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9">Curse API</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[curse_api.md](https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9). GitHub. 2020-09-09 [2022-05-23]. （原始内容[存档](https://web.archive.org/web/20220608154714/https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9)于2022-06-08）.">[3]</span></a></sup></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib">CurseforgeAPI&#x2F;apiary.apib</a><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[CurseforgeAPI/apiary.apib](https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib). GitHub. 2021-04-10 [2022-05-23]. （原始内容[存档](https://web.archive.org/web/20220608154724/https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib)于2022-06-08）.">[4]</span></a></sup></p>
+<h2 id="许可"><a href="#许可" class="headerlink" title="许可"></a>许可</h2><p>Copyright © 2022 Andy Zhang</p>
+<p>本程序是自由软件：你可以再分发之和&#x2F;或依照由自由软件基金会发布的 GNU 通用公共许可证修改之，无论是版本 3 许可证，还是（按你的决定）任何以后版都可以。</p>
+<p>发布该程序是希望它能有用，但是并无保障；甚至连可销售和符合某个特定的目的都不保证。请参看 GNU 通用公共许可证，了解详情。</p>
+<p>你应该随程序获得一份 GNU 通用公共许可证的复本。如果没有，请看 <a target="_blank" rel="noopener" href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>。</p>
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>Moran Weiss. <a target="_blank" rel="noopener" href="https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2">The CurseForge Official API is Now Live</a>. Overwolf Blog. 2022-05-16 [2022-05-23]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220608151743/https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2">存档</a>于2022-06-08）.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>phit. <a target="_blank" rel="noopener" href="https://github.com/MultiMC/Launcher/issues/4716#issuecomment-1135498404">Looks like CurseForge API in MultiMC is deprecated and unusable</a>. GitHub. 2022-05-24 [2022-05-26]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220608152954/https://github.com/MultiMC/Launcher/issues/4716">存档</a>于2022-06-08）.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9">curse_api.md</a>. GitHub. 2020-09-09 [2022-05-23]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220608154714/https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9">存档</a>于2022-06-08）.
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib">CurseforgeAPI&#x2F;apiary.apib</a>. GitHub. 2021-04-10 [2022-05-23]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220608154724/https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib">存档</a>于2022-06-08）.
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -368,12 +372,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  <a href="/categories/Minecraft/" class="category-chain-item">Minecraft</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%BC%80%E5%8F%91/%E5%8D%9A%E5%AE%A2/" class="category-chain-item">博客</a>
+  <a href="/categories/Minecraft/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
   
   
 
@@ -390,11 +394,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/GitHub/">#GitHub</a>
+        <a href="/tags/Minecraft/">#Minecraft</a>
       
-        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
+        <a href="/tags/%E6%95%B4%E5%90%88%E5%8C%85/">#整合包</a>
       
-        <a href="/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">#自动部署</a>
+        <a href="/tags/CurseForge/">#CurseForge</a>
       
     </div>
   
@@ -406,8 +410,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>GitHub Actions 自动部署 Hexo 博客</div>
-      <div>https://blog.zhanganzhi.com/2022/06/0800d76d306e/</div>
+      <div>CurseForge 整合包下载器教程</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2022/06/7b049d0aa9ff/</div>
     </div>
     <div class="license-meta">
       
@@ -419,7 +423,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月17日</div>
+          <div>2022年6月9日</div>
         </div>
       
       
@@ -461,12 +465,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/zh-CN/2022/06/0800d76d306e/" title="GitHub Actions 自动部署 Hexo 博客">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">GitHub Actions 自动部署 Hexo 博客</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/7b049d0aa9ff/" title="CurseForge 整合包下载器教程">
-                        <span class="hidden-mobile">CurseForge 整合包下载器教程</span>
+                      <a href="/zh-CN/2022/06/1c71f69657ed/" title="GPG 入门教程">
+                        <span class="hidden-mobile">GPG 入门教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
