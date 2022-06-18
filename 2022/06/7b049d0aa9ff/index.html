@@ -19,13 +19,13 @@
     <meta name="description" content="2022年5月16日，CurseForge 发布了官方 API，同时弃用了旧的 API，这导致第三方启动器无法下载，如 MultiMC 和 PCL2。[1]具体原因和详细情况在 《The CurseForge Official API is Now Live》 中有详细说明。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CurseForge 整合包下载器教程">
-<meta property="og:url" content="https://blog.zhanganzhi.com/2022/06/b583a6838537/index.html">
+<meta property="og:url" content="https://blog.zhanganzhi.com/2022/06/7b049d0aa9ff/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
 <meta property="og:description" content="2022年5月16日，CurseForge 发布了官方 API，同时弃用了旧的 API，这导致第三方启动器无法下载，如 MultiMC 和 PCL2。[1]具体原因和详细情况在 《The CurseForge Official API is Now Live》 中有详细说明。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/w7rq0HQ.png">
-<meta property="article:published_time" content="2022-06-08T16:12:37.000Z">
-<meta property="article:modified_time" content="2022-06-16T08:28:17.785Z">
+<meta property="article:published_time" content="2022-06-09T00:12:37.000Z">
+<meta property="article:modified_time" content="2022-06-18T06:44:41.764Z">
 <meta property="article:author" content="Andy Zhang">
 <meta property="article:tag" content="Minecraft">
 <meta property="article:tag" content="整合包">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.zhanganzhi.com","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":"G-PMM77KFF7F","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"n7I9EuYN7JyRKrHnyO7lKPvK-MdYXbMMI","app_key":"YmP05m7YTm0Fmzytbmf5FD5f","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.zhanganzhi.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":"G-PMM77KFF7F","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"n7I9EuYN7JyRKrHnyO7lKPvK-MdYXbMMI","app_key":"YmP05m7YTm0Fmzytbmf5FD5f","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -82,6 +82,37 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-PMM77KFF7F', function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PMM77KFF7F');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
 
   
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Andy's Blog" type="application/atom+xml">
@@ -281,17 +312,16 @@
             <!-- SEO header -->
             <h1 style="display: none">CurseForge 整合包下载器教程</h1>
             
-            <div class="markdown-body">
-              
-              <blockquote>
-<p>2022年5月16日，CurseForge 发布了官方 API，同时弃用了旧的 API，这导致第三方启动器无法下载，如 MultiMC 和 PCL2。<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Moran Weiss. The CurseForge Official API is Now Live. Overwolf Blog. 2022-05-16 [2022-05-23]. （原始内容存档于2022-06-08）.
-">[1]</span></a></sup>具体原因和详细情况在 <a target="_blank" rel="noopener" href="https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2">《The CurseForge Official API is Now Live》</a> 中有详细说明。</p>
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>2022年5月16日，CurseForge 发布了官方 API，同时弃用了旧的 API，这导致第三方启动器无法下载，如 MultiMC 和 PCL2。<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Moran Weiss. [The CurseForge Official API is Now Live](https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2). Overwolf Blog. 2022-05-16 [2022-05-23]. （原始内容[存档](https://web.archive.org/web/20220608151743/https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2)于2022-06-08）.">[1]</span></a></sup>具体原因和详细情况在 <a target="_blank" rel="noopener" href="https://medium.com/overwolf/the-curseforge-official-api-is-now-live-d314606355c2">《The CurseForge Official API is Now Live》</a> 中有详细说明。</p>
 </blockquote>
 <span id="more"></span>
 
 <p>因此，我制作了一个软件 <a target="_blank" rel="noopener" href="https://github.com/AnzhiZhang/CurseForgeModpackDownloader">CurseForge Modpack Downloader</a> (CMPDL)，可以将 CurseForge 下载的整合包补全文件，制作为启动器支持的格式。目前已测试支持的启动器列表为：MultiMC，HMCL 和 PCL2。</p>
-<p>当前，据说 HMCL 和 PCL2 已重新支持下载，但显然不是官方认可的方式。MMC 作者表示没有短期支持的计划，长期可能支持 API Key 的方式。<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="phit. Looks like CurseForge API in MultiMC is deprecated and unusable. GitHub. 2022-05-24 [2022-05-26]. （原始内容存档于2022-06-08）.
-">[2]</span></a></sup></p>
+<p>当前，据说 HMCL 和 PCL2 已重新支持下载，但显然不是官方认可的方式。MMC 作者表示没有短期支持的计划，长期可能支持 API Key 的方式。<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="phit. [Looks like CurseForge API in MultiMC is deprecated and unusable](https://github.com/MultiMC/Launcher/issues/4716#issuecomment-1135498404). GitHub. 2022-05-24 [2022-05-26]. （原始内容[存档](https://web.archive.org/web/20220608152954/https://github.com/MultiMC/Launcher/issues/4716)于2022-06-08）.">[2]</span></a></sup></p>
 <h2 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h2><p>打开 <a target="_blank" rel="noopener" href="https://github.com/AnzhiZhang/CurseForgeModpackDownloader">软件仓库</a>，在右侧的 Releases 下载最新版。您也可以点击 <a target="_blank" rel="noopener" href="https://github.com/AnzhiZhang/CurseForgeModpackDownloader/releases/latest">这里</a> 直接前往最新 Release。</p>
 <p><img src="https://i.imgur.com/7gTHmd3.png" srcset="/img/loading.gif" lazyload alt="找到 Releases"></p>
 <p><img src="https://i.imgur.com/JkBbzhe.png" srcset="/img/loading.gif" lazyload alt="下载 Asstest 的第一个"></p>
@@ -314,10 +344,8 @@
 <p><img src="https://i.imgur.com/1wT5PSP.png" srcset="/img/loading.gif" lazyload alt="提示下载完成"></p>
 <p><img src="https://i.imgur.com/XSKg9xE.png" srcset="/img/loading.gif" lazyload alt="导入 MultiMC"></p>
 <h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>感谢 <a target="_blank" rel="noopener" href="http://anyijun.com/">安逸菌</a>、<a target="_blank" rel="noopener" href="https://github.com/Cyl18">Cyl18</a> 和 <a target="_blank" rel="noopener" href="https://github.com/ShaBaiTianCN">安逸汉化组</a> 在本软件开发过程中提供的建议和帮助。</p>
-<h3 id="使用的-API-的文档"><a href="#使用的-API-的文档" class="headerlink" title="使用的 API 的文档"></a>使用的 API 的文档</h3><p><a target="_blank" rel="noopener" href="https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9">Curse API</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="curse_api.md. GitHub. 2020-09-09 [2022-05-23]. （原始内容存档于2022-06-08）.
-">[3]</span></a></sup></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib">CurseforgeAPI&#x2F;apiary.apib</a><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="CurseforgeAPI&#x2F;apiary.apib. GitHub. 2021-04-10 [2022-05-23]. （原始内容存档于2022-06-08）.
-">[4]</span></a></sup></p>
+<h3 id="使用的-API-的文档"><a href="#使用的-API-的文档" class="headerlink" title="使用的 API 的文档"></a>使用的 API 的文档</h3><p><a target="_blank" rel="noopener" href="https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9">Curse API</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[curse_api.md](https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9). GitHub. 2020-09-09 [2022-05-23]. （原始内容[存档](https://web.archive.org/web/20220608154714/https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9)于2022-06-08）.">[3]</span></a></sup></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib">CurseforgeAPI&#x2F;apiary.apib</a><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[CurseforgeAPI/apiary.apib](https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib). GitHub. 2021-04-10 [2022-05-23]. （原始内容[存档](https://web.archive.org/web/20220608154724/https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib)于2022-06-08）.">[4]</span></a></sup></p>
 <h2 id="许可"><a href="#许可" class="headerlink" title="许可"></a>许可</h2><p>Copyright © 2022 Andy Zhang</p>
 <p>本程序是自由软件：你可以再分发之和&#x2F;或依照由自由软件基金会发布的 GNU 通用公共许可证修改之，无论是版本 3 许可证，还是（按你的决定）任何以后版都可以。</p>
 <p>发布该程序是希望它能有用，但是并无保障；甚至连可销售和符合某个特定的目的都不保证。请参看 GNU 通用公共许可证，了解详情。</p>
@@ -327,8 +355,9 @@
 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9">curse_api.md</a>. GitHub. 2020-09-09 [2022-05-23]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220608154714/https://gist.github.com/crapStone/9a423f7e97e64a301e88a2f6a0f3e4d9">存档</a>于2022-06-08）.
 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib">CurseforgeAPI&#x2F;apiary.apib</a>. GitHub. 2021-04-10 [2022-05-23]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220608154724/https://github.com/Gaz492/CurseforgeAPI/blob/master/apiary.apib">存档</a>于2022-06-08）.
 <a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
-              
-            </div>
+                
+              </div>
+            
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -382,7 +411,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>CurseForge 整合包下载器教程</div>
-      <div>https://blog.zhanganzhi.com/2022/06/b583a6838537/</div>
+      <div>https://blog.zhanganzhi.com/2022/06/7b049d0aa9ff/</div>
     </div>
     <div class="license-meta">
       
@@ -436,11 +465,17 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/06/0800d76d306e/" title="GitHub Actions 自动部署 Hexo 博客">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">GitHub Actions 自动部署 Hexo 博客</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/39bc6384ffd2/" title="GPG 入门教程">
+                      <a href="/2022/06/1c71f69657ed/" title="GPG 入门教程">
                         <span class="hidden-mobile">GPG 入门教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -524,6 +559,7 @@
 
 
   
+
 
 
 
@@ -618,37 +654,6 @@
 
 
   
-
-  
-
-  
-    <!-- Google gtag.js -->
-    <script defer>
-      if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-PMM77KFF7F', function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-PMM77KFF7F');
-        });
-      }
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-    
-  
-
-
-
-
-  
     <script  src="/js/img-lazyload.js" ></script>
   
 
@@ -683,74 +688,9 @@
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
   
@@ -786,9 +726,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
-
   <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
