@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.zhanganzhi.com/en/2022/06/7b049d0aa9ff/</loc>
+    
+    <lastmod>2022-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/zh-CN/2022/06/226b86b1999a/</loc>
     
     <lastmod>2022-06-18</lastmod>
@@ -57,6 +66,20 @@
   
   <url>
     <loc>https://blog.zhanganzhi.com/tags/Minecraft/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/%E6%95%B4%E5%90%88%E5%8C%85/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/CurseForge/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -119,20 +142,6 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/tags/%E6%95%B4%E5%90%88%E5%8C%85/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/CurseForge/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.zhanganzhi.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -163,14 +172,14 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/Minecraft/Mod/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/Minecraft/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/Minecraft/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/Minecraft/Mod/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
