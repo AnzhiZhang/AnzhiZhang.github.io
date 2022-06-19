@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://i.imgur.com/tr7r1iL.jpeg">
-  <link rel="icon" href="https://i.imgur.com/tr7r1iL.jpeg">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picture.zhanganzhi.com/2022/06/19/kr6b1ea.jpg">
+  <link rel="icon" href="https://picture.zhanganzhi.com/2022/06/19/kr6b1ea.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Andy&#39;s Blog">
 <meta property="og:description" content="Hexo 官方文档的 GitHub Pages 部署方案[1]需要注册第三方账号且绑定信用卡，所以创建博客时选择了一键部署[2]的方案，但是需要手动使用 hexo clean &amp;&amp; hexo d 部署博客，有些麻烦，于是决定改为 GitHub Actions 自动部署。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/wteJElk.png">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2022/06/19/jbqr9cy.png">
 <meta property="article:published_time" content="2022-06-17T19:09:42.000Z">
 <meta property="article:author" content="Andy Zhang">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="自动部署">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/wteJElk.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/06/19/jbqr9cy.png">
   
   
   
@@ -223,7 +223,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://i.imgur.com/OEcAOfX.jpeg') no-repeat center center; background-size: cover;">
+     style="background: url('https://picture.zhanganzhi.com/2022/06/19/10g3qsl.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -324,10 +324,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t ed25519 -C <span class="hljs-string">&quot;your_email@example.com&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>在<strong>博客仓库</strong>的 <code>Settings -&gt; Secrets -&gt; Actions</code> 中添加 SSH <strong>私钥</strong>，命名为 <code>SSH_DEPLOY_KEY</code>。</p>
-<p><img src="https://i.imgur.com/khNBSSN.png" srcset="/img/loading.gif" lazyload alt="添加私钥"></p>
+<p><img src="https://picture.zhanganzhi.com/2022/06/19/011b4r1.png" srcset="/img/loading.gif" lazyload alt="添加私钥"></p>
 <p>在<strong>部署仓库</strong>的 <code>Settings -&gt; Deploy keys</code> 中添加 SSH <strong>公钥</strong>，注意勾选 <code>Allow write access</code>。</p>
-<p><img src="https://i.imgur.com/AKr4DZY.png" srcset="/img/loading.gif" lazyload alt="添加公钥"></p>
-<p><img src="https://i.imgur.com/0qjRBZ8.png" srcset="/img/loading.gif" lazyload alt="勾选 Allow write access"></p>
+<p><img src="https://picture.zhanganzhi.com/2022/06/19/ui72xts.png" srcset="/img/loading.gif" lazyload alt="添加公钥"></p>
+<p><img src="https://picture.zhanganzhi.com/2022/06/19/ktzdikp.png" srcset="/img/loading.gif" lazyload alt="勾选 Allow write access"></p>
 <h2 id="编写-Workflow"><a href="#编写-Workflow" class="headerlink" title="编写 Workflow"></a>编写 Workflow</h2><p>创建 <code>.github/workflows/deployment.yml</code>，写入以下内容，注意修改仓库地址和 Git 配置。此时当 <code>push</code> 到博客仓库时，GitHub Actions 将会自动部署。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Deployment</span><br><span class="hljs-attr">on:</span> <span class="hljs-string">push</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">deployment:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">Deployment</span><br><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">Out</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Clone</span> <span class="hljs-string">Repo</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">repository:</span> <span class="hljs-string">Username/Repository</span><br>          <span class="hljs-attr">path:</span> <span class="hljs-string">.deploy_git</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">node-version:</span> <span class="hljs-number">16</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Git</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          git config --global user.name &quot;Example&quot;</span><br><span class="hljs-string">          git config --global user.email &quot;email@example.com&quot;</span><br><span class="hljs-string"></span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">SSH</span> <span class="hljs-string">Key</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          mkdir -p ~/.ssh</span><br><span class="hljs-string">          echo &quot;$&#123;&#123; secrets.SSH_DEPLOY_KEY &#125;&#125;&quot; &gt; ~/.ssh/id_ed25519</span><br><span class="hljs-string">          chmod 600 ~/.ssh/id_ed25519</span><br><span class="hljs-string"></span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          npm install --location=global hexo-cli</span><br><span class="hljs-string">          npm install</span><br><span class="hljs-string">          hexo d</span><br></code></pre></td></tr></table></figure>
 
