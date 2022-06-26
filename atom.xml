@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Andy&#39;s Blog</title>
-  <icon>https://picture.zhanganzhi.com/2022/06/19/kr6b1ea.jpg</icon>
+  <icon>https://picture.zhanganzhi.com/common/avatar.jpg</icon>
   
   <link href="https://blog.zhanganzhi.com/atom.xml" rel="self"/>
   
