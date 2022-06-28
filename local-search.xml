@@ -4,6 +4,68 @@
   
   
   <entry>
+    <title>Git Conventional Commit</title>
+    <link href="/en/2022/06/ca740262a99f/"/>
+    <url>/en/2022/06/ca740262a99f/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>The Conventional Commits specification is a lightweight convention on top of commit messages. It provides an easy set of rules for creating an explicit commit history; which makes it easier to write automated tools on top of. This convention dovetails with <a href="https://semver.org/">SemVer</a>, by describing the features, fixes, and breaking changes made in commit messages.</p></blockquote><span id="more"></span><ul><li>Automatically generating CHANGELOGs.</li><li>Automatically determining a semantic version bump (based on the types of commits landed).</li><li>Communicating the nature of changes to teammates, the public, and other stakeholders.</li><li>Triggering build and publish processes.</li><li>Making it easier for people to contribute to your projects, by allowing them to explore a more structured commit history.</li></ul><h2 id="Specification"><a href="#Specification" class="headerlink" title="Specification"></a>Specification</h2><p><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Retrieved 28 June 2022.">[1]</span></a></sup> specifies the structure of the commit message:</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">&lt;type&gt;[optional scope]: &lt;description&gt;<br><br>[optional body]<br><br>[optional footer(s)]<br></code></pre></td></tr></table></figure><h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>The type must use <strong>lowercase</strong>, cannot empty, followed by the OPTIONAL scope, OPTIONAL <code>!</code>, and REQUIRED terminal colon and space.</p><p>There are all available commit types:</p><ul><li><code>build</code></li><li><code>chore</code></li><li><code>ci</code></li><li><code>docs</code></li><li><code>feat</code></li><li><code>fix</code></li><li><code>perf</code></li><li><code>refactor</code></li><li><code>revert</code></li><li><code>style</code></li><li><code>test</code></li></ul><h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><p>A scope MAY be provided after a type. A scope MUST consist of a noun describing a section of the codebase surrounded by parenthesis.</p><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>The description is a short summary of the code changes, cannot be empty, and does not end with a period.</p><h3 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h3><p>A longer commit body MAY be provided after the short description, providing additional contextual information about the code changes. The body MUST begin one blank line after the description.</p><p>A commit body is free-form and MAY consist of any number of newline separated paragraphs.</p><h3 id="Footer"><a href="#Footer" class="headerlink" title="Footer"></a>Footer</h3><p>One or more footers MAY be provided one blank line after the body. Each footer MUST consist of a word token, followed by either a <code>:&lt;space&gt;</code> or <code>&lt;space&gt;#</code> separator, followed by a string value.</p><p>A footer’s token MUST use <code>-</code> in place of whitespace characters, a only exception is made for <code>BREAKING CHANGE</code>.</p><p>A footer’s value MAY contain spaces and newlines.</p><h3 id="Correlate-with-SemVer"><a href="#Correlate-with-SemVer" class="headerlink" title="Correlate with SemVer"></a>Correlate with SemVer</h3><p>Some commit types may affect <a href="https://semver.org/">SemVer</a> changes:</p><ol><li><strong>fix</strong> means patches a bug, this correlates with <code>PATCH</code> in Semantic Versioning.</li><li><strong>feat</strong> means introduces a new feature, this correlates with <code>MINOR</code> in Semantic Versioning.</li><li><strong>BREAKING CHANGE</strong> is in the footer, or appends a <code>!</code> after the type&#x2F;scope, this correlates with <code>MAJOR</code> in Semantic Versioning.</li></ol><h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><h3 id="Gitmoji"><a href="#Gitmoji" class="headerlink" title="Gitmoji"></a>Gitmoji</h3><p><a href="https://gitmoji.dev/">Gitmoji</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[gitmoji](https://gitmoji.dev/). [Archived](https://web.archive.org/web/20220628095615/https://gitmoji.dev/) from the original on 28 June 2022. Retrieved 28 June 2022.">[2]</span></a></sup> is an initiative to standardize and explain the use of emojis on GitHub commit messages.</p><h3 id="VS-Code-Extension"><a href="#VS-Code-Extension" class="headerlink" title="VS Code Extension"></a>VS Code Extension</h3><p>When committing in the VS Code, <a href="https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits">Conventional Commits</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Semantic Versioning](https://semver.org/). [Archived](https://web.archive.org/web/20220628082309/https://semver.org/) from the original on 28 June 2022. Retrieved 28 June 2022.">[3]</span></a></sup> extension can help to generate a commit message.</p><p><img src="https://picture.zhanganzhi.com/2022/06/28/ap3xacu.png" alt="The interface of Conventional Commits"></p><h3 id="GitHub-Action"><a href="#GitHub-Action" class="headerlink" title="GitHub Action"></a>GitHub Action</h3><p><a href="https://github.com/google-github-actions/release-please-action">Release Please Action</a><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Release Please Action](https://github.com/google-github-actions/release-please-action). [Archived](https://web.archive.org/web/20220628095655/https://github.com/google-github-actions/release-please-action) from the original on 28 June 2022. Retrieved 28 June 2022.">[4]</span></a></sup> is a GitHub Action, which can auto-generate and create releases based on commit messages.</p><p>Release Please Action will automatically create release pr includes generated CHANGELOG. When PR is merged, it will create a release, and you can run CI&#x2F;CD and upload files to the release.</p><p><img src="https://picture.zhanganzhi.com/2022/06/28/h8ihofj.png" alt="The PR created by Release Please Action"></p><section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a>. Retrieved 28 June 2022.<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a href="https://gitmoji.dev/">gitmoji</a>. <a href="https://web.archive.org/web/20220628095615/https://gitmoji.dev/">Archived</a> from the original on 28 June 2022. Retrieved 28 June 2022.<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a href="https://semver.org/">Semantic Versioning</a>. <a href="https://web.archive.org/web/20220628082309/https://semver.org/">Archived</a> from the original on 28 June 2022. Retrieved 28 June 2022.<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a href="https://github.com/google-github-actions/release-please-action">Release Please Action</a>. <a href="https://web.archive.org/web/20220628095655/https://github.com/google-github-actions/release-please-action">Archived</a> from the original on 28 June 2022. Retrieved 28 June 2022.<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发</category>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+      <tag>GitHub</tag>
+      
+      <tag>VS Code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Git 约定式提交</title>
+    <link href="/zh-CN/2022/06/ca740262a99f/"/>
+    <url>/zh-CN/2022/06/ca740262a99f/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>约定式提交规范是一种基于提交信息的轻量级约定。它提供了一组简单规则来创建清晰的提交历史；这更有利于编写自动化工具。通过在提交信息中描述功能、修复和破坏性变更，使这种惯例与 <a href="https://semver.org/">SemVer</a> 相互对应。</p></blockquote><span id="more"></span><ul><li>自动化生成 CHANGELOG。</li><li>基于提交的类型，自动决定语义化的版本变更。</li><li>向同事、公众与其他利益关系者传达变化的性质。</li><li>触发构建和部署流程。</li><li>让人们探索一个更加结构化的提交历史，以便降低对你的项目做出贡献的难度。</li></ul><h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p><a href="https://www.conventionalcommits.org/en/v1.0.0/">约定式提交</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). [2022-06-28].">[1]</span></a></sup> 规定了每一条 commit message 的格式：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">&lt;type&gt;[optional scope]: &lt;description&gt;<br><br>[optional body]<br><br>[optional footer(s)]<br></code></pre></td></tr></table></figure><h3 id="类型（type）"><a href="#类型（type）" class="headerlink" title="类型（type）"></a>类型（type）</h3><p>类型应当使用<strong>小写字母</strong>，不能为空，后接<strong>可选的</strong>范围字段和 <code>!</code>，以及<strong>必要的</strong>冒号和空格。</p><p>下为可用的类型列表：</p><ul><li><code>build</code></li><li><code>chore</code></li><li><code>ci</code></li><li><code>docs</code></li><li><code>feat</code></li><li><code>fix</code></li><li><code>perf</code></li><li><code>refactor</code></li><li><code>revert</code></li><li><code>style</code></li><li><code>test</code></li></ul><h3 id="范围（scope）"><a href="#范围（scope）" class="headerlink" title="范围（scope）"></a>范围（scope）</h3><p>范围字段<strong>可以</strong>跟随在类型字段后面。范围<strong>必须</strong>是一个描述某部分代码的名词，并用圆括号包围。</p><h3 id="描述（description）"><a href="#描述（description）" class="headerlink" title="描述（description）"></a>描述（description）</h3><p>对代码变更的简短总结，不能为空，结尾不写句号。</p><h3 id="正文（body）"><a href="#正文（body）" class="headerlink" title="正文（body）"></a>正文（body）</h3><p>在简短描述之后，<strong>可以</strong>编写较长的提交正文，为代码变更提供额外的上下文信息。<strong>正文</strong>必须起始于描述字段结束的一个空行后。</p><p>正文内容自由编写，并<strong>可以</strong>使用空行分隔不同段落。</p><h3 id="脚注（footer）"><a href="#脚注（footer）" class="headerlink" title="脚注（footer）"></a>脚注（footer）</h3><p>在正文结束的一个空行之后，<strong>可以</strong>编写一行或多行脚注。每行脚注都<strong>必须</strong>包含一个令牌（token），后面紧跟 <code>:&lt;space&gt;</code> 或 <code>&lt;space&gt;#</code> 作为分隔符，后面再紧跟令牌的值。</p><p>脚注的令牌<strong>必须</strong>使用 <code>-</code> 作为连字符，唯一的例外是 <code>BREAKING CHANGE</code>。</p><p>脚注的值<strong>可以</strong>包含空格和换行。</p><h3 id="SemVer-的影响"><a href="#SemVer-的影响" class="headerlink" title="SemVer 的影响"></a>SemVer 的影响</h3><p>有些提交类型对 <a href="https://semver.org/">SemVer</a> 的版本号有影响：</p><ol><li><strong>fix</strong> 表示修复了一个 bug，对应语义化版本的 <code>PATCH</code>。</li><li><strong>feat</strong> 表示新增了一个功能，对应语义化版本的 <code>MINOR</code>。</li><li><strong>BREAKING CHANGE</strong> 包含在脚注中，或类型&#x2F;范围后有一个 <code>!</code>，对应语义化版本的 <code>MAJOR</code>。</li></ol><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="Gitmoji"><a href="#Gitmoji" class="headerlink" title="Gitmoji"></a>Gitmoji</h3><p><a href="https://gitmoji.dev/">Gitmoji</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[gitmoji](https://gitmoji.dev/). [2022-06-28]. （原始内容[存档](https://web.archive.org/web/20220628095615/https://gitmoji.dev/)于2022-06-28）.">[2]</span></a></sup> 是一项旨在规范和解释在 GitHub 提交消息上使用表情符号的倡议。</p><h3 id="VS-Code-扩展"><a href="#VS-Code-扩展" class="headerlink" title="VS Code 扩展"></a>VS Code 扩展</h3><p>在 VS Code 中提交时，<a href="https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits">Conventional Commits</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Semantic Versioning](https://semver.org/). [2022-06-28]. （原始内容[存档](https://web.archive.org/web/20220628082309/https://semver.org/)于2022-06-28）.">[3]</span></a></sup> 扩展可以帮助生成提交信息。</p><p><img src="https://picture.zhanganzhi.com/2022/06/28/ap3xacu.png" alt="Conventional Commits 的界面"></p><h3 id="GitHub-Action"><a href="#GitHub-Action" class="headerlink" title="GitHub Action"></a>GitHub Action</h3><p><a href="https://github.com/google-github-actions/release-please-action">Release Please Action</a><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Release Please Action](https://github.com/google-github-actions/release-please-action). [2022-06-28]. （原始内容[存档](https://web.archive.org/web/20220628095655/https://github.com/google-github-actions/release-please-action)于2022-06-28）.">[4]</span></a></sup> 是一个 GitHub Action，可以根据提交信息自动生成 CHANGELOG 和发布 Release。</p><p>Release Please Action 会自动创建发布 PR，包含生成的 CHANGELOG。当 PR 合并时，发布 Release，此时可以执行 CI&#x2F;CD，将文件上传到 Release 和发布。</p><p><img src="https://picture.zhanganzhi.com/2022/06/28/h8ihofj.png" alt="Release Please Action 创建的 PR"></p><section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a>. [2022-06-28].<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a href="https://gitmoji.dev/">gitmoji</a>. [2022-06-28]. （原始内容<a href="https://web.archive.org/web/20220628095615/https://gitmoji.dev/">存档</a>于2022-06-28）.<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a href="https://semver.org/">Semantic Versioning</a>. [2022-06-28]. （原始内容<a href="https://web.archive.org/web/20220628082309/https://semver.org/">存档</a>于2022-06-28）.<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a href="https://github.com/google-github-actions/release-please-action">Release Please Action</a>. [2022-06-28]. （原始内容<a href="https://web.archive.org/web/20220628095655/https://github.com/google-github-actions/release-please-action">存档</a>于2022-06-28）.<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发</category>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+      <tag>GitHub</tag>
+      
+      <tag>VS Code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>GitHub Actions 自动部署 Hexo 博客</title>
     <link href="/zh-CN/2022/06/0800d76d306e/"/>
     <url>/zh-CN/2022/06/0800d76d306e/</url>
@@ -113,13 +175,13 @@
     
     <tags>
       
+      <tag>GitHub</tag>
+      
       <tag>计算机</tag>
       
       <tag>密码学</tag>
       
       <tag>GPG</tag>
-      
-      <tag>GitHub</tag>
       
     </tags>
     

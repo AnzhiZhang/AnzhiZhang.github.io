@@ -16,25 +16,25 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="Hexo 官方文档的 GitHub Pages 部署方案[1]需要注册第三方账号且绑定信用卡，所以创建博客时选择了一键部署[2]的方案，但是需要手动使用 hexo clean &amp;&amp; hexo d 部署博客，有些麻烦，于是决定改为 GitHub Actions 自动部署。">
+    <meta name="description" content="约定式提交规范是一种基于提交信息的轻量级约定。它提供了一组简单规则来创建清晰的提交历史；这更有利于编写自动化工具。通过在提交信息中描述功能、修复和破坏性变更，使这种惯例与 SemVer 相互对应。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub Actions 自动部署 Hexo 博客">
-<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/06/0800d76d306e/index.html">
+<meta property="og:title" content="Git 约定式提交">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/06/ca740262a99f/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="Hexo 官方文档的 GitHub Pages 部署方案[1]需要注册第三方账号且绑定信用卡，所以创建博客时选择了一键部署[2]的方案，但是需要手动使用 hexo clean &amp;&amp; hexo d 部署博客，有些麻烦，于是决定改为 GitHub Actions 自动部署。">
+<meta property="og:description" content="约定式提交规范是一种基于提交信息的轻量级约定。它提供了一组简单规则来创建清晰的提交历史；这更有利于编写自动化工具。通过在提交信息中描述功能、修复和破坏性变更，使这种惯例与 SemVer 相互对应。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2022/06/19/jbqr9cy.png">
-<meta property="article:published_time" content="2022-06-17T19:09:42.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2022/06/28/m3g7l9d.png">
+<meta property="article:published_time" content="2022-06-28T16:29:54.000Z">
 <meta property="article:author" content="Andy Zhang">
+<meta property="article:tag" content="Git">
 <meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="博客">
-<meta property="article:tag" content="自动部署">
+<meta property="article:tag" content="VS Code">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/06/19/jbqr9cy.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/06/28/m3g7l9d.png">
   
   
   
-  <title>GitHub Actions 自动部署 Hexo 博客 - Andy&#39;s Blog</title>
+  <title>Git 约定式提交 - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,13 +223,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://picture.zhanganzhi.com/2022/06/19/10g3qsl.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="GitHub Actions 自动部署 Hexo 博客"></span>
+            <span id="subtitle" data-typed-text="Git 约定式提交"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-17 19:09" pubdate>
-          2022年6月17日
+        <time datetime="2022-06-28 16:29" pubdate>
+          2022年6月28日
         </time>
       </span>
     
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          1.4k 字
         
       </span>
     
@@ -300,47 +300,65 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">GitHub Actions 自动部署 Hexo 博客</h1>
+            <h1 style="display: none">Git 约定式提交</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>Hexo 官方文档的 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a> 部署方案<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[将 Hexo 部署到 GitHub Pages](https://hexo.io/zh-cn/docs/github-pages). Hexo. 2022-06-11 [2022-06-17]. （原始内容[存档](https://web.archive.org/web/20220617122944/https://hexo.io/zh-cn/docs/github-pages)于2022-06-17）.">[1]</span></a></sup>需要注册第三方账号且绑定信用卡，所以创建博客时选择了一键部署<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[部署](https://hexo.io/zh-cn/docs/one-command-deployment). Hexo. 2022-06-11 [2022-06-17]. （原始内容[存档](https://web.archive.org/web/20220617122947/https://hexo.io/zh-cn/docs/one-command-deployment)于2022-06-17）.">[2]</span></a></sup>的方案，但是需要手动使用 <code>hexo clean &amp;&amp; hexo d</code> 部署博客，有些麻烦，于是决定改为 GitHub Actions 自动部署。</p>
+<p>约定式提交规范是一种基于提交信息的轻量级约定。它提供了一组简单规则来创建清晰的提交历史；这更有利于编写自动化工具。通过在提交信息中描述功能、修复和破坏性变更，使这种惯例与 <a target="_blank" rel="noopener" href="https://semver.org/">SemVer</a> 相互对应。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>分别设置博客仓库和部署仓库，部署仓库为 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>。</p>
-<h2 id="配置-SSH"><a href="#配置-SSH" class="headerlink" title="配置 SSH"></a>配置 SSH</h2><p>在本地生成一对 SSH 密钥，注意更改文件名避免将正在使用的密钥覆盖。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t ed25519 -C <span class="hljs-string">&quot;your_email@example.com&quot;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>自动化生成 CHANGELOG。</li>
+<li>基于提交的类型，自动决定语义化的版本变更。</li>
+<li>向同事、公众与其他利益关系者传达变化的性质。</li>
+<li>触发构建和部署流程。</li>
+<li>让人们探索一个更加结构化的提交历史，以便降低对你的项目做出贡献的难度。</li>
+</ul>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p><a target="_blank" rel="noopener" href="https://www.conventionalcommits.org/en/v1.0.0/">约定式提交</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). [2022-06-28].">[1]</span></a></sup> 规定了每一条 commit message 的格式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">&lt;type&gt;[optional scope]: &lt;description&gt;<br><br>[optional body]<br><br>[optional footer(s)]<br></code></pre></td></tr></table></figure>
 
-<p>在<strong>博客仓库</strong>的 <code>Settings -&gt; Secrets -&gt; Actions</code> 中添加 SSH <strong>私钥</strong>，命名为 <code>SSH_DEPLOY_KEY</code>。</p>
-<p><img src="https://picture.zhanganzhi.com/2022/06/19/011b4r1.png" srcset="/img/loading.gif" lazyload alt="添加私钥"></p>
-<p>在<strong>部署仓库</strong>的 <code>Settings -&gt; Deploy keys</code> 中添加 SSH <strong>公钥</strong>，注意勾选 <code>Allow write access</code>。</p>
-<p><img src="https://picture.zhanganzhi.com/2022/06/19/ui72xts.png" srcset="/img/loading.gif" lazyload alt="添加公钥"></p>
-<p><img src="https://picture.zhanganzhi.com/2022/06/19/ktzdikp.png" srcset="/img/loading.gif" lazyload alt="勾选 Allow write access"></p>
-<h2 id="编写-Workflow"><a href="#编写-Workflow" class="headerlink" title="编写 Workflow"></a>编写 Workflow</h2><p>创建 <code>.github/workflows/deployment.yml</code>，写入以下内容，注意修改仓库地址和 Git 配置。此时当 <code>push</code> 到博客仓库时，GitHub Actions 将会自动部署。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Deployment</span><br><span class="hljs-attr">on:</span> <span class="hljs-string">push</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">deployment:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">Deployment</span><br><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">Out</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Clone</span> <span class="hljs-string">Repo</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">repository:</span> <span class="hljs-string">Username/Repository</span><br>          <span class="hljs-attr">path:</span> <span class="hljs-string">.deploy_git</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">node-version:</span> <span class="hljs-number">16</span><br><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Git</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          git config --global user.name &quot;Example&quot;</span><br><span class="hljs-string">          git config --global user.email &quot;email@example.com&quot;</span><br><span class="hljs-string"></span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">SSH</span> <span class="hljs-string">Key</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          mkdir -p ~/.ssh</span><br><span class="hljs-string">          echo &quot;$&#123;&#123; secrets.SSH_DEPLOY_KEY &#125;&#125;&quot; &gt; ~/.ssh/id_ed25519</span><br><span class="hljs-string">          chmod 600 ~/.ssh/id_ed25519</span><br><span class="hljs-string"></span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          npm install --location=global hexo-cli</span><br><span class="hljs-string">          npm install</span><br><span class="hljs-string">          hexo d</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="Workflow-解析"><a href="#Workflow-解析" class="headerlink" title="Workflow 解析"></a>Workflow 解析</h2><p>两个 Checkout 的作用是切换到博客仓库最新提交，并且将部署仓库克隆到 <code>.deploy_git</code>，也就是 Hexo 的部署目录。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">Out</span><br>    <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br><br><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Clone</span> <span class="hljs-string">Repo</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>  <span class="hljs-attr">with:</span><br>   <span class="hljs-attr">repository:</span> <span class="hljs-string">Username/Repository</span><br>   <span class="hljs-attr">path:</span> <span class="hljs-string">.deploy_git</span><br></code></pre></td></tr></table></figure>
-
-<p>下一步安装 Node，版本需要与博客使用的版本相同。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">node-version:</span> <span class="hljs-number">16</span><br></code></pre></td></tr></table></figure>
-
-<p>设置提交的用户名和邮箱。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Git</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    git config --global user.name &quot;Example&quot;</span><br><span class="hljs-string">    git config --global user.email &quot;email@example.com&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>将存储在仓库 Secrets 的 SSH 私钥存储到本地供 Git 使用。<code>mkdir</code> 是为了下一步可以在 <code>~/.ssh</code> 目录中创建文件，<code>chmod</code> 设置权限，Git 才能使用私钥<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[利用 Github Actions 自动部署 Hexo 博客](https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/). Sanonz. 2020-05-12 [2022-06-17]. （原始内容[存档](https://web.archive.org/web/20210618140206/https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/)于2021-06-18）.">[3]</span></a></sup>。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">SSH</span> <span class="hljs-string">Key</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    mkdir -p ~/.ssh</span><br><span class="hljs-string">    echo &quot;$&#123;&#123; secrets.SSH_DEPLOY_KEY &#125;&#125;&quot; &gt; ~/.ssh/id_ed25519</span><br><span class="hljs-string">    chmod 600 ~/.ssh/id_ed25519</span><br></code></pre></td></tr></table></figure>
-
-<p>最后安装 Hexo 和依赖，运行 <code>hexo d</code> 部署博客。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    npm install --location=global hexo-cli</span><br><span class="hljs-string">    npm install</span><br><span class="hljs-string">    hexo d</span><br></code></pre></td></tr></table></figure>
-
-<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">将 Hexo 部署到 GitHub Pages</a>. Hexo. 2022-06-11 [2022-06-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220617122944/https://hexo.io/zh-cn/docs/github-pages">存档</a>于2022-06-17）.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">部署</a>. Hexo. 2022-06-11 [2022-06-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220617122947/https://hexo.io/zh-cn/docs/one-command-deployment">存档</a>于2022-06-17）.
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/">利用 Github Actions 自动部署 Hexo 博客</a>. Sanonz. 2020-05-12 [2022-06-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20210618140206/https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/">存档</a>于2021-06-18）.
-<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<h3 id="类型（type）"><a href="#类型（type）" class="headerlink" title="类型（type）"></a>类型（type）</h3><p>类型应当使用<strong>小写字母</strong>，不能为空，后接<strong>可选的</strong>范围字段和 <code>!</code>，以及<strong>必要的</strong>冒号和空格。</p>
+<p>下为可用的类型列表：</p>
+<ul>
+<li><code>build</code></li>
+<li><code>chore</code></li>
+<li><code>ci</code></li>
+<li><code>docs</code></li>
+<li><code>feat</code></li>
+<li><code>fix</code></li>
+<li><code>perf</code></li>
+<li><code>refactor</code></li>
+<li><code>revert</code></li>
+<li><code>style</code></li>
+<li><code>test</code></li>
+</ul>
+<h3 id="范围（scope）"><a href="#范围（scope）" class="headerlink" title="范围（scope）"></a>范围（scope）</h3><p>范围字段<strong>可以</strong>跟随在类型字段后面。范围<strong>必须</strong>是一个描述某部分代码的名词，并用圆括号包围。</p>
+<h3 id="描述（description）"><a href="#描述（description）" class="headerlink" title="描述（description）"></a>描述（description）</h3><p>对代码变更的简短总结，不能为空，结尾不写句号。</p>
+<h3 id="正文（body）"><a href="#正文（body）" class="headerlink" title="正文（body）"></a>正文（body）</h3><p>在简短描述之后，<strong>可以</strong>编写较长的提交正文，为代码变更提供额外的上下文信息。<strong>正文</strong>必须起始于描述字段结束的一个空行后。</p>
+<p>正文内容自由编写，并<strong>可以</strong>使用空行分隔不同段落。</p>
+<h3 id="脚注（footer）"><a href="#脚注（footer）" class="headerlink" title="脚注（footer）"></a>脚注（footer）</h3><p>在正文结束的一个空行之后，<strong>可以</strong>编写一行或多行脚注。每行脚注都<strong>必须</strong>包含一个令牌（token），后面紧跟 <code>:&lt;space&gt;</code> 或 <code>&lt;space&gt;#</code> 作为分隔符，后面再紧跟令牌的值。</p>
+<p>脚注的令牌<strong>必须</strong>使用 <code>-</code> 作为连字符，唯一的例外是 <code>BREAKING CHANGE</code>。</p>
+<p>脚注的值<strong>可以</strong>包含空格和换行。</p>
+<h3 id="SemVer-的影响"><a href="#SemVer-的影响" class="headerlink" title="SemVer 的影响"></a>SemVer 的影响</h3><p>有些提交类型对 <a target="_blank" rel="noopener" href="https://semver.org/">SemVer</a> 的版本号有影响：</p>
+<ol>
+<li><strong>fix</strong> 表示修复了一个 bug，对应语义化版本的 <code>PATCH</code>。</li>
+<li><strong>feat</strong> 表示新增了一个功能，对应语义化版本的 <code>MINOR</code>。</li>
+<li><strong>BREAKING CHANGE</strong> 包含在脚注中，或类型&#x2F;范围后有一个 <code>!</code>，对应语义化版本的 <code>MAJOR</code>。</li>
+</ol>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="Gitmoji"><a href="#Gitmoji" class="headerlink" title="Gitmoji"></a>Gitmoji</h3><p><a target="_blank" rel="noopener" href="https://gitmoji.dev/">Gitmoji</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[gitmoji](https://gitmoji.dev/). [2022-06-28]. （原始内容[存档](https://web.archive.org/web/20220628095615/https://gitmoji.dev/)于2022-06-28）.">[2]</span></a></sup> 是一项旨在规范和解释在 GitHub 提交消息上使用表情符号的倡议。</p>
+<h3 id="VS-Code-扩展"><a href="#VS-Code-扩展" class="headerlink" title="VS Code 扩展"></a>VS Code 扩展</h3><p>在 VS Code 中提交时，<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits">Conventional Commits</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Semantic Versioning](https://semver.org/). [2022-06-28]. （原始内容[存档](https://web.archive.org/web/20220628082309/https://semver.org/)于2022-06-28）.">[3]</span></a></sup> 扩展可以帮助生成提交信息。</p>
+<p><img src="https://picture.zhanganzhi.com/2022/06/28/ap3xacu.png" srcset="/img/loading.gif" lazyload alt="Conventional Commits 的界面"></p>
+<h3 id="GitHub-Action"><a href="#GitHub-Action" class="headerlink" title="GitHub Action"></a>GitHub Action</h3><p><a target="_blank" rel="noopener" href="https://github.com/google-github-actions/release-please-action">Release Please Action</a><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Release Please Action](https://github.com/google-github-actions/release-please-action). [2022-06-28]. （原始内容[存档](https://web.archive.org/web/20220628095655/https://github.com/google-github-actions/release-please-action)于2022-06-28）.">[4]</span></a></sup> 是一个 GitHub Action，可以根据提交信息自动生成 CHANGELOG 和发布 Release。</p>
+<p>Release Please Action 会自动创建发布 PR，包含生成的 CHANGELOG。当 PR 合并时，发布 Release，此时可以执行 CI&#x2F;CD，将文件上传到 Release 和发布。</p>
+<p><img src="https://picture.zhanganzhi.com/2022/06/28/h8ihofj.png" srcset="/img/loading.gif" lazyload alt="Release Please Action 创建的 PR"></p>
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a>. [2022-06-28].
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://gitmoji.dev/">gitmoji</a>. [2022-06-28]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220628095615/https://gitmoji.dev/">存档</a>于2022-06-28）.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://semver.org/">Semantic Versioning</a>. [2022-06-28]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220628082309/https://semver.org/">存档</a>于2022-06-28）.
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/google-github-actions/release-please-action">Release Please Action</a>. [2022-06-28]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220628095655/https://github.com/google-github-actions/release-please-action">存档</a>于2022-06-28）.
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -363,7 +381,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E5%BC%80%E5%8F%91/%E5%8D%9A%E5%AE%A2/" class="category-chain-item">博客</a>
+  <a href="/categories/%E5%BC%80%E5%8F%91/Git/" class="category-chain-item">Git</a>
   
   
 
@@ -380,11 +398,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
+        <a href="/tags/Git/">#Git</a>
+      
         <a href="/tags/GitHub/">#GitHub</a>
       
-        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
-      
-        <a href="/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">#自动部署</a>
+        <a href="/tags/VS-Code/">#VS Code</a>
       
     </div>
   
@@ -396,8 +414,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>GitHub Actions 自动部署 Hexo 博客</div>
-      <div>https://blog.zhanganzhi.com/zh-CN/2022/06/0800d76d306e/</div>
+      <div>Git 约定式提交</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2022/06/ca740262a99f/</div>
     </div>
     <div class="license-meta">
       
@@ -409,7 +427,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月17日</div>
+          <div>2022年6月28日</div>
         </div>
       
       
@@ -451,9 +469,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2022/06/ca740262a99f/" title="Git 约定式提交">
+                      <a href="/en/2022/06/ca740262a99f/" title="Git Conventional Commit">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git 约定式提交</span>
+                        <span class="hidden-mobile">Git Conventional Commit</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -461,8 +479,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/en/2022/06/7b049d0aa9ff/" title="CurseForge Modpack Downloader Tutorial">
-                        <span class="hidden-mobile">CurseForge Modpack Downloader Tutorial</span>
+                      <a href="/zh-CN/2022/06/0800d76d306e/" title="GitHub Actions 自动部署 Hexo 博客">
+                        <span class="hidden-mobile">GitHub Actions 自动部署 Hexo 博客</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
