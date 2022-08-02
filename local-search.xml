@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>购买西数 4T 新紫盘</title>
+    <link href="/zh-CN/2022/08/81f2bb325590/"/>
+    <url>/zh-CN/2022/08/81f2bb325590/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>以前搭 NAS 的时候用了块家里旧台式机拆下来的硬盘，只有 512G，容量一直挺吃紧的，加上这个硬盘快十年了，不放心安全性，决定换个新的。</p></blockquote><span id="more"></span><h2 id="旧硬盘的由来"><a href="#旧硬盘的由来" class="headerlink" title="旧硬盘的由来"></a>旧硬盘的由来</h2><p>家里十年前买了个一体机放家里用，但是性能不强使用频率不高，去年看着再吃灰更不值钱了，几百块钱买了出去。<strong>但是卖之前上淘宝花了 16 块钱买了个 500G 的劣质硬盘偷梁换柱，还非常贴心地帮忙装了个 win 7 系统。</strong></p><p><img src="https://picture.zhanganzhi.com/2022/08/02/0evw9xr.png" alt="黑心二手商家"></p><h2 id="硬盘选型"><a href="#硬盘选型" class="headerlink" title="硬盘选型"></a>硬盘选型</h2><p>综合了价格和容量之后，决定买 4T 的硬盘，对比之后确定了西数的 <code>WD42EJRX</code>。京东自营价格 529 元，等了快一个月一直没降下去，今天写文章降到 509 了。</p><p>还有一个问题，这个是不是叠瓦盘。费了一番功夫，找到了<a href="https://www.bilibili.com/read/cv14273159">这篇文章</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="海门牌梭鱼罐头. [十年，2T：西数新款紫盘深入测试](https://www.bilibili.com/read/cv14273159). 2021-12-03 [2022-07-20]. （原始内容[存档](http://web.archive.org/web/20220802103829/https://www.bilibili.com/read/cv14273159)于2022-08-03）.">[1]</span></a></sup>，确定不是叠瓦盘。巧的是在我下单前，这篇文章的作者发布了一条<a href="https://t.bilibili.com/687792429254836233">动态</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="海门牌梭鱼罐头. [动态](https://t.bilibili.com/687792429254836233). 2022-07-28 [2022-07-29]. （原始内容[存档](http://web.archive.org/web/20220802104250/https://t.bilibili.com/687792429254836233)于2022-08-03）.">[2]</span></a></sup>，通过破解电路板证实了确实是一块 CMR 硬盘。</p><h2 id="开箱"><a href="#开箱" class="headerlink" title="开箱"></a>开箱</h2><p>京东的包装有些简陋，硬盘盒子直接套了个快递泡沫袋，也不装箱。盒子里是一个塑料的架子，里面静电袋包着硬盘。</p><p><img src="https://picture.zhanganzhi.com/2022/08/02/k2c57us.jpg" alt="盒子已经挤压变形了"></p><p><img src="https://picture.zhanganzhi.com/2022/08/02/ad2fdt7.jpg" alt="硬盘正面"></p><p><img src="https://picture.zhanganzhi.com/2022/08/02/c5eiczr.png" alt="厚度非常明显"></p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>健康信息忘了截图了，很正常，京东自营应该不会篡改的。</p><p><img src="https://picture.zhanganzhi.com/2022/08/02/emtnrxn.png" alt="用了七个小时扫一遍坏道"></p><p><img src="https://picture.zhanganzhi.com/2022/08/02/9v329ah.png" alt="读取速度曲线"></p><p><img src="https://picture.zhanganzhi.com/2022/08/02/nmgr2ra.png" alt="写入速度曲线"></p><p>按文章<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="海门牌梭鱼罐头. [十年，2T：西数新款紫盘深入测试](https://www.bilibili.com/read/cv14273159). 2021-12-03 [2022-07-20]. （原始内容[存档](http://web.archive.org/web/20220802103829/https://www.bilibili.com/read/cv14273159)于2022-08-03）.">[1]</span></a></sup>的方法又跑了下随机读写用于判断叠瓦，真的有炒豆子的声音。</p><p><img src="https://picture.zhanganzhi.com/2022/08/02/2ece2xp.png" alt="格式化测个速"></p><h2 id="实装"><a href="#实装" class="headerlink" title="实装"></a>实装</h2><p>装上设置挂载，然后调一下 samba 配置文件，把旧硬盘文件拷过来即可。第一次拷文件在 100 MB&#x2F;s 左右徘徊，之后就可以稳定占满千兆网线的速度了。</p><p><img src="https://picture.zhanganzhi.com/2022/08/02/3jp0ese.png" alt="第一次速度不太稳"></p><p><img src="https://picture.zhanganzhi.com/2022/08/02/thu935z.png" alt="实际使用的速度"></p><section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>海门牌梭鱼罐头. <a href="https://www.bilibili.com/read/cv14273159">十年，2T：西数新款紫盘深入测试</a>. 2021-12-03 [2022-07-20]. （原始内容<a href="http://web.archive.org/web/20220802103829/https://www.bilibili.com/read/cv14273159">存档</a>于2022-08-03）.<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>海门牌梭鱼罐头. <a href="https://t.bilibili.com/687792429254836233">动态</a>. 2022-07-28 [2022-07-29]. （原始内容<a href="http://web.archive.org/web/20220802104250/https://t.bilibili.com/687792429254836233">存档</a>于2022-08-03）.<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+      <category>开箱</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开箱</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Git Conventional Commits</title>
     <link href="/en/2022/06/ca740262a99f/"/>
     <url>/en/2022/06/ca740262a99f/</url>

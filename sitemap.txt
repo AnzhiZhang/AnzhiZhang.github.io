@@ -5,6 +5,7 @@ https://blog.zhanganzhi.com/zh-CN/2022/06/1c71f69657ed/
 https://blog.zhanganzhi.com/zh-CN/2022/06/7b049d0aa9ff/
 https://blog.zhanganzhi.com/zh-CN/2022/06/0800d76d306e/
 https://blog.zhanganzhi.com/zh-CN/2022/06/ca740262a99f/
+https://blog.zhanganzhi.com/zh-CN/2022/08/81f2bb325590/
 https://blog.zhanganzhi.com/about/index.html
 https://blog.zhanganzhi.com/
 https://blog.zhanganzhi.com/tags/Minecraft/
@@ -22,9 +23,12 @@ https://blog.zhanganzhi.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/
 https://blog.zhanganzhi.com/tags/GPG/
 https://blog.zhanganzhi.com/tags/%E5%8D%9A%E5%AE%A2/
 https://blog.zhanganzhi.com/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/
+https://blog.zhanganzhi.com/tags/%E5%BC%80%E7%AE%B1/
 https://blog.zhanganzhi.com/categories/Minecraft/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/
 https://blog.zhanganzhi.com/categories/Minecraft/%E5%B7%A5%E5%85%B7/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%8D%9A%E5%AE%A2/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/Git/
+https://blog.zhanganzhi.com/categories/%E6%97%A5%E5%B8%B8/
 https://blog.zhanganzhi.com/categories/Minecraft/Mod/
+https://blog.zhanganzhi.com/categories/%E6%97%A5%E5%B8%B8/%E5%BC%80%E7%AE%B1/
