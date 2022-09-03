@@ -16,21 +16,20 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="当使用家庭宽带将 smb 服务转发到公网时，由于 445 端口被封，必须使用其它端口，而 Windows 系统只支持连接标准端口，需要通过端口转发解决此问题。  关闭自带文件共享服务由于 Windows 自带的文件共享服务会占用 445 端口，需要将其关闭以释放端口。 关闭 Windows 功能在开始菜单中搜索 启用或关闭 Windows 功能 并运行，取消选中 SMB 1.0&#x2F;CIFS 文件共">
+    <meta name="description" content="当使用家庭宽带将 smb 服务转发到公网时，由于 445 端口被封，必须使用其它端口，而 Windows 系统只支持连接标准端口，需要通过端口转发解决此问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 连接 smb 非标准端口">
-<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/09/bdf810c80d4f/index.html">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/09/9fe6d5ab7fe2/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="当使用家庭宽带将 smb 服务转发到公网时，由于 445 端口被封，必须使用其它端口，而 Windows 系统只支持连接标准端口，需要通过端口转发解决此问题。  关闭自带文件共享服务由于 Windows 自带的文件共享服务会占用 445 端口，需要将其关闭以释放端口。 关闭 Windows 功能在开始菜单中搜索 启用或关闭 Windows 功能 并运行，取消选中 SMB 1.0&#x2F;CIFS 文件共">
+<meta property="og:description" content="当使用家庭宽带将 smb 服务转发到公网时，由于 445 端口被封，必须使用其它端口，而 Windows 系统只支持连接标准端口，需要通过端口转发解决此问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2022/09/03/t32qfre.png">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2022/09/03/3we8v69.png">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2022/09/03/ssalh2l.png">
-<meta property="article:published_time" content="2022-09-03T21:12:07.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2022/09/03/phip7ho.jpg">
+<meta property="article:published_time" content="2022-09-03T20:12:07.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="端口转发">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/09/03/t32qfre.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/09/03/phip7ho.jpg">
   
   
   
@@ -235,7 +234,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://picture.zhanganzhi.com/2022/09/03/phip7ho.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -252,7 +251,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-03 21:12" pubdate>
+        <time datetime="2022-09-03 20:12" pubdate>
           2022年9月3日
         </time>
       </span>
@@ -264,7 +263,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          725 字
+          1.1k 字
         
       </span>
     
@@ -320,27 +319,34 @@
                 <blockquote>
 <p>当使用家庭宽带将 smb 服务转发到公网时，由于 445 端口被封，必须使用其它端口，而 Windows 系统只支持连接标准端口，需要通过端口转发解决此问题。</p>
 </blockquote>
+<span id="more"></span>
+
 <h2 id="关闭自带文件共享服务"><a href="#关闭自带文件共享服务" class="headerlink" title="关闭自带文件共享服务"></a>关闭自带文件共享服务</h2><p>由于 Windows 自带的文件共享服务会占用 445 端口，需要将其关闭以释放端口。</p>
 <h3 id="关闭-Windows-功能"><a href="#关闭-Windows-功能" class="headerlink" title="关闭 Windows 功能"></a>关闭 Windows 功能</h3><p>在开始菜单中搜索 <code>启用或关闭 Windows 功能</code> 并运行，取消选中 <code>SMB 1.0/CIFS 文件共享支持</code>。</p>
 <p><img src="https://picture.zhanganzhi.com/2022/09/03/t32qfre.png" srcset="/img/loading.gif" lazyload alt="搜索并打开 启用或关闭 Windows 功能"></p>
 <p><img src="https://picture.zhanganzhi.com/2022/09/03/3we8v69.png" srcset="/img/loading.gif" lazyload alt="取消选中 SMB 功能"></p>
-<h3 id="关闭-LanmanServer"><a href="#关闭-LanmanServer" class="headerlink" title="关闭 LanmanServer"></a>关闭 LanmanServer</h3><p>用管理员模式运行命令提示符，输入以下的命令。</p>
+<h3 id="关闭-LanmanServer"><a href="#关闭-LanmanServer" class="headerlink" title="关闭 LanmanServer"></a>关闭 LanmanServer</h3><p>用管理员模式运行命令提示符，输入以下命令<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[PORT 445: What is the use and how to disable this TCP port](https://www.how2shout.com/how-to/port-445-what-is-the-use-and-how-to-disable-this-tcp-port.html). H2S Media. 2021-07-29 [2022-09-03]. （原始内容[存档](https://web.archive.org/web/20220903121932/https://www.how2shout.com/how-to/port-445-what-is-the-use-and-how-to-disable-this-tcp-port.html)于2022-09-03）.">[2]</span></a></sup>。</p>
 <p><img src="https://picture.zhanganzhi.com/2022/09/03/ssalh2l.png" srcset="/img/loading.gif" lazyload alt="运行命令提示符"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sc stop lanmanserver<br>sc config lanmanserver start=disabled<br></code></pre></td></tr></table></figure>
 
-<h2 id="创建端口转发"><a href="#创建端口转发" class="headerlink" title="创建端口转发"></a>创建端口转发</h2><p>使用以下命令创建本机的端口转发，将远程 smb 服务转发到本机的 445 端口。将 <code>serverport</code> 和 <code>serverip</code> 改为远程服务的地址。</p>
+<h2 id="创建端口转发"><a href="#创建端口转发" class="headerlink" title="创建端口转发"></a>创建端口转发</h2><p>使用以下命令<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="纸乎. [Windows 10 下如何修改 smb 连接的默认端口(445)？](https://www.zhihu.com/question/59814912/answer/684689433). 知乎. 2019-05-16 [2022-09-03]. （原始内容[存档](https://web.archive.org/web/20220903121926/https://www.zhihu.com/question/59814912/answer/684689433)于2022-09-03）.">[3]</span></a></sup>创建本机的端口转发，将远程 smb 服务转发到本机的 445 端口。将 <code>serverport</code> 和 <code>serverip</code> 改为远程服务的地址。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netsh interface portproxy add v4tov4 listenport=445 listenaddress=127.0.0.1 connectport=serverport connectaddress=serverip<br></code></pre></td></tr></table></figure>
 
 <p>随后<strong>重启</strong>，即可通过 <code>\\127.0.0.1</code> 连接远程 smb 服务。</p>
-<h2 id="IP-地址变化"><a href="#IP-地址变化" class="headerlink" title="IP 地址变化"></a>IP 地址变化</h2><p>我们一般会将端口转发绑定到域名上，若域名改变将无法连接，需要重新启动 <code>IP Helper Service</code> 来重新映射域名。启动命令提示符并运行以下命令；</p>
+<h2 id="IP-地址变化"><a href="#IP-地址变化" class="headerlink" title="IP 地址变化"></a>IP 地址变化</h2><p>我们一般会将端口转发绑定到域名上，若域名改变将无法连接，需要重新启动 <code>IP Helper Service</code> 来重新映射域名。启动命令提示符并运行以下命令<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="Morris. [Windows 10 下如何修改 smb 连接的默认端口(445)？](https://www.zhihu.com/question/59814912/answer/2355661073). 知乎. 2022-02-20 [2022-09-03]. （原始内容[存档](https://web.archive.org/web/20220903121933/https://www.zhihu.com/question/59814912/answer/2355661073)于2022-09-03）.">[4]</span></a></sup>；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipconfig /flushdns<br>net stop iphlpsvc<br>net start iphlpsvc<br></code></pre></td></tr></table></figure>
 
-<h2 id="端口转发检查"><a href="#端口转发检查" class="headerlink" title="端口转发检查"></a>端口转发检查</h2><p>查看所有的端口转发设置：</p>
+<h2 id="端口转发检查"><a href="#端口转发检查" class="headerlink" title="端口转发检查"></a>端口转发检查</h2><p>查看所有的端口转发设置<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="纸乎. [Windows 10 下如何修改 smb 连接的默认端口(445)？](https://www.zhihu.com/question/59814912/answer/684689433). 知乎. 2019-05-16 [2022-09-03]. （原始内容[存档](https://web.archive.org/web/20220903121926/https://www.zhihu.com/question/59814912/answer/684689433)于2022-09-03）.">[3]</span></a></sup>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netsh interface portproxy show all<br></code></pre></td></tr></table></figure>
 
-<p>查看 445 端口占用情况，若已经建立 smb 的连接，可以在这里看到远程 IP：</p>
+<p>查看 445 端口占用情况，若已经建立 smb 的连接，可以在这里看到远程 IP<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="Morris. [Windows 10 下如何修改 smb 连接的默认端口(445)？](https://www.zhihu.com/question/59814912/answer/2355661073). 知乎. 2022-02-20 [2022-09-03]. （原始内容[存档](https://web.archive.org/web/20220903121933/https://www.zhihu.com/question/59814912/answer/2355661073)于2022-09-03）.">[4]</span></a></sup>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netstat -ano|findstr 445<br></code></pre></td></tr></table></figure>
 
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.pexels.com/zh-cn/photo/1181772/">https://www.pexels.com/zh-cn/photo/1181772/</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.how2shout.com/how-to/port-445-what-is-the-use-and-how-to-disable-this-tcp-port.html">PORT 445: What is the use and how to disable this TCP port</a>. H2S Media. 2021-07-29 [2022-09-03]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220903121932/https://www.how2shout.com/how-to/port-445-what-is-the-use-and-how-to-disable-this-tcp-port.html">存档</a>于2022-09-03）.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>纸乎. <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/59814912/answer/684689433">Windows 10 下如何修改 smb 连接的默认端口(445)？</a>. 知乎. 2019-05-16 [2022-09-03]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220903121926/https://www.zhihu.com/question/59814912/answer/684689433">存档</a>于2022-09-03）.
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span>Morris. <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/59814912/answer/2355661073">Windows 10 下如何修改 smb 连接的默认端口(445)？</a>. 知乎. 2022-02-20 [2022-09-03]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220903121933/https://www.zhihu.com/question/59814912/answer/2355661073">存档</a>于2022-09-03）.
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -348,6 +354,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Windows/">#Windows</a>
+      
+        <a href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">#端口转发</a>
+      
+    </div>
   
 </div>
 
@@ -358,7 +394,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Windows 连接 smb 非标准端口</div>
-      <div>https://blog.zhanganzhi.com/zh-CN/2022/09/bdf810c80d4f/</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2022/09/9fe6d5ab7fe2/</div>
     </div>
     <div class="license-meta">
       
