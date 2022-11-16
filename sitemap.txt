@@ -11,6 +11,7 @@ https://blog.zhanganzhi.com/zh-CN/2022/08/21f435f762dc/
 https://blog.zhanganzhi.com/zh-CN/2022/08/fc02d61c8889/
 https://blog.zhanganzhi.com/zh-CN/2022/09/9fe6d5ab7fe2/
 https://blog.zhanganzhi.com/zh-CN/2022/10/7951c3e787fe/
+https://blog.zhanganzhi.com/zh-CN/2022/11/92e7bb97253e/
 https://blog.zhanganzhi.com/about/index.html
 https://blog.zhanganzhi.com/
 https://blog.zhanganzhi.com/tags/Minecraft/
@@ -38,6 +39,10 @@ https://blog.zhanganzhi.com/tags/Windows/
 https://blog.zhanganzhi.com/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/
 https://blog.zhanganzhi.com/tags/frp/
 https://blog.zhanganzhi.com/tags/%E5%AE%89%E5%85%A8/
+https://blog.zhanganzhi.com/tags/%E5%89%8D%E7%AB%AF/
+https://blog.zhanganzhi.com/tags/Vue-js/
+https://blog.zhanganzhi.com/tags/Element-UI/
+https://blog.zhanganzhi.com/tags/%E9%AA%A8%E6%9E%B6%E5%B1%8F/
 https://blog.zhanganzhi.com/categories/Minecraft/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/
 https://blog.zhanganzhi.com/categories/Minecraft/Mod/
@@ -48,4 +53,5 @@ https://blog.zhanganzhi.com/categories/Minecraft/MCDR%E7%B3%BB%E5%88%97%E6%95%99
 https://blog.zhanganzhi.com/categories/%E6%97%A5%E5%B8%B8/
 https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%AE%89%E5%85%A8/
+https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/
 https://blog.zhanganzhi.com/categories/%E6%97%A5%E5%B8%B8/%E5%BC%80%E7%AE%B1/

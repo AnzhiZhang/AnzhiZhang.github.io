@@ -16,24 +16,26 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="当使用 frp 时，务必开启权限验证。">
+    <meta name="description" content="近年来，骨架屏（Skeleton）逐渐成为一种流行的加载动画，其显著增强了用户等待过程中的体验。本文实现了 Vue.js + Element UI 的通用图片骨架屏组件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个没有密码保护的 frp 服务器有多不安全">
-<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/10/7951c3e787fe/index.html">
+<meta property="og:title" content="Element UI 通用图片骨架屏组件">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/11/92e7bb97253e/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="当使用 frp 时，务必开启权限验证。">
+<meta property="og:description" content="近年来，骨架屏（Skeleton）逐渐成为一种流行的加载动画，其显著增强了用户等待过程中的体验。本文实现了 Vue.js + Element UI 的通用图片骨架屏组件。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2022/10/30/4qm0rgs.png">
-<meta property="article:published_time" content="2022-10-30T17:51:52.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2022/11/16/s9g3f5o.webp">
+<meta property="article:published_time" content="2022-11-16T19:46:31.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="frp">
-<meta property="article:tag" content="安全">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="Element UI">
+<meta property="article:tag" content="骨架屏">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/10/30/4qm0rgs.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/11/16/s9g3f5o.webp">
   
   
   
-  <title>一个没有密码保护的 frp 服务器有多不安全 - Andy&#39;s Blog</title>
+  <title>Element UI 通用图片骨架屏组件 - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -234,13 +236,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://picture.zhanganzhi.com/2022/10/30/4qm0rgs.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="一个没有密码保护的 frp 服务器有多不安全"></span>
+            <span id="subtitle" data-typed-text="Element UI 通用图片骨架屏组件"></span>
           
         </div>
 
@@ -251,8 +253,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-30 17:51" pubdate>
-          2022年10月30日
+        <time datetime="2022-11-16 19:46" pubdate>
+          2022年11月16日
         </time>
       </span>
     
@@ -263,7 +265,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          374 字
+          1.9k 字
         
       </span>
     
@@ -311,33 +313,44 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">一个没有密码保护的 frp 服务器有多不安全</h1>
+            <h1 style="display: none">Element UI 通用图片骨架屏组件</h1>
             
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>当使用 frp 时，务必开启权限验证。</p>
+                <!-- markdownlint-disable-file MD033 -->
+
+<blockquote>
+<p>近年来，骨架屏（Skeleton）逐渐成为一种流行的加载动画，其显著增强了用户等待过程中的体验。本文实现了 Vue.js + Element UI 的通用图片骨架屏组件。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>群内有人的家里云受到了尝试登录的攻击，在群友劝其关闭公网时表示不怕打，并公布了自己 frps 的端口。在征求同意后，我开始尝试连接和应用。</p>
-<p><img src="https://picture.zhanganzhi.com/2022/10/30/ljwwqfd.png" srcset="/img/loading.gif" lazyload alt="表示欢迎尝试玩玩"></p>
-<h2 id="本地服务部署"><a href="#本地服务部署" class="headerlink" title="本地服务部署"></a>本地服务部署</h2><p>正好手里有个 web 项目，于是立刻启动了起来。</p>
-<p><img src="https://picture.zhanganzhi.com/2022/10/30/haxwbw3.png" srcset="/img/loading.gif" lazyload alt="一个网站项目"></p>
-<h2 id="frpc-配置"><a href="#frpc-配置" class="headerlink" title="frpc 配置"></a>frpc 配置</h2><p>接下来到 <a target="_blank" rel="noopener" href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a> 下载客户端，编写配置文件然后启动。</p>
-<p><img src="https://picture.zhanganzhi.com/2022/10/30/bzlvof9.png" srcset="/img/loading.gif" lazyload alt="编写配置文件"></p>
-<p><img src="https://picture.zhanganzhi.com/2022/10/30/z6q2lj9.png" srcset="/img/loading.gif" lazyload alt="启动 frpc"></p>
-<h2 id="检验成果"><a href="#检验成果" class="headerlink" title="检验成果"></a>检验成果</h2><p>访问他的域名和 frpc 配置的端口，检验是否成功。</p>
-<p><img src="https://picture.zhanganzhi.com/2022/10/30/dcv4bsc.png" srcset="/img/loading.gif" lazyload alt="测试成功"></p>
-<p><img src="https://picture.zhanganzhi.com/2022/10/30/e6wxr16.png" srcset="/img/loading.gif" lazyload alt="服务端日志"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>当使用 frp 时，一定要配置鉴权方式，无论是 <code>token</code> 还是 <code>oidc</code>；</li>
-<li>不要随意公开服务器应用的端口，尤其是非公开服务；</li>
-<li>使用路由器和防火墙将服务器应用的端口映射到公网，而不是直接暴露所有端口；</li>
-<li>谨防社会工程学攻击。</li>
+<p>感谢 <a target="_blank" rel="noopener" href="https://space.bilibili.com/1568294">@小灰灰</a> 在研究过程中提供的帮助和创新，编写了组件的部分内容，作了大量重要的工作。</p>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><video width="100%" controls>
+  <source src="https://picture.zhanganzhi.com/2022/11/16/0dclfq9.mp4">
+</video>
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">el-skeleton</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;root&quot;</span> <span class="hljs-attr">:loading</span>=<span class="hljs-string">&quot;loading&quot;</span> <span class="hljs-attr">animated</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">template</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">el-skeleton-item</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;className&quot;</span> <span class="hljs-attr">:id</span>=<span class="hljs-string">&quot;idName&quot;</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;image&quot;</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;&#123;height: skeletonHeight&#125;&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;className&quot;</span> <span class="hljs-attr">:id</span>=<span class="hljs-string">&quot;idName&quot;</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">&quot;src&quot;</span> <span class="hljs-attr">:alt</span>=<span class="hljs-string">&quot;alt&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">el-skeleton</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;LoadingImage&quot;</span>,</span><br><span class="language-javascript">  <span class="hljs-attr">props</span>: [<span class="hljs-string">&quot;className&quot;</span>, <span class="hljs-string">&quot;idName&quot;</span>, <span class="hljs-string">&quot;src&quot;</span>, <span class="hljs-string">&quot;alt&quot;</span>, <span class="hljs-string">&quot;height&quot;</span>],</span><br><span class="language-javascript">  <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">loading</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">defaultHeight</span>: <span class="hljs-string">&quot;200px&quot;</span>,</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-property">defaultHeight</span> = (<span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">root</span>.<span class="hljs-property">$el</span>.<span class="hljs-property">clientWidth</span> / <span class="hljs-number">16</span> * <span class="hljs-number">9</span>) + <span class="hljs-string">&quot;px&quot;</span>;</span><br><span class="language-javascript">    <span class="hljs-keyword">let</span> img = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>();</span><br><span class="language-javascript">    img.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">loading</span> = <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript">    img.<span class="hljs-property">src</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">src</span>;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-attr">computed</span>: &#123;</span><br><span class="language-javascript">    <span class="hljs-title function_">skeletonHeight</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">height</span> !== <span class="hljs-literal">undefined</span> ? <span class="hljs-variable language_">this</span>.<span class="hljs-property">height</span> : <span class="hljs-variable language_">this</span>.<span class="hljs-property">defaultHeight</span>;</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">&#125;;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用时只需传递相应参数即可:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">loading-image</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;src.webp&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">loading-image</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>若需要修改图片的样式，只需传递 <code>class</code> 或 <code>id</code> 从外部使用 <code>v-deep</code> 设置 css 即可。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">loading-image</span> <span class="hljs-attr">class-name</span>=<span class="hljs-string">&quot;class-1&quot;</span> <span class="hljs-attr">id-name</span>=<span class="hljs-string">&quot;id-1&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;src.webp&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">loading-image</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css">::v-deep .class-<span class="hljs-number">1</span> &#123;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>&#125;<br><br>::v-deep #id-<span class="hljs-number">1</span> &#123;<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">1rem</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><p>该组件主要由两大功能组成，一是加载图片并切换骨架屏显示，二是智能高度调整。</p>
+<h3 id="加载功能"><a href="#加载功能" class="headerlink" title="加载功能"></a>加载功能</h3><p>由于默认 <code>loading</code> 为 <code>true</code>，所以 <code>&lt;img&gt;</code> 并不会显示，浏览器也不会请求图片资源。我们在 <code>mounted</code> 时使用 js 请求图片资源。当图片加载完成后，将 <code>loading</code> 设置为 <code>false</code> 且更新 <code>&lt;img&gt;</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> img = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>();<br>img.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">loading</span> = <span class="hljs-literal">false</span>;<br>&#125;;<br>img.<span class="hljs-property">src</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">src</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="智能高度调整"><a href="#智能高度调整" class="headerlink" title="智能高度调整"></a>智能高度调整</h3><p>骨架的高度遵循以下规则：</p>
+<ol>
+<li>若传递了高度参数，使用参数设置高度；</li>
+<li><code>mounte</code> 之前使用 <code>200px</code> 作为默认高度；</li>
+<li><code>mounte</code> 之后获取宽度，以 <code>16:9</code> 计算默认高度。</li>
 </ol>
-<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://pixabay.com/photos/security-protection-antivirus-265130/">https://pixabay.com/photos/security-protection-antivirus-265130/</a>
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/skeleton">Skeleton 骨架屏</a>. Element. [2022-11-16]. （原始内容<a target="_blank" rel="noopener" href="http://web.archive.org/web/20221116204140/https://element.eleme.io/#/zh-CN/component/skeleton">存档</a>于2022-11-16）.
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
@@ -361,7 +374,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E5%BC%80%E5%8F%91/%E5%AE%89%E5%85%A8/" class="category-chain-item">安全</a>
+  <a href="/categories/%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
   
   
 
@@ -378,9 +391,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/frp/">#frp</a>
+        <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
       
-        <a href="/tags/%E5%AE%89%E5%85%A8/">#安全</a>
+        <a href="/tags/Vue-js/">#Vue.js</a>
+      
+        <a href="/tags/Element-UI/">#Element UI</a>
+      
+        <a href="/tags/%E9%AA%A8%E6%9E%B6%E5%B1%8F/">#骨架屏</a>
       
     </div>
   
@@ -392,8 +409,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>一个没有密码保护的 frp 服务器有多不安全</div>
-      <div>https://blog.zhanganzhi.com/zh-CN/2022/10/7951c3e787fe/</div>
+      <div>Element UI 通用图片骨架屏组件</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2022/11/92e7bb97253e/</div>
     </div>
     <div class="license-meta">
       
@@ -405,7 +422,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月30日</div>
+          <div>2022年11月16日</div>
         </div>
       
       
@@ -449,18 +466,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2022/11/92e7bb97253e/" title="Element UI 通用图片骨架屏组件">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Element UI 通用图片骨架屏组件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zh-CN/2022/09/9fe6d5ab7fe2/" title="Windows 连接 smb 非标准端口">
-                        <span class="hidden-mobile">Windows 连接 smb 非标准端口</span>
+                      <a href="/zh-CN/2022/10/7951c3e787fe/" title="一个没有密码保护的 frp 服务器有多不安全">
+                        <span class="hidden-mobile">一个没有密码保护的 frp 服务器有多不安全</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
