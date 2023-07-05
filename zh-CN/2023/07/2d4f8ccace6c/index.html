@@ -16,26 +16,26 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="近年来，骨架屏（Skeleton）逐渐成为一种流行的加载动画，其显著增强了用户等待过程中的体验。本文实现了 Vue.js + Element UI 的通用图片骨架屏组件。">
+    <meta name="description" content="在项目中加入 Spring Security 后，它会将所有的错误状态码覆盖为 403，例如 400, 405 和 500，我们也可能需要将 403 改为 401 作为未登录的状态码。本文将介绍如何自定义 AuthenticationEntryPoint 以解决此问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Element UI 通用图片骨架屏组件">
-<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2022/11/92e7bb97253e/index.html">
+<meta property="og:title" content="Spring Security 自定义状态码，防止正常状态码被 403 覆盖">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2023/07/2d4f8ccace6c/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="近年来，骨架屏（Skeleton）逐渐成为一种流行的加载动画，其显著增强了用户等待过程中的体验。本文实现了 Vue.js + Element UI 的通用图片骨架屏组件。">
+<meta property="og:description" content="在项目中加入 Spring Security 后，它会将所有的错误状态码覆盖为 403，例如 400, 405 和 500，我们也可能需要将 403 改为 401 作为未登录的状态码。本文将介绍如何自定义 AuthenticationEntryPoint 以解决此问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2022/11/16/s9g3f5o.webp">
-<meta property="article:published_time" content="2022-11-16T19:46:31.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2023/07/05/mlwd9ph.png">
+<meta property="article:published_time" content="2023-07-05T20:33:41.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="Vue.js">
-<meta property="article:tag" content="Element UI">
-<meta property="article:tag" content="骨架屏">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Spring Boot">
+<meta property="article:tag" content="Spring Security">
+<meta property="article:tag" content="HTTP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/11/16/s9g3f5o.webp">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2023/07/05/mlwd9ph.png">
   
   
   
-  <title>Element UI 通用图片骨架屏组件 - Andy&#39;s Blog</title>
+  <title>Spring Security 自定义状态码，防止正常状态码被 403 覆盖 - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -237,13 +237,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://picture.zhanganzhi.com/2022/10/30/4qm0rgs.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Element UI 通用图片骨架屏组件"></span>
+            <span id="subtitle" data-typed-text="Spring Security 自定义状态码，防止正常状态码被 403 覆盖"></span>
           
         </div>
 
@@ -254,8 +254,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-16 19:46" pubdate>
-          2022年11月16日
+        <time datetime="2023-07-05 20:33" pubdate>
+          2023年7月5日
         </time>
       </span>
     
@@ -266,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          2.9k 字
         
       </span>
     
@@ -314,7 +314,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Element UI 通用图片骨架屏组件</h1>
+            <h1 style="display: none">Spring Security 自定义状态码，防止正常状态码被 403 覆盖</h1>
             
             
               <div class="markdown-body">
@@ -322,37 +322,27 @@
                 <!-- markdownlint-disable-file MD033 -->
 
 <blockquote>
-<p>近年来，骨架屏（Skeleton）逐渐成为一种流行的加载动画，其显著增强了用户等待过程中的体验。本文实现了 Vue.js + Element UI 的通用图片骨架屏组件。</p>
+<p>在项目中加入 Spring Security 后，它会将所有的错误状态码覆盖为 403，例如 400, 405 和 500，我们也可能需要将 403 改为 401 作为未登录的状态码。本文将介绍如何自定义 AuthenticationEntryPoint 以解决此问题。</p>
 </blockquote>
 <span id="more"></span>
 
-<p>感谢 <a target="_blank" rel="noopener" href="https://space.bilibili.com/1568294">@小灰灰</a> 在研究过程中提供的帮助和创新，编写了组件的部分内容，作了大量重要的工作。</p>
-<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><video width="100%" controls>
-  <source src="https://picture.zhanganzhi.com/2022/11/16/0dclfq9.mp4">
-</video>
+<h2 id="背景情况"><a href="#背景情况" class="headerlink" title="背景情况"></a>背景情况</h2><ul>
+<li>我根据这个视频配置了基础的 Spring Security 和 JWT 鉴权：</li>
+</ul>
+<div style="width=90%; padding-top: 56.25%; position: relative;">
+<iframe style="top:0; bottom:0; left:0; right:0; position: absolute;" width="100%" height="100%" src="https://www.youtube.com/embed/KxqlJblhzfI" title="Spring Boot 3 + Spring Security 6 - JWT Authentication and Authorisation [NEW] [2023]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">el-skeleton</span></span><br><span class="hljs-tag">    <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;root&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">animated</span></span><br><span class="hljs-tag">    <span class="hljs-attr">:loading</span>=<span class="hljs-string">&quot;loading&quot;</span></span><br><span class="hljs-tag">  &gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">template</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">el-skeleton-item</span></span><br><span class="hljs-tag">        <span class="hljs-attr">:id</span>=<span class="hljs-string">&quot;idName&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;className&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;&#123;height: heightValue&#125;&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;image&quot;</span></span><br><span class="hljs-tag">      /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:id</span>=<span class="hljs-string">&quot;idName&quot;</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;className&quot;</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">&quot;src&quot;</span> <span class="hljs-attr">:alt</span>=<span class="hljs-string">&quot;alt&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">el-skeleton</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;BaseLoadingImage&quot;</span>,</span><br><span class="language-javascript">  <span class="hljs-attr">props</span>: &#123;</span><br><span class="language-javascript">    <span class="hljs-attr">className</span>: &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">required</span>: <span class="hljs-literal">false</span>,</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">    <span class="hljs-attr">idName</span>: &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">required</span>: <span class="hljs-literal">false</span>,</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">    <span class="hljs-attr">src</span>: &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">    <span class="hljs-attr">alt</span>: &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">required</span>: <span class="hljs-literal">false</span>,</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">    <span class="hljs-attr">height</span>: &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">required</span>: <span class="hljs-literal">false</span>,</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">loading</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">heightValue</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">height</span> === <span class="hljs-literal">undefined</span> ? <span class="hljs-string">&quot;200px&quot;</span> : <span class="hljs-variable language_">this</span>.<span class="hljs-property">height</span>,</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">height</span> === <span class="hljs-literal">undefined</span>) &#123;</span><br><span class="language-javascript">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">heightValue</span> = (<span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">root</span>.<span class="hljs-property">$el</span>.<span class="hljs-property">clientWidth</span> / <span class="hljs-number">16</span> * <span class="hljs-number">9</span>) + <span class="hljs-string">&quot;px&quot;</span>;</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">    <span class="hljs-keyword">let</span> img = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>();</span><br><span class="language-javascript">    img.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">loading</span> = <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript">    img.<span class="hljs-property">src</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">src</span>;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">&#125;;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>并且参考了此回答：<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/47507342/19420247">https://stackoverflow.com/a/47507342/19420247</a></li>
+<li>在以上的基础上，由于版本更新，所以作了一些修改，请注意文章时间是否过旧。</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>首先编写 <code>AuthExceptionEntryPoint</code> 类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">import</span> jakarta.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> jakarta.servlet.http.HttpServletResponse;<br><span class="hljs-keyword">import</span> org.springframework.http.HttpStatus;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.ControllerAdvice;<br><span class="hljs-keyword">import</span> org.springframework.security.web.AuthenticationEntryPoint;<br><span class="hljs-keyword">import</span> org.springframework.security.core.AuthenticationException;<br><br><span class="hljs-meta">@ControllerAdvice</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthExceptionEntryPoint</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">AuthenticationEntryPoint</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">commence</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-keyword">if</span> (response.getStatus( == <span class="hljs-number">200</span>) &#123;<br>            <span class="hljs-comment">// status code will be 200 if the request is not authenticated</span><br>            response.sendError(HttpStatus.UNAUTHORIZED.value());<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// prevent change of status code for other errors</span><br>            response.sendError(response.getStatus());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用时只需传递相应参数即可:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">loading-image</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;src.webp&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">loading-image</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>然后修改 <code>SecurityFilterChain</code>，注意 <code>exceptionHandling</code> 部分即为自定义的错误处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> lombok.RequiredArgsConstructor;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.security.authentication.AuthenticationProvider;<br><span class="hljs-keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;<br><span class="hljs-keyword">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;<br><span class="hljs-keyword">import</span> org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;<br><span class="hljs-keyword">import</span> org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;<br><span class="hljs-keyword">import</span> org.springframework.security.web.SecurityFilterChain;<br><span class="hljs-keyword">import</span> org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;<br><span class="hljs-keyword">import</span> org.springframework.security.config.http.SessionCreationPolicy;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableWebSecurity</span><br><span class="hljs-meta">@EnableMethodSecurity</span><br><span class="hljs-meta">@RequiredArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthConfig</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AuthJwtFilter authJwtFilter;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AuthenticationProvider authenticationProvider;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> SecurityFilterChain <span class="hljs-title function_">securityFilterChain</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        http<br>                .csrf(CsrfConfigurer::disable)<br>                .authorizeHttpRequests(<br>                        authRegistry -&gt; authRegistry<br>                                .requestMatchers(<span class="hljs-string">&quot;/v1/auth/**&quot;</span>).permitAll()<br>                                .anyRequest().authenticated()<br>                )<br>                .sessionManagement(<br>                        sessionManagement -&gt; sessionManagement<br>                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)<br>                )<br>                .authenticationProvider(authenticationProvider)<br>                .addFilterBefore(authJwtFilter, UsernamePasswordAuthenticationFilter.class)<br>                .exceptionHandling(exceptionHandling -&gt; exceptionHandling.authenticationEntryPoint(<span class="hljs-keyword">new</span> <span class="hljs-title class_">AuthExceptionEntryPoint</span>()));<br><br>        <span class="hljs-keyword">return</span> http.build();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>若需要修改图片的样式，只需传递 <code>class</code> 或 <code>id</code> 从外部使用 <code>v-deep</code> 设置 css 即可。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">loading-image</span> <span class="hljs-attr">class-name</span>=<span class="hljs-string">&quot;class-1&quot;</span> <span class="hljs-attr">id-name</span>=<span class="hljs-string">&quot;id-1&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;src.webp&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">loading-image</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css">::v-deep .class-<span class="hljs-number">1</span> &#123;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>&#125;<br><br>::v-deep #id-<span class="hljs-number">1</span> &#123;<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">1rem</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><p>该组件主要由两大功能组成，一是加载图片并切换骨架屏显示，二是智能高度调整。</p>
-<h3 id="加载功能"><a href="#加载功能" class="headerlink" title="加载功能"></a>加载功能</h3><p>由于默认 <code>loading</code> 为 <code>true</code>，所以 <code>&lt;img&gt;</code> 并不会显示，浏览器也不会请求图片资源。我们在 <code>mounted</code> 时使用 js 请求图片资源。当图片加载完成后，将 <code>loading</code> 设置为 <code>false</code> 且更新 <code>&lt;img&gt;</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> img = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>();<br>img.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">loading</span> = <span class="hljs-literal">false</span>;<br>&#125;;<br>img.<span class="hljs-property">src</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">src</span>;<br></code></pre></td></tr></table></figure>
-
-<h3 id="智能高度调整"><a href="#智能高度调整" class="headerlink" title="智能高度调整"></a>智能高度调整</h3><p>骨架的高度遵循以下规则：</p>
-<ol>
-<li>若传递了高度参数，使用参数设置高度；</li>
-<li><code>mounte</code> 之前使用 <code>200px</code> 作为默认高度；</li>
-<li><code>mounte</code> 之后获取宽度，以 <code>16:9</code> 计算默认高度。</li>
-</ol>
-<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/skeleton">Skeleton 骨架屏</a>. Element. [2022-11-16]. （原始内容<a target="_blank" rel="noopener" href="http://web.archive.org/web/20221116204140/https://element.eleme.io/#/zh-CN/component/skeleton">存档</a>于2022-11-16）.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -375,7 +365,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  <a href="/categories/%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
   
   
 
@@ -392,13 +382,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
+        <a href="/tags/Spring/">#Spring</a>
       
-        <a href="/tags/Vue-js/">#Vue.js</a>
+        <a href="/tags/Spring-Boot/">#Spring Boot</a>
       
-        <a href="/tags/Element-UI/">#Element UI</a>
+        <a href="/tags/Spring-Security/">#Spring Security</a>
       
-        <a href="/tags/%E9%AA%A8%E6%9E%B6%E5%B1%8F/">#骨架屏</a>
+        <a href="/tags/HTTP/">#HTTP</a>
       
     </div>
   
@@ -410,8 +400,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Element UI 通用图片骨架屏组件</div>
-      <div>https://blog.zhanganzhi.com/zh-CN/2022/11/92e7bb97253e/</div>
+      <div>Spring Security 自定义状态码，防止正常状态码被 403 覆盖</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2023/07/2d4f8ccace6c/</div>
     </div>
     <div class="license-meta">
       
@@ -423,7 +413,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月16日</div>
+          <div>2023年7月5日</div>
         </div>
       
       
@@ -467,9 +457,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2023/07/2d4f8ccace6c/" title="Spring Security 自定义状态码，防止正常状态码被 403 覆盖">
+                      <a href="/en/2023/07/d7099ff451fa/" title="Spring Security customizing status code, and prevent other codes overridden by 403">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring Security 自定义状态码，防止正常状态码被 403 覆盖</span>
+                        <span class="hidden-mobile">Spring Security customizing status code, and prevent other codes overridden by 403</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -477,8 +467,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zh-CN/2022/10/7951c3e787fe/" title="一个没有密码保护的 frp 服务器有多不安全">
-                        <span class="hidden-mobile">一个没有密码保护的 frp 服务器有多不安全</span>
+                      <a href="/zh-CN/2022/11/92e7bb97253e/" title="Element UI 通用图片骨架屏组件">
+                        <span class="hidden-mobile">Element UI 通用图片骨架屏组件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
