@@ -20,18 +20,18 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/en/2023/07/d7099ff451fa/</loc>
+    <loc>https://blog.zhanganzhi.com/en/2022/08/8fe975c3db2b/</loc>
     
-    <lastmod>2023-07-05</lastmod>
+    <lastmod>2022-08-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/en/2022/08/8fe975c3db2b/</loc>
+    <loc>https://blog.zhanganzhi.com/en/2023/07/d7099ff451fa/</loc>
     
-    <lastmod>2022-08-23</lastmod>
+    <lastmod>2023-07-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/zh-CN/2023/07/b15f139bb978/</loc>
+    <loc>https://blog.zhanganzhi.com/zh-CN/2023/07/9b33bad6bb1d/</loc>
     
     <lastmod>2023-07-25</lastmod>
     
@@ -215,6 +215,20 @@
   </url>
   
   <url>
+    <loc>https://blog.zhanganzhi.com/tags/MCDReforged/</loc>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/Python/</loc>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/tags/Spring/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -237,20 +251,6 @@
   
   <url>
     <loc>https://blog.zhanganzhi.com/tags/HTTP/</loc>
-    <lastmod>2023-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/MCDReforged/</loc>
-    <lastmod>2023-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/Python/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -441,13 +441,6 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/Minecraft/MCDR%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.zhanganzhi.com/categories/Minecraft/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -476,7 +469,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/Minecraft/MCDR%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -484,6 +477,13 @@
   
   <url>
     <loc>https://blog.zhanganzhi.com/categories/%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
