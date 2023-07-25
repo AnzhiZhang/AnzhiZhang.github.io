@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>解决 WebStorm 开发 uni-app 时 rpx 单位不识别问题</title>
+    <link href="/zh-CN/2023/07/b15f139bb978/"/>
+    <url>/zh-CN/2023/07/b15f139bb978/</url>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>WebStorm 开发 uni-app 时，rpx 单位不识别，且无法正常格式化。</p><span id="more"></span><p><img src="https://picture.zhanganzhi.com/2023/07/25/43fup1w.png" alt="不识别 rpx 单位"></p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>查阅资料推荐安装这两个插件，但都不好用或更新不及时导致不支持。</p><p><img src="https://picture.zhanganzhi.com/2023/07/25/vikukwx.png" alt="第一个没用，第二个更新较慢"></p><p>最终方案：安装 <a href="https://plugins.jetbrains.com/plugin/21470-uniapp-tool">Uniapp Tool</a>，问题解决。</p><p><img src="https://picture.zhanganzhi.com/2023/07/25/5xsnxd3.png" alt="安装 Uniapp Tool"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发</category>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>WebStorm</tag>
+      
+      <tag>微信小程序</tag>
+      
+      <tag>uni-app</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Spring Security customizing status code, and prevent other codes overridden by 403</title>
     <link href="/en/2023/07/d7099ff451fa/"/>
     <url>/en/2023/07/d7099ff451fa/</url>

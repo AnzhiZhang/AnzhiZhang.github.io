@@ -6,7 +6,7 @@
   <link href="https://blog.zhanganzhi.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zhanganzhi.com/"/>
-  <updated>2023-07-05T20:33:41.000Z</updated>
+  <updated>2023-07-25T13:54:27.000Z</updated>
   <id>https://blog.zhanganzhi.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决 WebStorm 开发 uni-app 时 rpx 单位不识别问题</title>
+    <link href="https://blog.zhanganzhi.com/zh-CN/2023/07/b15f139bb978/"/>
+    <id>https://blog.zhanganzhi.com/zh-CN/2023/07/b15f139bb978/</id>
+    <published>2023-07-25T13:54:27.000Z</published>
+    <updated>2023-07-25T13:54:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>WebStorm 开发 uni-app 时，rpx 单位不识别，且无法正常格式化。</p><span id="more"></span><p><img src="https://picture.zhanganzhi.com/2023/07/25/43fup1w.png" alt="不识别 rpx 单位"></p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>查阅资料推荐安装这两个插件，但都不好用或更新不及时导致不支持。</p><p><img src="https://picture.zhanganzhi.com/2023/07/25/vikukwx.png" alt="第一个没用，第二个更新较慢"></p><p>最终方案：安装 <a href="https://plugins.jetbrains.com/plugin/21470-uniapp-tool">Uniapp Tool</a>，问题解决。</p><p><img src="https://picture.zhanganzhi.com/2023/07/25/5xsnxd3.png" alt="安装 Uniapp Tool"></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;WebStorm 开发 uni-app 时，rpx 单位不识别，且无法正常格式化。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="开发" scheme="https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="前端" scheme="https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="WebStorm" scheme="https://blog.zhanganzhi.com/tags/WebStorm/"/>
+    
+    <category term="微信小程序" scheme="https://blog.zhanganzhi.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    <category term="uni-app" scheme="https://blog.zhanganzhi.com/tags/uni-app/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Security customizing status code, and prevent other codes overridden by 403</title>
