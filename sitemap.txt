@@ -17,7 +17,6 @@ https://blog.zhanganzhi.com/zh-CN/2023/07/2d4f8ccace6c/
 https://blog.zhanganzhi.com/zh-CN/2023/07/9b33bad6bb1d/
 https://blog.zhanganzhi.com/zh-CN/2023/08/f2d4df6ce0b9/
 https://blog.zhanganzhi.com/zh-CN/2023/08/6946cd043888/
-https://blog.zhanganzhi.com/zh-CN/2023/09/c85d63e46163/
 https://blog.zhanganzhi.com/about/index.html
 https://blog.zhanganzhi.com/
 https://blog.zhanganzhi.com/tags/Minecraft/
@@ -59,9 +58,6 @@ https://blog.zhanganzhi.com/tags/uni-app/
 https://blog.zhanganzhi.com/tags/%E6%B3%A8%E8%A7%A3/
 https://blog.zhanganzhi.com/tags/%E9%80%86%E5%90%91/
 https://blog.zhanganzhi.com/tags/PDF-js/
-https://blog.zhanganzhi.com/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%B0%E5%BF%86/
-https://blog.zhanganzhi.com/tags/Bilibili/
-https://blog.zhanganzhi.com/tags/%E6%B8%B8%E6%88%8F/
 https://blog.zhanganzhi.com/categories/Minecraft/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/
 https://blog.zhanganzhi.com/categories/Minecraft/%E5%B7%A5%E5%85%B7/
@@ -75,5 +71,4 @@ https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%AE%89%E5%85%A8/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/
 https://blog.zhanganzhi.com/categories/%E5%BC%80%E5%8F%91/%E9%80%86%E5%90%91/
-https://blog.zhanganzhi.com/categories/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%B0%E5%BF%86/
 https://blog.zhanganzhi.com/categories/%E6%97%A5%E5%B8%B8/%E5%BC%80%E7%AE%B1/
