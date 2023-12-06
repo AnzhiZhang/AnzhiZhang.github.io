@@ -59,7 +59,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.zhanganzhi.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":"G-PMM77KFF7F","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"n7I9EuYN7JyRKrHnyO7lKPvK-MdYXbMMI","app_key":"YmP05m7YTm0Fmzytbmf5FD5f","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.zhanganzhi.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-PMM77KFF7F"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"n7I9EuYN7JyRKrHnyO7lKPvK-MdYXbMMI","app_key":"YmP05m7YTm0Fmzytbmf5FD5f","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -73,14 +73,14 @@
   
 
   
-
-  
-    <!-- Google gtag.js -->
+    <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-PMM77KFF7F', function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-PMM77KFF7F", function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
           gtag('config', 'G-PMM77KFF7F');
         });
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -181,7 +181,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -193,7 +193,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>友链</span>
               </a>
@@ -271,12 +271,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2023/08/6946cd043888/" target="_blank">
           下载 PDF.js 禁止下载的文件
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2023/08/6946cd043888/" target="_blank">
@@ -349,12 +349,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2023/08/f2d4df6ce0b9/" target="_blank">
           Spring Security 自定义 @Anonymous 和 @HasRole 注解
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2023/08/f2d4df6ce0b9/" target="_blank">
@@ -431,12 +431,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2023/07/9b33bad6bb1d/" target="_blank">
           解决 WebStorm 开发 uni-app 时 rpx 单位不识别问题
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2023/07/9b33bad6bb1d/" target="_blank">
@@ -509,12 +509,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/en/2023/07/d7099ff451fa/" target="_blank">
           Spring Security customizing status code, and prevent other codes overridden by 403
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/en/2023/07/d7099ff451fa/" target="_blank">
@@ -589,12 +589,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2023/07/2d4f8ccace6c/" target="_blank">
           Spring Security 自定义状态码，防止正常状态码被 403 覆盖
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2023/07/2d4f8ccace6c/" target="_blank">
@@ -669,12 +669,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2022/11/92e7bb97253e/" target="_blank">
           Element UI 通用图片骨架屏组件
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2022/11/92e7bb97253e/" target="_blank">
@@ -749,12 +749,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2022/10/7951c3e787fe/" target="_blank">
           一个没有密码保护的 frp 服务器有多不安全
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2022/10/7951c3e787fe/" target="_blank">
@@ -825,12 +825,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2022/09/9fe6d5ab7fe2/" target="_blank">
           Windows 连接 smb 非标准端口
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2022/09/9fe6d5ab7fe2/" target="_blank">
@@ -894,12 +894,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/en/2022/08/8fe975c3db2b/" target="_blank">
           【MCDR Tutorials 01】Introduction
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/en/2022/08/8fe975c3db2b/" target="_blank">
@@ -972,12 +972,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/zh-CN/2022/08/fc02d61c8889/" target="_blank">
           【MCDR 系列教程 01】简介
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/zh-CN/2022/08/fc02d61c8889/" target="_blank">
@@ -1118,7 +1118,7 @@
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
