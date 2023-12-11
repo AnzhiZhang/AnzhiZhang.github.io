@@ -173,6 +173,15 @@
   </url>
   
   <url>
+    <loc>https://blog.zhanganzhi.com/zh-CN/2023/12/c11d6ee2a69a/</loc>
+    
+    <lastmod>2023-12-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/about/index.html</loc>
     
     <lastmod>2022-06-04</lastmod>
@@ -479,6 +488,34 @@
   
   <url>
     <loc>https://blog.zhanganzhi.com/tags/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2023-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/C/</loc>
+    <lastmod>2023-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/Compiler-Explorer/</loc>
+    <lastmod>2023-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/%E7%BC%96%E8%AF%91%E5%99%A8/</loc>
     <lastmod>2023-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
