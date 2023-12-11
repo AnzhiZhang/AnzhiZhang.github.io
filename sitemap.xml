@@ -628,4 +628,11 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/%E6%B2%99%E9%9B%95%E7%B3%BB%E5%88%97/</loc>
+    <lastmod>2023-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 </urlset>
