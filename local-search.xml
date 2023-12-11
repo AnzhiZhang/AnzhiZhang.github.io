@@ -15,6 +15,8 @@
       
       <category>学术</category>
       
+      <category>编译原理</category>
+      
     </categories>
     
     
@@ -44,9 +46,9 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>技术</category>
       
-      <category>逆向</category>
+      <category>逆向工程</category>
       
     </categories>
     
@@ -55,7 +57,7 @@
       
       <tag>前端</tag>
       
-      <tag>逆向</tag>
+      <tag>逆向工程</tag>
       
       <tag>PDF.js</tag>
       
@@ -75,9 +77,9 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>软件开发</category>
       
-      <category>后端</category>
+      <category>后端开发</category>
       
     </categories>
     
@@ -110,9 +112,9 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>软件开发</category>
       
-      <category>前端</category>
+      <category>前端开发</category>
       
     </categories>
     
@@ -141,9 +143,9 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>软件开发</category>
       
-      <category>后端</category>
+      <category>后端开发</category>
       
     </categories>
     
@@ -174,9 +176,9 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>软件开发</category>
       
-      <category>后端</category>
+      <category>后端开发</category>
       
     </categories>
     
@@ -207,9 +209,9 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>软件开发</category>
       
-      <category>前端</category>
+      <category>前端开发</category>
       
     </categories>
     
@@ -240,7 +242,7 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>技术</category>
       
       <category>安全</category>
       
@@ -269,7 +271,9 @@
     
     <categories>
       
-      <category>经验</category>
+      <category>技术</category>
+      
+      <category>经验分享</category>
       
     </categories>
     
@@ -416,7 +420,7 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>软件开发</category>
       
       <category>Git</category>
       
@@ -447,7 +451,7 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>软件开发</category>
       
       <category>Git</category>
       
@@ -478,7 +482,9 @@
     
     <categories>
       
-      <category>经验</category>
+      <category>技术</category>
+      
+      <category>经验分享</category>
       
     </categories>
     
@@ -569,7 +575,7 @@
     
     <categories>
       
-      <category>开发</category>
+      <category>技术</category>
       
     </categories>
     
