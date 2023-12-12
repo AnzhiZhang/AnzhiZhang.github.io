@@ -38,6 +38,15 @@
   </url>
   
   <url>
+    <loc>https://blog.zhanganzhi.com/en/2023/12/bc4129caff08/</loc>
+    
+    <lastmod>2023-12-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/zh-CN/2022/06/226b86b1999a/</loc>
     
     <lastmod>2022-06-04</lastmod>
@@ -284,6 +293,34 @@
   </url>
   
   <url>
+    <loc>https://blog.zhanganzhi.com/tags/C/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/Compiler-Explorer/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/tags/%E7%BC%96%E8%AF%91%E5%99%A8/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/tags/Forge/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -493,34 +530,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/C/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/Compiler-Explorer/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/tags/%E7%BC%96%E8%AF%91%E5%99%A8/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -545,14 +554,14 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/Minecraft/Mod/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/Minecraft/Mod/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -566,7 +575,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -580,6 +589,13 @@
   </url>
   
   <url>
+    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/categories/%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -587,14 +603,14 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
+    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -602,6 +618,13 @@
   
   <url>
     <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/Git/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -622,13 +645,6 @@
   </url>
   
   <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/%E6%B2%99%E9%9B%95%E7%B3%BB%E5%88%97/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -637,13 +653,6 @@
   
   <url>
     <loc>https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhanganzhi.com/categories/%E5%AD%A6%E6%9C%AF/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
