@@ -16,27 +16,26 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="随着经济和社会发展、生活水平提高、精神文化需求更加丰富多彩，人们逐渐具有相同爱好的数字社区。而在线 Git 如 GitHub 逐渐成为了这些社区的平台选择，它能提供方便的协同交互和标记语言的文档撰写功能，可以有效减少传统论坛的维护成本。但是，这些社区也面临着一些困境，本文将基于一个运转超 6 年的社区和一个新建社区的现实情况，浅谈基于在线 Git 的爱好社区困境。">
+    <meta name="description" content="传统的 Spring Cloud Sleuth[1] 追踪已经不适用于 Spring Boot 3，本文将介绍如何在 Spring Boot 3 中配置 Micrometer 追踪请求。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈基于在线 Git 的爱好社区困境">
-<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2023/12/9a7469cbe8a1/index.html">
+<meta property="og:title" content="Spring Boot 3 请求追踪">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2023/12/2e66e27724a7/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="随着经济和社会发展、生活水平提高、精神文化需求更加丰富多彩，人们逐渐具有相同爱好的数字社区。而在线 Git 如 GitHub 逐渐成为了这些社区的平台选择，它能提供方便的协同交互和标记语言的文档撰写功能，可以有效减少传统论坛的维护成本。但是，这些社区也面临着一些困境，本文将基于一个运转超 6 年的社区和一个新建社区的现实情况，浅谈基于在线 Git 的爱好社区困境。">
+<meta property="og:description" content="传统的 Spring Cloud Sleuth[1] 追踪已经不适用于 Spring Boot 3，本文将介绍如何在 Spring Boot 3 中配置 Micrometer 追踪请求。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2023/12/24/ag89qzm.png">
-<meta property="article:published_time" content="2023-12-24T09:57:38.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2023/07/05/mlwd9ph.png">
+<meta property="article:published_time" content="2023-12-24T13:37:18.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="Git">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Gitea">
-<meta property="article:tag" content="社区">
-<meta property="article:tag" content="杂谈">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Spring Boot">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Spring Cloud">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2023/12/24/ag89qzm.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2023/07/05/mlwd9ph.png">
   
   
   
-  <title>浅谈基于在线 Git 的爱好社区困境 - Andy&#39;s Blog</title>
+  <title>Spring Boot 3 请求追踪 - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -244,7 +243,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="浅谈基于在线 Git 的爱好社区困境"></span>
+            <span id="subtitle" data-typed-text="Spring Boot 3 请求追踪"></span>
           
         </div>
 
@@ -255,7 +254,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-24 09:57" pubdate>
+        <time datetime="2023-12-24 13:37" pubdate>
           2023年12月24日
         </time>
       </span>
@@ -267,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          180 字
         
       </span>
     
@@ -314,36 +313,26 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">浅谈基于在线 Git 的爱好社区困境</h1>
+            <h1 id="seo-header">Spring Boot 3 请求追踪</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>随着经济和社会发展、生活水平提高、精神文化需求更加丰富多彩，人们逐渐具有相同爱好的数字社区。而在线 Git 如 GitHub 逐渐成为了这些社区的平台选择，它能提供方便的协同交互和标记语言的文档撰写功能，可以有效减少传统论坛的维护成本。但是，这些社区也面临着一些困境，本文将基于一个运转超 6 年的社区和一个新建社区的现实情况，浅谈基于在线 Git 的爱好社区困境。</p>
+<p>传统的 Spring Cloud Sleuth<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Spring Cloud Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth). spring-cloud. [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth)于2023-12-24）">[1]</span></a></sup> 追踪已经不适用于 Spring Boot 3，本文将介绍如何在 Spring Boot 3 中配置 Micrometer 追踪请求。</p>
 </blockquote>
 <span id="more"></span>
 
-<p>昨天看到一个视频，《<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MC4y1D7jQ/">基于Gitea的红石数电索引</a>》<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[基于Gitea的红石数电索引](https://www.bilibili.com/video/BV1MC4y1D7jQ/). shenjack_. 2023-12-23 [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224110755/https://www.bilibili.com/video/BV1MC4y1D7jQ/)于2023-12-24）">[1]</span></a></sup>。这个视频讲的是一个基于 Gitea 的爱好社区，使用 Gitea 作为在线 Git，协同编辑和维护红石数电的技术文档和基础组件，以及社区的一些规则和指南。这个社区是新建的，一开始选择使用可以在线协同编辑的腾讯文档，但似乎是这位高级成员提出使用 Gitea 作为社区平台，因为腾讯文档仅提供了协同编辑功能，但当内容庞大后将无法实现所需功能，且权限管理并不方便，而且 Gitea 作为一个开源项目，可以私有化社区数据。</p>
-<p>这很容易让人联想到 CFPA 社区，酒石酸菌于 2017 年创立的一个 MC 模组和整合包翻译社区，最早在 GitHub 基于 PR 收集社区贡献，后来引入了 Weblate 平台实现自动管理 Git，避免了学习成本，在之后舍弃了 Weblate 平台，只保留了 GitHub + PR 的模式，同时通过 GitHub Actions 实现了部分流程的自动化管理。</p>
-<p>这类基于在线 Git 的社区运转核心逻辑是，社区成员提交 PR 贡献工作和参与社区建设，社区的管理员会负责审核、维护、流程性工作。而 Issue 功能也提供了同话题讨论的平台，相当于传统的邮件功能，相关人员可以在同一个话题下集中讨论同一个问题。这样可以避免开发自由平台或论坛的成本，也可以节约一定的制度约定成本。</p>
-<p>但是，这类社区也面临着几点困境。</p>
-<ol>
-<li>文档繁琐。社区需要大量繁杂的文档维持秩序，往往需要大量的讨论不断更新制度文档。而分类整理这些文档，使用同样的风格和样式，也需要大量的工作。有些社区甚至会陷入制度设计的瘾。</li>
-<li>人力成本高。这些流程需要人工确保执行，还需要避免争议，长期以来需要社区核心维护者频繁投入大量时间，挤压个人生活和工作。尽管近年来随着 GitHub Actions 等自动化工具的出现可以节约一些人力成本，但这些工具的开发和随着制度变更的维护本身就是巨大的成本。</li>
-<li>参与门槛高。参与这些社区的贡献往往需要学习使用 GitHub 或 Gitea 这样的计算机领域专业平台，甚至对某些区域的用户还会存在可访问性问题。而且往往需要学习标记性语言的语法以撰写文档，并花费大量的时间确保自己撰写的文档符合不断变化的规范。而规范文档经常更新不及时或缺少细节，贡献者需要从他人的样例中学习，适应多次后才能提交符合要求的工作。这些门槛造就了参与者很难将大部分的精力放在贡献本身，而是陷入了制度的沼泽。</li>
-<li>权责不明，出现争议无法有效解决。这些社区的核心维护者往往是社区的创始人，但随着社区发展壮大，有些分歧可能会难以解决，最后造成社区的分裂。而且随着核心维护者因为个人原因离开社区或没有精力维护，他留下来的责任将被搁置，由于缺少维护形成长期的累赘。这也会反过来绑架核心参与者，让人们望而却步不敢参与太多，导致社区无法真正成为社区。</li>
-<li>内部与外部矛盾。随着时间发展，难免会出现冲突和矛盾。内部矛盾可能还好消化，而外部矛盾可能会成为社区分裂或瓦解的导火索，例如 CFPA 的<a target="_blank" rel="noopener" href="https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/pull/1536">纳夸达</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[[讨论] 纳夸达](https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/pull/1536). WuzgXY-GitHub. 2022-02-15 [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224130456/https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/pull/1536)于2023-12-24）">[2]</span></a></sup>事件，真正想要讨论问题本身的人，想要作出贡献的人，被舆论裹挟、磨平了热情，最终黯然离场。</li>
-<li>外围贡献积压。这些社区往往是开放的，但接受外部贡献则意味着不确定性。CFPA 就因此面临了大量 PR 提交者无响应，最终大量积压的问题。目前他们采取了 <code>7+7</code> 和 <code>3+7</code> 这样的制度来尝试<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[关于应对无响应 PR 的措施](https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/issues/2658). dovisutu. 2022-12-03 [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224131003/https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/issues/2658)于2023-12-24）">[3]</span></a></sup>，运行效果如何还需要未来再观察。</li>
-</ol>
-<p>固然自研平台是非常好的解决方案，但其开发和维护成本也是巨大的，虽然可以方便社区用户，但对核心开发者的要求只增不减。而且这可能最终也会滑向另一个反面：技术霸权，一切在框架和程序内运转，大家都是流水线的员工，而不是社区的成员和建设者。这可能会导致社区成员主动性的丧失，陷入技术的牢笼，最终人们放弃选择离开。社区的核心是人，而不是技术，技术终究只是社区的工具。</p>
-<p>制度设计上瘾和技术霸权等问题，在吕德文的文章《<a target="_blank" rel="noopener" href="https://new.qq.com/rain/a/20230406A07TZH00">当前基层治理的十大怪现象</a>》<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[当前基层治理的十大怪现](https://new.qq.com/rain/a/20230406A07TZH00). 吕德文. 2023-04-06 [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224095641/https://new.qq.com/rain/a/20230406A07TZH00)于2023-12-24）">[4]</span></a></sup>中得到了深入的探讨，这篇文章很有参考的价值和意义，或许对今天的在线社区治理能有一定的启发。</p>
-<p>这个时代各类小众社区越来越多，而很多传统社区也在做数字化转型，基于在线平台的社区和传统社区同样面临着诸多困境。而这类问题最终如何妥善解决，可能是这些社区能否长久良好运行、维系人与人之间的关系、保持开放的必经之路。</p>
-<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MC4y1D7jQ/">基于Gitea的红石数电索引</a>. shenjack_. 2023-12-23 [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224110755/https://www.bilibili.com/video/BV1MC4y1D7jQ/">存档</a>于2023-12-24）
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/pull/1536">[讨论] 纳夸达</a>. WuzgXY-GitHub. 2022-02-15 [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224130456/https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/pull/1536">存档</a>于2023-12-24）
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/issues/2658">关于应对无响应 PR 的措施</a>. dovisutu. 2022-12-03 [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224131003/https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/issues/2658">存档</a>于2023-12-24）
-<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://new.qq.com/rain/a/20230406A07TZH00">当前基层治理的十大怪现</a>. 吕德文. 2023-04-06 [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224095641/https://new.qq.com/rain/a/20230406A07TZH00">存档</a>于2023-12-24）
-<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<p>Spring Boot 3 更新后，<a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a> 表示不再支持<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Spring Cloud Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth). spring-cloud. [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth)于2023-12-24）">[1]</span></a></sup>，而是迁移到 <a target="_blank" rel="noopener" href="https://micrometer.io/">Micrometer</a>。</p>
+<h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><p>为了在 Spring Boot 3 中追踪请求，我们需要在 <code>build.gradle</code> 中添加如下依赖：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs groovy">implementation <span class="hljs-string">&quot;io.micrometer:micrometer-tracing-bridge-brave&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="配置日志格式"><a href="#配置日志格式" class="headerlink" title="配置日志格式"></a>配置日志格式</h2><p>Sleuth 会自动配置日志格式，但是 Micrometer 需要手动配置，参考 <a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide#log-pattern">Spring Cloud Sleuth 3.1 Migration Guide</a>，在 <code>application.properties</code> 中添加如下配置：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">logging.pattern.level</span>=<span class="hljs-string">%5p [$&#123;spring.application.name:&#125;,%X&#123;traceId:-&#125;,%X&#123;spanId:-&#125;]</span><br></code></pre></td></tr></table></figure>
+
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a>. spring-cloud. [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth">存档</a>于2023-12-24）
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide">Spring Cloud Sleuth 3.1 Migration Guide</a>. micrometer-metrics. 2023-09-07 [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224135002/https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide">存档</a>于2023-12-24）
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -361,8 +350,22 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9D%82%E8%B0%88/" class="category-chain-item">杂谈</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="category-chain-item">软件开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" class="category-chain-item">后端开发</a>
+  
+  
+
+  
+
   
 
       </span>
@@ -376,15 +379,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Git/" class="print-no-link">#Git</a>
+        <a href="/tags/Spring/" class="print-no-link">#Spring</a>
       
-        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
+        <a href="/tags/Spring-Boot/" class="print-no-link">#Spring Boot</a>
       
-        <a href="/tags/Gitea/" class="print-no-link">#Gitea</a>
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
       
-        <a href="/tags/%E7%A4%BE%E5%8C%BA/" class="print-no-link">#社区</a>
-      
-        <a href="/tags/%E6%9D%82%E8%B0%88/" class="print-no-link">#杂谈</a>
+        <a href="/tags/Spring-Cloud/" class="print-no-link">#Spring Cloud</a>
       
     </div>
   
@@ -396,8 +397,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>浅谈基于在线 Git 的爱好社区困境</div>
-      <div>https://blog.zhanganzhi.com/zh-CN/2023/12/9a7469cbe8a1/</div>
+      <div>Spring Boot 3 请求追踪</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2023/12/2e66e27724a7/</div>
     </div>
     <div class="license-meta">
       
@@ -453,9 +454,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2023/12/2e66e27724a7/" title="Spring Boot 3 请求追踪">
+                      <a href="/en/2023/12/2e66e27724a7/" title="Spring Boot 3 Request Tracing">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring Boot 3 请求追踪</span>
+                        <span class="hidden-mobile">Spring Boot 3 Request Tracing</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -463,8 +464,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/en/2023/12/bc4129caff08/" title="How Does Compiler Explorer (Godbolt) Works?">
-                        <span class="hidden-mobile">How Does Compiler Explorer (Godbolt) Works?</span>
+                      <a href="/zh-CN/2023/12/9a7469cbe8a1/" title="浅谈基于在线 Git 的爱好社区困境">
+                        <span class="hidden-mobile">浅谈基于在线 Git 的爱好社区困境</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
