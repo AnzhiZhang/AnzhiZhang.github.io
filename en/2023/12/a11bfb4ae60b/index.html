@@ -16,26 +16,28 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="Traditional Spring Cloud Sleuth[1] tracing is no longer applicable to Spring Boot 3. This article will introduce how to configure Micrometer to trace requests in Spring Boot 3.">
+    <meta name="description" content="This article introduces how to integrate TimescaleDB in Spring Data JPA.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot 3 Request Tracing">
-<meta property="og:url" content="https://blog.zhanganzhi.com/en/2023/12/2e66e27724a7/index.html">
+<meta property="og:title" content="TimescaleDB + Spring Data JPA Integration">
+<meta property="og:url" content="https://blog.zhanganzhi.com/en/2023/12/a11bfb4ae60b/index.html">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="Traditional Spring Cloud Sleuth[1] tracing is no longer applicable to Spring Boot 3. This article will introduce how to configure Micrometer to trace requests in Spring Boot 3.">
+<meta property="og:description" content="This article introduces how to integrate TimescaleDB in Spring Data JPA.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2023/07/05/mlwd9ph.png">
-<meta property="article:published_time" content="2023-12-24T13:37:18.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2023/12/29/3weyoiz.png">
+<meta property="article:published_time" content="2023-12-29T20:40:51.000Z">
 <meta property="article:author" content="Andy Zhang">
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="Spring Boot">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="Spring Cloud">
+<meta property="article:tag" content="Spring Data JPA">
+<meta property="article:tag" content="PostgreSQL">
+<meta property="article:tag" content="TimescaleDB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2023/07/05/mlwd9ph.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2023/12/29/3weyoiz.png">
   
   
   
-  <title>Spring Boot 3 Request Tracing - Andy&#39;s Blog</title>
+  <title>TimescaleDB + Spring Data JPA Integration - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -243,7 +245,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Spring Boot 3 Request Tracing"></span>
+            <span id="subtitle" data-typed-text="TimescaleDB + Spring Data JPA Integration"></span>
           
         </div>
 
@@ -254,8 +256,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-24 13:37" pubdate>
-          December 24, 2023
+        <time datetime="2023-12-29 20:40" pubdate>
+          December 29, 2023
         </time>
       </span>
     
@@ -266,7 +268,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          83 words
+          235 words
         
       </span>
     
@@ -313,26 +315,28 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Spring Boot 3 Request Tracing</h1>
+            <h1 id="seo-header">TimescaleDB + Spring Data JPA Integration</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>Traditional Spring Cloud Sleuth<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Spring Cloud Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth). spring-cloud. [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth)于2023-12-24）">[1]</span></a></sup> tracing is no longer applicable to Spring Boot 3. This article will introduce how to configure Micrometer to trace requests in Spring Boot 3.</p>
+<p>This article introduces how to integrate TimescaleDB in Spring Data JPA.</p>
 </blockquote>
 <span id="more"></span>
 
-<p>After Spring Boot 3 is updated, <a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a> indicates that it is no longer supported<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Spring Cloud Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth). spring-cloud. [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth)于2023-12-24）">[1]</span></a></sup>, it is need to be migrated to <a target="_blank" rel="noopener" href="https://micrometer.io/">Micrometer</a>.</p>
-<h2 id="Add-Dependency"><a href="#Add-Dependency" class="headerlink" title="Add Dependency"></a>Add Dependency</h2><p>In order to trace requests in Spring Boot 3, we need to add the following dependency in <code>build.gradle</code>:</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs groovy">implementation <span class="hljs-string">&quot;io.micrometer:micrometer-tracing-bridge-brave&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Basic-Requirements"><a href="#Basic-Requirements" class="headerlink" title="Basic Requirements"></a>Basic Requirements</h2><p>You need to configure the TimescaleDB database, Spring Boot 3, and Spring Data JPA.</p>
+<h2 id="Key-Issue"><a href="#Key-Issue" class="headerlink" title="Key Issue"></a>Key Issue</h2><p>Spring Data JPA will automatically create database tables, but it cannot automatically create the hypertable required by TimescaleDB, so it needs to be created manually. We want to programmatically allow the application to automatically create hypertables.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The original version of this solution is my answer on Stack Overflow: <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/77729927/19420247">timescaledb with spring data jpa</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[timescaledb with spring data jpa](https://stackoverflow.com/a/77729927/19420247). Andy Zhang. 2023-12-29 [2023-12-29]. （原始内容[存档](https://web.archive.org/web/20231229220352/https://stackoverflow.com/questions/71329742/timescaledb-with-spring-data-jpa/77729927#77729927)于2023-12-29）">[1]</span></a></sup>.</p>
+<h3 id="TimescaleTable-Annotation"><a href="#TimescaleTable-Annotation" class="headerlink" title="@TimescaleTable Annotation"></a>@TimescaleTable Annotation</h3><p>We can use the <code>@TimescaleTable</code> annotation to mark the Timescale table, and then find the entity class marked with the <code>@TimescaleTable</code> annotation when the application starts, and create the hypertable.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.annotation.Target;<br><span class="hljs-keyword">import</span> java.lang.annotation.ElementType;<br><span class="hljs-keyword">import</span> java.lang.annotation.Retention;<br><span class="hljs-keyword">import</span> java.lang.annotation.RetentionPolicy;<br><br><span class="hljs-meta">@Target(ElementType.TYPE)</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> TimescaleTable &#123;<br>    String <span class="hljs-title function_">tableName</span><span class="hljs-params">()</span>;<br><br>    String <span class="hljs-title function_">timeColumnName</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="Configure-Log-Pattern"><a href="#Configure-Log-Pattern" class="headerlink" title="Configure Log Pattern"></a>Configure Log Pattern</h2><p>Sleuth will automatically configure the log format, but Micrometer needs to be configured manually. Refer to the <a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide#log-pattern">Spring Cloud Sleuth 3.1 Migration Guide</a>, add the following configuration in <code>application.properties</code>:</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">logging.pattern.level</span>=<span class="hljs-string">%5p [$&#123;spring.application.name:&#125;,%X&#123;traceId:-&#125;,%X&#123;spanId:-&#125;]</span><br></code></pre></td></tr></table></figure>
+<h3 id="Scan-and-Create-Hypertables"><a href="#Scan-and-Create-Hypertables" class="headerlink" title="Scan and Create Hypertables"></a>Scan and Create Hypertables</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Set;<br><br><span class="hljs-keyword">import</span> lombok.RequiredArgsConstructor;<br><span class="hljs-keyword">import</span> jakarta.annotation.PostConstruct;<br><span class="hljs-keyword">import</span> jakarta.persistence.EntityManager;<br><span class="hljs-keyword">import</span> jakarta.persistence.metamodel.EntityType;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@RequiredArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TimescaleTableInitializer</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> EntityManager entityManager;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">createHypertable</span><span class="hljs-params">(String tableName, String timeColumnName)</span> &#123;<br>        entityManager<br>                .createNativeQuery(String.format(<br>                        <span class="hljs-string">&quot;SELECT create_hypertable(&#x27;%s&#x27;,&#x27;%s&#x27;, if_not_exists =&gt; TRUE);&quot;</span>,<br>                        tableName,<br>                        timeColumnName<br>                ))<br>                .getResultList();<br>    &#125;<br><br>    <span class="hljs-meta">@PostConstruct</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// get all entities</span><br>        Set&lt;EntityType&lt;?&gt;&gt; entities = entityManager.getMetamodel().getEntities();<br><br>        <span class="hljs-comment">// for each entity</span><br>        <span class="hljs-keyword">for</span> (EntityType&lt;?&gt; entity : entities) &#123;<br>            <span class="hljs-comment">// get entity class</span><br>            Class&lt;?&gt; javaType = entity.getJavaType();<br><br>            <span class="hljs-comment">// check of TimescaleTable annotation</span><br>            <span class="hljs-keyword">if</span> (javaType.isAnnotationPresent(TimescaleTable.class)) &#123;<br>                <span class="hljs-comment">// get metadata from annotation</span><br>                <span class="hljs-type">TimescaleTable</span> <span class="hljs-variable">annotation</span> <span class="hljs-operator">=</span> javaType.getAnnotation(TimescaleTable.class);<br>                <span class="hljs-type">String</span> <span class="hljs-variable">tableName</span> <span class="hljs-operator">=</span> annotation.tableName();<br>                <span class="hljs-type">String</span> <span class="hljs-variable">timeColumnName</span> <span class="hljs-operator">=</span> annotation.timeColumnName();<br><br>                <span class="hljs-comment">// create hypertable</span><br>                createHypertable(tableName, timeColumnName);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a>. spring-cloud. [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth">存档</a>于2023-12-24）
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide">Spring Cloud Sleuth 3.1 Migration Guide</a>. micrometer-metrics. 2023-09-07 [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224135002/https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide">存档</a>于2023-12-24）
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<h3 id="Use-TimescaleTable-Annotation"><a href="#Use-TimescaleTable-Annotation" class="headerlink" title="Use @TimescaleTable Annotation"></a>Use @TimescaleTable Annotation</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.io.Serializable;<br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><br><span class="hljs-keyword">import</span> lombok.*;<br><span class="hljs-keyword">import</span> jakarta.persistence.*;<br><br><span class="hljs-keyword">import</span> ***.app.config.timescaledb.TimescaleTable;<br><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@Builder</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table(name = SensorData.TABLE_NAME)</span><br><span class="hljs-meta">@TimescaleTable(tableName = SensorData.TABLE_NAME, timeColumnName = SensorData.TIME_COLUMN_NAME)</span><br><span class="hljs-meta">@IdClass(SensorData.SensorDataID.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SensorData</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">TABLE_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;sensor_data&quot;</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">TIME_COLUMN_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;time&quot;</span>;<br><br>    <span class="hljs-meta">@Data</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SensorDataID</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;<br>        <span class="hljs-keyword">private</span> Integer id;<br>        <span class="hljs-keyword">private</span> LocalDateTime time;<br>    &#125;<br><br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span><br>    <span class="hljs-keyword">private</span> Integer id;<br><br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-meta">@Column(name = TIME_COLUMN_NAME, nullable = false)</span><br>    <span class="hljs-keyword">private</span> LocalDateTime time;<br><br>    <span class="hljs-meta">@Column(nullable = false)</span><br>    <span class="hljs-keyword">private</span> String sensor;<br><br>    <span class="hljs-meta">@Column(nullable = false)</span><br>    <span class="hljs-keyword">private</span> String data;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/77729927/19420247">timescaledb with spring data jpa</a>. Andy Zhang. 2023-12-29 [2023-12-29]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231229220352/https://stackoverflow.com/questions/71329742/timescaledb-with-spring-data-jpa/77729927#77729927">存档</a>于2023-12-29）
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -385,7 +389,11 @@
       
         <a href="/tags/Java/" class="print-no-link">#Java</a>
       
-        <a href="/tags/Spring-Cloud/" class="print-no-link">#Spring Cloud</a>
+        <a href="/tags/Spring-Data-JPA/" class="print-no-link">#Spring Data JPA</a>
+      
+        <a href="/tags/PostgreSQL/" class="print-no-link">#PostgreSQL</a>
+      
+        <a href="/tags/TimescaleDB/" class="print-no-link">#TimescaleDB</a>
       
     </div>
   
@@ -397,8 +405,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Spring Boot 3 Request Tracing</div>
-      <div>https://blog.zhanganzhi.com/en/2023/12/2e66e27724a7/</div>
+      <div>TimescaleDB + Spring Data JPA Integration</div>
+      <div>https://blog.zhanganzhi.com/en/2023/12/a11bfb4ae60b/</div>
     </div>
     <div class="license-meta">
       
@@ -410,7 +418,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>December 24, 2023</div>
+          <div>December 29, 2023</div>
         </div>
       
       
@@ -454,18 +462,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2023/12/a11bfb4ae60b/" title="TimescaleDB + Spring Data JPA 整合">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TimescaleDB + Spring Data JPA 整合</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zh-CN/2023/12/2e66e27724a7/" title="Spring Boot 3 请求追踪">
-                        <span class="hidden-mobile">Spring Boot 3 请求追踪</span>
+                      <a href="/zh-CN/2023/12/a11bfb4ae60b/" title="TimescaleDB + Spring Data JPA 整合">
+                        <span class="hidden-mobile">TimescaleDB + Spring Data JPA 整合</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
