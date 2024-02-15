@@ -245,6 +245,15 @@
   </url>
   
   <url>
+    <loc>https://blog.zhanganzhi.com/zh-CN/2024/02/76820c6c0eea/</loc>
+    
+    <lastmod>2024-02-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/about/</loc>
     
     <lastmod>2023-12-11</lastmod>
@@ -256,7 +265,7 @@
 
   <url>
     <loc>https://blog.zhanganzhi.com/</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2024-02-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
