@@ -266,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          180 字
+          214 字
         
       </span>
     
@@ -325,9 +325,12 @@
 
 <p>Spring Boot 3 更新后，<a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a> 表示不再支持<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Spring Cloud Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth). spring-cloud. [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth)于2023-12-24）">[1]</span></a></sup>，而是迁移到 <a target="_blank" rel="noopener" href="https://micrometer.io/">Micrometer</a>。</p>
 <h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><p>为了在 Spring Boot 3 中追踪请求，我们需要在 <code>build.gradle</code> 中添加如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-tracing-bridge-brave<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs groovy">implementation <span class="hljs-string">&quot;io.micrometer:micrometer-tracing-bridge-brave&quot;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="配置日志格式"><a href="#配置日志格式" class="headerlink" title="配置日志格式"></a>配置日志格式</h2><p>Sleuth 会自动配置日志格式，但是 Micrometer 需要手动配置，参考 <a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide#log-pattern">Spring Cloud Sleuth 3.1 Migration Guide</a>，在 <code>application.properties</code> 中添加如下配置：</p>
+<h2 id="配置日志格式"><a href="#配置日志格式" class="headerlink" title="配置日志格式"></a>配置日志格式</h2><p>Spring Boot 3.2 之后，Spring Boot 将会自动配置日志格式，若版本低于 3.2，需要手动配置。</p>
+<p>参考 <a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide#log-pattern">Spring Cloud Sleuth 3.1 Migration Guide</a>，在 <code>application.properties</code> 中添加如下配置：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">logging.pattern.level</span>=<span class="hljs-string">%5p [$&#123;spring.application.name:&#125;,%X&#123;traceId:-&#125;,%X&#123;spanId:-&#125;]</span><br></code></pre></td></tr></table></figure>
 
 <section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a>. spring-cloud. [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth">存档</a>于2023-12-24）

@@ -266,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          83 words
+          112 words
         
       </span>
     
@@ -325,9 +325,12 @@
 
 <p>After Spring Boot 3 is updated, <a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a> indicates that it is no longer supported<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Spring Cloud Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth). spring-cloud. [2023-12-24]. （原始内容[存档](https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth)于2023-12-24）">[1]</span></a></sup>, it is need to be migrated to <a target="_blank" rel="noopener" href="https://micrometer.io/">Micrometer</a>.</p>
 <h2 id="Add-Dependency"><a href="#Add-Dependency" class="headerlink" title="Add Dependency"></a>Add Dependency</h2><p>In order to trace requests in Spring Boot 3, we need to add the following dependency in <code>build.gradle</code>:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-tracing-bridge-brave<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs groovy">implementation <span class="hljs-string">&quot;io.micrometer:micrometer-tracing-bridge-brave&quot;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Configure-Log-Pattern"><a href="#Configure-Log-Pattern" class="headerlink" title="Configure Log Pattern"></a>Configure Log Pattern</h2><p>Sleuth will automatically configure the log format, but Micrometer needs to be configured manually. Refer to the <a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide#log-pattern">Spring Cloud Sleuth 3.1 Migration Guide</a>, add the following configuration in <code>application.properties</code>:</p>
+<h2 id="Configure-Log-Pattern"><a href="#Configure-Log-Pattern" class="headerlink" title="Configure Log Pattern"></a>Configure Log Pattern</h2><p>After Spring Boot 3.2, Spring Boot will automatically configure the log format. If the version is lower than 3.2, manual configuration is required.</p>
+<p>Refer to the <a target="_blank" rel="noopener" href="https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide#log-pattern">Spring Cloud Sleuth 3.1 Migration Guide</a>, add the following configuration in <code>application.properties</code>:</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">logging.pattern.level</span>=<span class="hljs-string">%5p [$&#123;spring.application.name:&#125;,%X&#123;traceId:-&#125;,%X&#123;spanId:-&#125;]</span><br></code></pre></td></tr></table></figure>
 
 <section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/spring-cloud/spring-cloud-sleuth">Spring Cloud Sleuth</a>. spring-cloud. [2023-12-24]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20231224134733/https://github.com/spring-cloud/spring-cloud-sleuth">存档</a>于2023-12-24）
