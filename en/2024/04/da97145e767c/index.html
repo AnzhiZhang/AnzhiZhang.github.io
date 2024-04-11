@@ -16,26 +16,28 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="今天看到老胡探访北京外国语大学，再次呼吁校园开放[1]。这个话题他聊了不少次了，但这次让我感觉，或许是一次校园安全管理变革的机遇。 在清华生活了这么多年，小时候没想过开不开放的事情。热热闹闹的，挺好。 后来去国外的大学，还记得走过的第一所应该是耶鲁大学。走到其中才知道，哦，原来我已经在校园里面了。那脚尖被磨掉了漆的铜像，至今还能想起。  疫情关了起来，我最大的感受是：终于清净了。二校门再也没有了喧">
+    <meta name="description" content="Java 17+ outputs Unicode characters on Windows platform showing question marks, this article will introduce the reason and solution for this issue.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="借老胡探访北京外国语大学聊聊校园开放">
-<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2023/12/eaa2d3058362/">
+<meta property="og:title" content="Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution">
+<meta property="og:url" content="https://blog.zhanganzhi.com/en/2024/04/da97145e767c/">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="今天看到老胡探访北京外国语大学，再次呼吁校园开放[1]。这个话题他聊了不少次了，但这次让我感觉，或许是一次校园安全管理变革的机遇。 在清华生活了这么多年，小时候没想过开不开放的事情。热热闹闹的，挺好。 后来去国外的大学，还记得走过的第一所应该是耶鲁大学。走到其中才知道，哦，原来我已经在校园里面了。那脚尖被磨掉了漆的铜像，至今还能想起。  疫情关了起来，我最大的感受是：终于清净了。二校门再也没有了喧">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2023/12/31/0fg8pph.png">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2023/12/31/ezm4jo9.png">
-<meta property="article:published_time" content="2023-12-31T19:33:37.000Z">
+<meta property="og:description" content="Java 17+ outputs Unicode characters on Windows platform showing question marks, this article will introduce the reason and solution for this issue.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2024/04/11/b9fo6os.png">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2024/04/11/auh1dvl.png">
+<meta property="article:published_time" content="2024-04-11T14:08:30.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="大学">
-<meta property="article:tag" content="校园">
-<meta property="article:tag" content="胡锡进">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="编码">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Unicode">
+<meta property="article:tag" content="UTF-8">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2023/12/31/0fg8pph.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2024/04/11/b9fo6os.png">
   
   
   
-  <title>借老胡探访北京外国语大学聊聊校园开放 - Andy&#39;s Blog</title>
+  <title>Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -149,7 +151,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
+                <span>Home</span>
               </a>
             </li>
           
@@ -161,7 +163,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
+                <span>Archives</span>
               </a>
             </li>
           
@@ -173,7 +175,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
+                <span>Categories</span>
               </a>
             </li>
           
@@ -185,7 +187,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
+                <span>Tags</span>
               </a>
             </li>
           
@@ -197,7 +199,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
+                <span>About</span>
               </a>
             </li>
           
@@ -209,7 +211,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
-                <span>友链</span>
+                <span>Links</span>
               </a>
             </li>
           
@@ -243,7 +245,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="借老胡探访北京外国语大学聊聊校园开放"></span>
+            <span id="subtitle" data-typed-text="Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution"></span>
           
         </div>
 
@@ -254,8 +256,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-31 19:33" pubdate>
-          2023年12月31日
+        <time datetime="2024-04-11 14:08" pubdate>
+          April 11, 2024
         </time>
       </span>
     
@@ -266,7 +268,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          81 words
         
       </span>
     
@@ -278,7 +280,7 @@
       
         <span id="leancloud-page-views-container" class="post-meta" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="leancloud-page-views"></span> 次
+          <span id="leancloud-page-views"></span> views
         </span>
         
       
@@ -313,34 +315,40 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">借老胡探访北京外国语大学聊聊校园开放</h1>
+            <h1 id="seo-header">Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution</h1>
             
             
               <div class="markdown-body">
                 
-                <p>今天看到老胡探访北京外国语大学，再次呼吁校园开放<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="胡锡进. [老胡今天亲身经历了，这才叫大学校园开放](https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA). 2023-12-30. [Archived](https://web.archive.org/web/20231231194901/https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA) on 2023-12-31. Retrieved 2023-12-31.">[1]</span></a></sup>。这个话题他聊了不少次了，但这次让我感觉，或许是一次校园安全管理变革的机遇。</p>
-<p>在清华生活了这么多年，小时候没想过开不开放的事情。热热闹闹的，挺好。</p>
-<p>后来去国外的大学，还记得走过的第一所应该是耶鲁大学。走到其中才知道，哦，原来我已经在校园里面了。那脚尖被磨掉了漆的铜像，至今还能想起。</p>
-<p><img src="https://picture.zhanganzhi.com/2023/12/31/0fg8pph.png" srcset="/img/loading.gif" lazyload alt="耶鲁大学校长 西奥多·德怀特·伍尔西 的铜像，脚尖已被磨得发光，图片来自网络"></p>
-<p>疫情关了起来，我最大的感受是：终于清净了。二校门再也没有了喧闹和小商小贩，也没有到处树立的旅游团旗帜，还有拥堵的道路。而很多学生所述的，丢东西的情况也少了，很多学校甚至出现了“大学生的信任”，摆摊卖东西却没人看管，全凭自觉也不会丢。大学本来就不是公园，也不是旅游景点，更不是商业街，而是学生的家园。这个家园，应该是安全的，安静的，而不是喧闹的。把它向使用它的人开放，而不是向所有人开放，或许也是合理的。</p>
-<p><img src="https://picture.zhanganzhi.com/2023/12/31/ezm4jo9.png" srcset="/img/loading.gif" lazyload alt="清华大学供游客出入的西门，图片来自网络"></p>
-<p>过去几十年，中国的大学也曾经像国外大学那样，随意进出甚至没有围栏。<del>据说我父亲那代上大学的时候，自行车被偷了，那就偷一辆接着骑</del>。人们可以到教室里听课，也可以把校园当公园一样，是饭后遛弯的场所。</p>
-<p>随着经济发展，最高的两所学府，清华和北大，却成为了游客的重灾区，所有从全国各地涌到北京的游客，一定要带着孩子来到清华和北大这两所最高学府，告诉孩子“这是你未来的梦想”。但在我看来，清北的硬件早已落后新办的民办大学，这些人中最后真的能考入清北的人也寥寥无几。带着全家老小到这里转一圈只是为了打卡，制造了混乱与拥堵，没有任何意义。</p>
-<p>2023 年，似乎大学在逐步开放，但限制极其严格，几乎无法抢到的预约，或者校内教师需要请外来人员谈事，都非常麻烦。我有一朋友是北大校友，校庆时一人可以带三个人进入，然后在校门口与妻子和三个孩子被保安拦下，怒斥：我把老婆留在外面还是留一个孩子在外面？这样的限制似乎也有其不合理之处。</p>
-<p>老胡探访北京外国语大学，提到了一个细节：</p>
-<blockquote>
-<p>进到主校区之后，我先后进入了教学主楼、体育馆、食堂，都未受阻拦，不需刷证件，只有在图书馆，我被拦住，需要刷校内证件才能进入<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="胡锡进. [老胡今天亲身经历了，这才叫大学校园开放](https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA). 2023-12-30. [Archived](https://web.archive.org/web/20231231194901/https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA) on 2023-12-31. Retrieved 2023-12-31.">[1]</span></a></sup>。</p>
+                <blockquote>
+<p>Java 17+ outputs Unicode characters on Windows platform showing question marks, this article will introduce the reason and solution for this issue.</p>
 </blockquote>
-<p>我认为，这样的方式或许是大学校园开放的最终形式。让大学的公共场合融入城市生活，而教学区域留给学生和教师，这样的方式，或许是最好的。在国外，很多大学也在实行着这样的模式。例如剑桥大学，坐落在一个现有大学后有城的城市，校园与城市融为了一体，而重要的教学区域、实验室、学生宿舍、图书馆则需要门禁刷卡进入。即可以保持开放，又能保证安全。</p>
-<p>最后，我想用老胡的几句话来结尾：</p>
+<span id="more"></span>
+
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>When using Unicode characters output to Windows, it will show question marks, as shown in the following image (using Java 21 here):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;\uD83D\uDE02&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://picture.zhanganzhi.com/2024/04/11/b9fo6os.png" srcset="/img/loading.gif" lazyload alt="A question mark, indicating a possible encoding issue"></p>
+<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Java 18 implemented a change, <a target="_blank" rel="noopener" href="https://openjdk.org/jeps/400">JEP 400: UTF-8 by Default</a>:</p>
 <blockquote>
-<p>让在校大学生们在一个开放的环境中度过大学时代，也是对他们开放精神的无形熏陶和引导。如果那些学生们就读的大学外人进校门要预约登记，是一个高墙围起来外人进去很不容易的地方，同样会影响他们走出校门以后的社会观、安全观。如果外人进清华北大从此变得困难重重，一些孩子们从外地专门赶来却只能在校门口拍照打卡，进都进不去，那么我很担心，这一代学生走向社会之后，中国各地的围墙和保安有可能会变得越来越多<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="胡锡进. [大学预约进入真的必要吗？诚望清华北大为开放校园做出表率](https://mp.weixin.qq.com/s/Kt9awe83YFY-k1ySC0Z3YA). 2023-07-27. [Archived](https://web.archive.org/web/20231231195808/https://mp.weixin.qq.com/s/Kt9awe83YFY-k1ySC0Z3YA) on 2023-12-31. Retrieved 2023-12-31.">[2]</span></a></sup>。</p>
-<p>应该让疫情从我们这块土地上真正结束，不要让它的后遗症成为今后这个国家经济社会发展的一个阴影<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="胡锡进. [大学预约进入真的必要吗？诚望清华北大为开放校园做出表率](https://mp.weixin.qq.com/s/Kt9awe83YFY-k1ySC0Z3YA). 2023-07-27. [Archived](https://web.archive.org/web/20231231195808/https://mp.weixin.qq.com/s/Kt9awe83YFY-k1ySC0Z3YA) on 2023-12-31. Retrieved 2023-12-31.">[2]</span></a></sup>。</p>
-<p>正常秩序下的开放与宽松应当是疫情后我们大家共同努力营造的社会大氛围<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="胡锡进. [老胡今天亲身经历了，这才叫大学校园开放](https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA). 2023-12-30. [Archived](https://web.archive.org/web/20231231194901/https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA) on 2023-12-31. Retrieved 2023-12-31.">[1]</span></a></sup>。</p>
+<p>Specify UTF-8 as the default charset of the standard Java APIs. With this change, APIs that depend upon the default charset will behave consistently across all implementations, operating systems, locales, and configurations.</p>
 </blockquote>
-<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>胡锡进. <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA">老胡今天亲身经历了，这才叫大学校园开放</a>. 2023-12-30. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20231231194901/https://mp.weixin.qq.com/s/-WCo1FoM4gorVQyuquD4LA">Archived</a> on 2023-12-31. Retrieved 2023-12-31.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>胡锡进. <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Kt9awe83YFY-k1ySC0Z3YA">大学预约进入真的必要吗？诚望清华北大为开放校园做出表率</a>. 2023-07-27. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20231231195808/https://mp.weixin.qq.com/s/Kt9awe83YFY-k1ySC0Z3YA">Archived</a> on 2023-12-31. Retrieved 2023-12-31.
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<p>It looks good, but one of the goals of this change is:</p>
+<blockquote>
+<p>Standardize on UTF-8 throughout the standard Java APIs, except for <strong>console I&#x2F;O</strong>.</p>
+</blockquote>
+<p>Although our console encoding is UTF-8, <code>PrintStream</code> still uses the default encoding to output content to the console, which may be GBK or Windows-1252 encoding on Windows.</p>
+<p>Additionally, you can check <code>((OutputStreamWriter) System.out.textOut.out).se.cs</code> in debug to confirm the output encoding.</p>
+<p>More detailed discussions can be found in this <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/71685543/java-jdk-18-in-intellij-prints-question-mark-when-i-tried-to-print-unicode-l/71702397#71702397">answer</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="skomisa. [Java JDK 18 in IntelliJ prints question mark &quot;?&quot; when I tried to print unicode like &quot;\u1699&quot;](https://stackoverflow.com/a/71702397/19420247). 2022-04-01. [Archived](https://web.archive.org/web/20240411132043/https://stackoverflow.com/questions/71685543/java-jdk-18-in-intellij-prints-question-mark-when-i-tried-to-print-unicode-l/71702397#71702397) on 2024-04-11. Retrieved 2024-04-10.">[1]</span></a></sup>.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Downgrade Java version to 17 or below.</li>
+<li>Set the console output character set to UTF-8 encoding.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">System.setOut(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PrintStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(FileDescriptor.out), <span class="hljs-literal">true</span>, StandardCharsets.UTF_8));<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://picture.zhanganzhi.com/2024/04/11/auh1dvl.png" srcset="/img/loading.gif" lazyload alt="Then it&#39;s resolved"></p>
+<section class="footnotes"><h2 id="参考文献">参考文献</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>skomisa. <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/71702397/19420247">Java JDK 18 in IntelliJ prints question mark &quot;?&quot; when I tried to print unicode like &quot;\u1699&quot;</a>. 2022-04-01. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240411132043/https://stackoverflow.com/questions/71685543/java-jdk-18-in-intellij-prints-question-mark-when-i-tried-to-print-unicode-l/71702397#71702397">Archived</a> on 2024-04-11. Retrieved 2024-04-10.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -358,8 +366,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9D%82%E8%B0%88/" class="category-chain-item">杂谈</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="category-chain-item">软件开发</a>
+  
+  
+
   
 
       </span>
@@ -373,11 +388,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%A4%A7%E5%AD%A6/" class="print-no-link">#大学</a>
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
       
-        <a href="/tags/%E6%A0%A1%E5%9B%AD/" class="print-no-link">#校园</a>
+        <a href="/tags/%E7%BC%96%E7%A0%81/" class="print-no-link">#编码</a>
       
-        <a href="/tags/%E8%83%A1%E9%94%A1%E8%BF%9B/" class="print-no-link">#胡锡进</a>
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/Unicode/" class="print-no-link">#Unicode</a>
+      
+        <a href="/tags/UTF-8/" class="print-no-link">#UTF-8</a>
       
     </div>
   
@@ -389,44 +408,44 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>借老胡探访北京外国语大学聊聊校园开放</div>
-      <div>https://blog.zhanganzhi.com/zh-CN/2023/12/eaa2d3058362/</div>
+      <div>Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution</div>
+      <div>https://blog.zhanganzhi.com/en/2024/04/da97145e767c/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>作者</div>
+          <div>Author</div>
           <div>Andy Zhang</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2023年12月31日</div>
+          <div>Posted on</div>
+          <div>April 11, 2024</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>许可协议</div>
+          <div>Licensed under</div>
           <div>
             
               
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
                     <i class="iconfont icon-by"></i>
                   </span>
                 </a>
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
                     <i class="iconfont icon-nc"></i>
                   </span>
                 </a>
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                  <span class="hint--top hint--rounded" aria-label="ND - No derivative works">
                     <i class="iconfont icon-nd"></i>
                   </span>
                 </a>
@@ -446,19 +465,13 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2024/02/76820c6c0eea/" title="从一场车马万里的东欧旅行和马督工跨年演讲，谈谈全球化和 21 世纪的 20 年代">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">从一场车马万里的东欧旅行和马督工跨年演讲，谈谈全球化和 21 世纪的 20 年代</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/en/2023/12/a11bfb4ae60b/" title="TimescaleDB + Spring Data JPA Integration">
-                        <span class="hidden-mobile">TimescaleDB + Spring Data JPA Integration</span>
-                        <span class="visible-mobile">下一篇</span>
+                      <a href="/zh-CN/2024/04/bb7bc15fe041/" title="Java 17+ 在 Windows 平台输出 Unicode 字符显示问号的原因与解决方案">
+                        <span class="hidden-mobile">Java 17+ 在 Windows 平台输出 Unicode 字符显示问号的原因与解决方案</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -511,7 +524,7 @@
     <div id="toc">
   <p class="toc-header">
     <i class="iconfont icon-list"></i>
-    <span>目录</span>
+    <span>Table of Contents</span>
   </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
@@ -567,7 +580,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -575,7 +588,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -756,7 +769,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
   </noscript>
 </body>
 </html>
