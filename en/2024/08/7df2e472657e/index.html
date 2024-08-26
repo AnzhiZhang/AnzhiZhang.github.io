@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   <link rel="icon" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   
-    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2024/04/da97145e767c/"/>
+    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2024/08/7df2e472657e/"/>
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -21,27 +21,25 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="Java 17+ outputs Unicode characters on Windows platform showing question marks, this article will introduce the reason and solution for this issue.">
+    <meta name="description" content="Explore @inbounds and @propagate_inbounds in Julia.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution">
-<meta property="og:url" content="https://blog.zhanganzhi.com/en/2024/04/da97145e767c/">
+<meta property="og:title" content="Julia: @inbounds and @propagate_inbounds">
+<meta property="og:url" content="https://blog.zhanganzhi.com/en/2024/08/7df2e472657e/">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="Java 17+ outputs Unicode characters on Windows platform showing question marks, this article will introduce the reason and solution for this issue.">
+<meta property="og:description" content="Explore @inbounds and @propagate_inbounds in Julia.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2024/04/11/g9ba459.png">
-<meta property="article:published_time" content="2024-04-11T14:08:30.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2024/08/26/njee28v.png">
+<meta property="article:published_time" content="2024-08-26T13:07:25.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="编码">
-<meta property="article:tag" content="Windows">
-<meta property="article:tag" content="Unicode">
-<meta property="article:tag" content="UTF-8">
+<meta property="article:tag" content="Julia">
+<meta property="article:tag" content="性能">
+<meta property="article:tag" content="Performance">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2024/04/11/g9ba459.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2024/08/26/njee28v.png">
   
   
   
-  <title>Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution - Andy&#39;s Blog</title>
+  <title>Julia: @inbounds and @propagate_inbounds - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -247,7 +245,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution"></span>
+            <span id="subtitle" data-typed-text="Julia: @inbounds and @propagate_inbounds"></span>
           
         </div>
 
@@ -258,8 +256,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-11 14:08" pubdate>
-          April 11, 2024
+        <time datetime="2024-08-26 13:07" pubdate>
+          August 26, 2024
         </time>
       </span>
     
@@ -270,7 +268,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          77 words
+          266 words
         
       </span>
     
@@ -318,40 +316,46 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution</h1>
+            <h1 id="seo-header">Julia: @inbounds and @propagate_inbounds</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>Java 17+ outputs Unicode characters on Windows platform showing question marks, this article will introduce the reason and solution for this issue.</p>
+<p>Explore <code>@inbounds</code> and <code>@propagate_inbounds</code> in Julia.</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>When using Unicode characters output to Windows, it will show question marks, as shown in the following image (using Java 21 here):</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;\uD83D\uDE02&quot;</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I am developing a package recently, which needs to create some custom matrices. When designing the <code>getindex</code> function, I need to add code to do bounds checking and provide a way to skip bounds checking.</p>
+<p>The <a target="_blank" rel="noopener" href="https://docs.julialang.org/en/v1/devdocs/boundscheck/">official documentation</a> discusses this topic in detail, including how to use <code>@inbounds</code> and <code>@propagate_inbounds</code>, but it is quite brief and does not provide example code. This article will demonstrate how to use these two macros and their performance differences.</p>
+<h2 id="inbounds"><a href="#inbounds" class="headerlink" title="@inbounds"></a>@inbounds</h2><p>When we try to access a out-of-bound index, Julia will throw a <code>BoundsError</code> exception, we can use <code>@inbounds</code> to skip the bounds check.</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> g(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;accessing (<span class="hljs-variable">$A</span>)[<span class="hljs-variable">$i</span>]&quot;</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test()<br>    g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># ERROR: BoundsError: attempt to access 2-element UnitRange&#123;Int64&#125; at index [-1]</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://picture.zhanganzhi.com/2024/04/11/b9fo6os.png" srcset="/img/loading.gif" lazyload alt="A question mark, indicating a possible encoding issue"></p>
-<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Java 18 implemented a change, <a target="_blank" rel="noopener" href="https://openjdk.org/jeps/400">JEP 400: UTF-8 by Default</a>:</p>
-<blockquote>
-<p>Specify UTF-8 as the default charset of the standard Java APIs. With this change, APIs that depend upon the default charset will behave consistently across all implementations, operating systems, locales, and configurations.</p>
-</blockquote>
-<p>It looks good, but one of the goals of this change is:</p>
-<blockquote>
-<p>Standardize on UTF-8 throughout the standard Java APIs, except for <strong>console I&#x2F;O</strong>.</p>
-</blockquote>
-<p>Although our console encoding is UTF-8, <code>PrintStream</code> still uses the default encoding to output content to the console, which may be GBK or Windows-1252 encoding on Windows.</p>
-<p>Additionally, you can check <code>((OutputStreamWriter) System.out.textOut.out).se.cs</code> in debug to confirm the output encoding.</p>
-<p>More detailed discussions can be found in this <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/71685543/java-jdk-18-in-intellij-prints-question-mark-when-i-tried-to-print-unicode-l/71702397#71702397">answer</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="skomisa. [Java JDK 18 in IntelliJ prints question mark &quot;?&quot; when I tried to print unicode like &quot;\u1699&quot;](https://stackoverflow.com/a/71702397/19420247). 2022-04-01. [Archived](https://web.archive.org/web/20240411132043/https://stackoverflow.com/questions/71685543/java-jdk-18-in-intellij-prints-question-mark-when-i-tried-to-print-unicode-l/71702397#71702397) on 2024-04-11. Retrieved 2024-04-10.">[1]</span></a></sup>.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
-<li>Downgrade Java version to 17 or below.</li>
-<li>Set the console output character set to UTF-8 encoding.</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">System.setOut(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PrintStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(FileDescriptor.out), <span class="hljs-literal">true</span>, StandardCharsets.UTF_8));<br></code></pre></td></tr></table></figure>
+<p>Add <code>@inbounds</code> when calling <code>g</code> to skip the bounds check.</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-keyword">function</span> test()<br>    <span class="hljs-meta">@inbounds</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># &quot;accessing (1:2)[-1]&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://picture.zhanganzhi.com/2024/04/11/auh1dvl.png" srcset="/img/loading.gif" lazyload alt="Then it&#39;s resolved"></p>
-<section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>skomisa. <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/71702397/19420247">Java JDK 18 in IntelliJ prints question mark &quot;?&quot; when I tried to print unicode like &quot;\u1699&quot;</a>. 2022-04-01. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240411132043/https://stackoverflow.com/questions/71685543/java-jdk-18-in-intellij-prints-question-mark-when-i-tried-to-print-unicode-l/71702397#71702397">Archived</a> on 2024-04-11. Retrieved 2024-04-10.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<h2 id="Multple-layers-check-propagate-inbounds"><a href="#Multple-layers-check-propagate-inbounds" class="headerlink" title="Multple layers check: @propagate_inbounds"></a>Multple layers check: @propagate_inbounds</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>If a function has multiple layers of bounds checking, the outermost <code>@inbounds</code> can only skip the outermost bounds checking, and the inner bounds checking will still be executed.</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> f(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test()<br>    <span class="hljs-meta">@inbounds</span> f(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># ERROR: BoundsError: attempt to access 2-element UnitRange&#123;Int64&#125; at index [-1]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Classic-Solution"><a href="#Classic-Solution" class="headerlink" title="Classic Solution"></a>Classic Solution</h3><p>Update the <code>f</code> function, add <code>@inbounds</code> in each function call to skip the bounds check.</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> f(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-meta">@inbounds</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># &quot;accessing (1:2)[-1]&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>In Julia official library LinearAlgebra.jl, <code>@inbounds</code> is widely used, for example, the <a target="_blank" rel="noopener" href="https://github.com/JuliaLang/julia/blob/647753071a1e2ddbddf7ab07f55d7146238b6b72/stdlib/LinearAlgebra/src/tridiag.jl#L696-L707">Tridiagonal</a> matrix:</p>
+<p><img src="https://picture.zhanganzhi.com/2024/08/26/aoyvxfi.png" srcset="/img/loading.gif" lazyload alt="The solution used in the official library"></p>
+<h3 id="propagate-inbounds"><a href="#propagate-inbounds" class="headerlink" title="@propagate_inbounds"></a>@propagate_inbounds</h3><p><code>@propagate_inbounds</code> can help us solve the problem of needing to add <code>@inbounds</code> to each function call in multiple layers of calls. It can be used to propagate the context of bounds checking, allowing us to skip bounds checking in multiple layers of function calls.</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> g(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;accessing (<span class="hljs-variable">$A</span>)[<span class="hljs-variable">$i</span>]&quot;</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-meta">@inline</span> Base.<span class="hljs-meta">@propagate_inbounds</span> <span class="hljs-keyword">function</span> f(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test()<br>    <span class="hljs-meta">@inbounds</span> f(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># &quot;accessing (1:2)[-1]&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>Therefor, <code>f</code> can pass the information of skipping bounds checking to <code>g</code>, as long as <code>@inbounds</code> is added when calling <code>f</code>, the inner bounds checking can be skipped.</p>
+<p>It should be noted that <code>@propagate_inbounds</code> will not be propagated indefinitely. If the <code>g</code> function calls other functions with bounds checking, <code>@propagate_inbounds</code> or <code>@inbounds</code> should be used.</p>
+<h2 id="Performance-Differences"><a href="#Performance-Differences" class="headerlink" title="Performance Differences"></a>Performance Differences</h2><p>Next, we will test the performance differences between <code>@inbounds</code> and <code>@propagate_inbounds</code>. The test code is as follows, <code>f1</code> uses <code>@inbounds</code>, <code>f2</code> uses <code>@propagate_inbounds</code>.</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-keyword">using</span> BenchmarkTools<br><br><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> f1(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-meta">@inbounds</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-meta">@inline</span> Base.<span class="hljs-meta">@propagate_inbounds</span> <span class="hljs-keyword">function</span> f2(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> g(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;g: accessing (<span class="hljs-variable">$A</span>)[<span class="hljs-variable">$i</span>]&quot;</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test_f1()<br>    <span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span>:<span class="hljs-number">100000</span><br>        <span class="hljs-meta">@inbounds</span> f1(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test_f2()<br>    <span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span>:<span class="hljs-number">100000</span><br>        <span class="hljs-meta">@inbounds</span> f2(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> main()<br>    <span class="hljs-meta">@inbounds</span> f1(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br>    <span class="hljs-meta">@inbounds</span> f2(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><br>    t1 = <span class="hljs-meta">@benchmark</span> test_f1()<br>    t2 = <span class="hljs-meta">@benchmark</span> test_f2()<br>    display(t1)<br>    display(t2)<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+<p>We can say that there is no performance difference between the two.</p>
+<p><img src="https://picture.zhanganzhi.com/2024/08/26/z3j0lje.png" srcset="/img/loading.gif" lazyload alt="Test results"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p><code>@inbounds</code> can skip the bounds check of a single layer of function calls, which can be used when calling the outermost function, helping to improve performance, but also have pay attention to the security of access.</p>
+<p><code>@propagate_inbounds</code> can skip the bounds check of multiple layers of function calls, which is suitable for the development of packages. This macro can provide better code cleanliness, avoiding the trouble of adding <code>@inbounds</code> to each layer of function calls.</p>
+<p>Comprehensively, there is no performance difference between the two, and using <code>@propagate_inbounds</code> is a better choice when developing packages.</p>
+
                 
               </div>
             
@@ -391,15 +395,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Java/" class="print-no-link">#Java</a>
+        <a href="/tags/Julia/" class="print-no-link">#Julia</a>
       
-        <a href="/tags/%E7%BC%96%E7%A0%81/" class="print-no-link">#编码</a>
+        <a href="/tags/%E6%80%A7%E8%83%BD/" class="print-no-link">#性能</a>
       
-        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
-      
-        <a href="/tags/Unicode/" class="print-no-link">#Unicode</a>
-      
-        <a href="/tags/UTF-8/" class="print-no-link">#UTF-8</a>
+        <a href="/tags/Performance/" class="print-no-link">#Performance</a>
       
     </div>
   
@@ -411,8 +411,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java 17+ Output Unicode Characters on Windows Showing Question Marks Reason and Solution</div>
-      <div>https://blog.zhanganzhi.com/en/2024/04/da97145e767c/</div>
+      <div>Julia: @inbounds and @propagate_inbounds</div>
+      <div>https://blog.zhanganzhi.com/en/2024/08/7df2e472657e/</div>
     </div>
     <div class="license-meta">
       
@@ -424,7 +424,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 11, 2024</div>
+          <div>August 26, 2024</div>
         </div>
       
       
@@ -468,18 +468,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2024/05/ab8437d8f1f6/" title="2024年5月10日，一段关于教育的深夜对话">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2024年5月10日，一段关于教育的深夜对话</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zh-CN/2024/04/bb7bc15fe041/" title="Java 17+ 在 Windows 平台输出 Unicode 字符显示问号的原因与解决方案">
-                        <span class="hidden-mobile">Java 17+ 在 Windows 平台输出 Unicode 字符显示问号的原因与解决方案</span>
+                      <a href="/zh-CN/2024/08/7df2e472657e/" title="Julia: @inbounds 和 @propagate_inbounds">
+                        <span class="hidden-mobile">Julia: @inbounds 和 @propagate_inbounds</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
