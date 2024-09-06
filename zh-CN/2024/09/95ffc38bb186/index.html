@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   <link rel="icon" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   
-    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2024/08/7df2e472657e/"/>
+    <link rel="canonical" href="https://blog.zhanganzhi.com/zh-CN/2024/09/95ffc38bb186/"/>
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -21,25 +21,24 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="Explore @inbounds and @propagate_inbounds in Julia.">
+    <meta name="description" content="GitHub Action 的输出格式为将 &#123;name&#125;&#x3D;&#123;value&#125; 写到环境变量 GITHUB_OUTPUT[1][2]，本文分享如何使用 Python 脚本设置 GitHub Action 输出。主要内容来自于这篇讨论[3]。 单行12345import osname &#x3D; &#x27;my_name&#x27;value &#x3D; &#x27;my_val">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Julia: @inbounds and @propagate_inbounds">
-<meta property="og:url" content="https://blog.zhanganzhi.com/en/2024/08/7df2e472657e/">
+<meta property="og:title" content="使用 Python 脚本设置 GitHub Action 输出">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2024/09/95ffc38bb186/">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="Explore @inbounds and @propagate_inbounds in Julia.">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2024/08/26/njee28v.png">
-<meta property="article:published_time" content="2024-08-26T13:07:25.000Z">
+<meta property="og:description" content="GitHub Action 的输出格式为将 &#123;name&#125;&#x3D;&#123;value&#125; 写到环境变量 GITHUB_OUTPUT[1][2]，本文分享如何使用 Python 脚本设置 GitHub Action 输出。主要内容来自于这篇讨论[3]。 单行12345import osname &#x3D; &#x27;my_name&#x27;value &#x3D; &#x27;my_val">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2024/09/06/iysvz2k.png">
+<meta property="article:published_time" content="2024-09-06T17:08:06.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="Julia">
-<meta property="article:tag" content="性能">
-<meta property="article:tag" content="Performance">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2024/08/26/njee28v.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2024/09/06/iysvz2k.png">
   
   
   
-  <title>Julia: @inbounds and @propagate_inbounds - Andy&#39;s Blog</title>
+  <title>使用 Python 脚本设置 GitHub Action 输出 - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -151,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                <span>Home</span>
+                <span>首页</span>
               </a>
             </li>
           
@@ -163,7 +162,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                <span>Archives</span>
+                <span>归档</span>
               </a>
             </li>
           
@@ -175,7 +174,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                <span>Categories</span>
+                <span>分类</span>
               </a>
             </li>
           
@@ -187,7 +186,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                <span>Tags</span>
+                <span>标签</span>
               </a>
             </li>
           
@@ -199,7 +198,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                <span>About</span>
+                <span>关于</span>
               </a>
             </li>
           
@@ -211,7 +210,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
-                <span>Links</span>
+                <span>友链</span>
               </a>
             </li>
           
@@ -245,7 +244,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Julia: @inbounds and @propagate_inbounds"></span>
+            <span id="subtitle" data-typed-text="使用 Python 脚本设置 GitHub Action 输出"></span>
           
         </div>
 
@@ -256,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-26 13:07" pubdate>
-          August 26, 2024
+        <time datetime="2024-09-06 17:08" pubdate>
+          2024年9月6日
         </time>
       </span>
     
@@ -268,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          266 words
+          158 字
         
       </span>
     
@@ -280,7 +279,7 @@
       
         <span id="leancloud-page-views-container" class="post-meta" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="leancloud-page-views"></span> views
+          <span id="leancloud-page-views"></span> 次
         </span>
         
       
@@ -316,46 +315,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Julia: @inbounds and @propagate_inbounds</h1>
+            <h1 id="seo-header">使用 Python 脚本设置 GitHub Action 输出</h1>
             
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>Explore <code>@inbounds</code> and <code>@propagate_inbounds</code> in Julia.</p>
-</blockquote>
-<span id="more"></span>
+                <p>GitHub Action 的输出格式为将 <code>&#123;name&#125;=&#123;value&#125;</code> 写到环境变量 <code>GITHUB_OUTPUT</code><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Workflow commands for GitHub Actions](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter). [Archived](https://web.archive.org/web/20240906091637/https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter) on 2024-09-06. Retrieved 2024-09-06.">[1]</span></a></sup><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[GitHub Actions: Deprecating save-state and set-output commands](https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/). [Archived](https://web.archive.org/web/20240906091742/https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/) on 2024-09-06. Retrieved 2024-09-06.">[2]</span></a></sup>，本文分享如何使用 Python 脚本设置 GitHub Action 输出。主要内容来自于这篇<a target="_blank" rel="noopener" href="https://github.com/orgs/community/discussions/28146">讨论</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[How to set-output from a python script in Github workflow step. #28146](https://github.com/orgs/community/discussions/28146). [Archived](https://web.archive.org/web/20240906085619/https://github.com/orgs/community/discussions/28146) on 2024-09-06. Retrieved 2024-09-06.">[3]</span></a></sup>。</p>
+<h2 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br>name = <span class="hljs-string">&#x27;my_name&#x27;</span><br>value = <span class="hljs-string">&#x27;my_value&#x27;</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(os.environ[<span class="hljs-string">&#x27;GITHUB_OUTPUT&#x27;</span>], <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> fh:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;name&#125;</span>=<span class="hljs-subst">&#123;value&#125;</span>&#x27;</span>, file=fh)<br></code></pre></td></tr></table></figure>
 
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I am developing a package recently, which needs to create some custom matrices. When designing the <code>getindex</code> function, I need to add code to do bounds checking and provide a way to skip bounds checking.</p>
-<p>The <a target="_blank" rel="noopener" href="https://docs.julialang.org/en/v1/devdocs/boundscheck/">official documentation</a> discusses this topic in detail, including how to use <code>@inbounds</code> and <code>@propagate_inbounds</code>, but it is quite brief and does not provide example code. This article will demonstrate how to use these two macros and their performance differences.</p>
-<h2 id="inbounds"><a href="#inbounds" class="headerlink" title="@inbounds"></a>@inbounds</h2><p>When we try to access a out-of-bound index, Julia will throw a <code>BoundsError</code> exception, we can use <code>@inbounds</code> to skip the bounds check.</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> g(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;accessing (<span class="hljs-variable">$A</span>)[<span class="hljs-variable">$i</span>]&quot;</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test()<br>    g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># ERROR: BoundsError: attempt to access 2-element UnitRange&#123;Int64&#125; at index [-1]</span><br></code></pre></td></tr></table></figure>
+<h2 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> uuid<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">set_multiline_output</span>(<span class="hljs-params">name, value</span>):<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(os.environ[<span class="hljs-string">&#x27;GITHUB_OUTPUT&#x27;</span>], <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> fh:<br>        delimiter = uuid.uuid1()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;name&#125;</span>&lt;&lt;<span class="hljs-subst">&#123;delimiter&#125;</span>&#x27;</span>, file=fh)<br>        <span class="hljs-built_in">print</span>(value, file=fh)<br>        <span class="hljs-built_in">print</span>(delimiter, file=fh)<br></code></pre></td></tr></table></figure>
 
-<p>Add <code>@inbounds</code> when calling <code>g</code> to skip the bounds check.</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-keyword">function</span> test()<br>    <span class="hljs-meta">@inbounds</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># &quot;accessing (1:2)[-1]&quot;</span><br></code></pre></td></tr></table></figure>
+<p>只需要调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">set_multiline_output(<span class="hljs-string">&quot;value&quot;</span>, my_multiline_string)<br></code></pre></td></tr></table></figure>
 
-<h2 id="Multple-layers-check-propagate-inbounds"><a href="#Multple-layers-check-propagate-inbounds" class="headerlink" title="Multple layers check: @propagate_inbounds"></a>Multple layers check: @propagate_inbounds</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>If a function has multiple layers of bounds checking, the outermost <code>@inbounds</code> can only skip the outermost bounds checking, and the inner bounds checking will still be executed.</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> f(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test()<br>    <span class="hljs-meta">@inbounds</span> f(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># ERROR: BoundsError: attempt to access 2-element UnitRange&#123;Int64&#125; at index [-1]</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="Classic-Solution"><a href="#Classic-Solution" class="headerlink" title="Classic Solution"></a>Classic Solution</h3><p>Update the <code>f</code> function, add <code>@inbounds</code> in each function call to skip the bounds check.</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> f(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-meta">@inbounds</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># &quot;accessing (1:2)[-1]&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>In Julia official library LinearAlgebra.jl, <code>@inbounds</code> is widely used, for example, the <a target="_blank" rel="noopener" href="https://github.com/JuliaLang/julia/blob/647753071a1e2ddbddf7ab07f55d7146238b6b72/stdlib/LinearAlgebra/src/tridiag.jl#L696-L707">Tridiagonal</a> matrix:</p>
-<p><img src="https://picture.zhanganzhi.com/2024/08/26/aoyvxfi.png" srcset="/img/loading.gif" lazyload alt="The solution used in the official library"></p>
-<h3 id="propagate-inbounds"><a href="#propagate-inbounds" class="headerlink" title="@propagate_inbounds"></a>@propagate_inbounds</h3><p><code>@propagate_inbounds</code> can help us solve the problem of needing to add <code>@inbounds</code> to each function call in multiple layers of calls. It can be used to propagate the context of bounds checking, allowing us to skip bounds checking in multiple layers of function calls.</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> g(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;accessing (<span class="hljs-variable">$A</span>)[<span class="hljs-variable">$i</span>]&quot;</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-meta">@inline</span> Base.<span class="hljs-meta">@propagate_inbounds</span> <span class="hljs-keyword">function</span> f(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test()<br>    <span class="hljs-meta">@inbounds</span> f(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br>test() <span class="hljs-comment"># &quot;accessing (1:2)[-1]&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>Therefor, <code>f</code> can pass the information of skipping bounds checking to <code>g</code>, as long as <code>@inbounds</code> is added when calling <code>f</code>, the inner bounds checking can be skipped.</p>
-<p>It should be noted that <code>@propagate_inbounds</code> will not be propagated indefinitely. If the <code>g</code> function calls other functions with bounds checking, <code>@propagate_inbounds</code> or <code>@inbounds</code> should be used.</p>
-<h2 id="Performance-Differences"><a href="#Performance-Differences" class="headerlink" title="Performance Differences"></a>Performance Differences</h2><p>Next, we will test the performance differences between <code>@inbounds</code> and <code>@propagate_inbounds</code>. The test code is as follows, <code>f1</code> uses <code>@inbounds</code>, <code>f2</code> uses <code>@propagate_inbounds</code>.</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs julia"><span class="hljs-keyword">using</span> BenchmarkTools<br><br><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> f1(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-meta">@inbounds</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-meta">@inline</span> Base.<span class="hljs-meta">@propagate_inbounds</span> <span class="hljs-keyword">function</span> f2(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> g(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-meta">@inline</span> <span class="hljs-keyword">function</span> g(A, i)<br>    <span class="hljs-meta">@boundscheck</span> checkbounds(A, i)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;g: accessing (<span class="hljs-variable">$A</span>)[<span class="hljs-variable">$i</span>]&quot;</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test_f1()<br>    <span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span>:<span class="hljs-number">100000</span><br>        <span class="hljs-meta">@inbounds</span> f1(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> test_f2()<br>    <span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span>:<span class="hljs-number">100000</span><br>        <span class="hljs-meta">@inbounds</span> f2(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">function</span> main()<br>    <span class="hljs-meta">@inbounds</span> f1(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br>    <span class="hljs-meta">@inbounds</span> f2(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)<br><br>    t1 = <span class="hljs-meta">@benchmark</span> test_f1()<br>    t2 = <span class="hljs-meta">@benchmark</span> test_f2()<br>    display(t1)<br>    display(t2)<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
-
-<p>We can say that there is no performance difference between the two.</p>
-<p><img src="https://picture.zhanganzhi.com/2024/08/26/z3j0lje.png" srcset="/img/loading.gif" lazyload alt="Test results"></p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p><code>@inbounds</code> can skip the bounds check of a single layer of function calls, which can be used when calling the outermost function, helping to improve performance, but also have pay attention to the security of access.</p>
-<p><code>@propagate_inbounds</code> can skip the bounds check of multiple layers of function calls, which is suitable for the development of packages. This macro can provide better code cleanliness, avoiding the trouble of adding <code>@inbounds</code> to each layer of function calls.</p>
-<p>Comprehensively, there is no performance difference between the two, and using <code>@propagate_inbounds</code> is a better choice when developing packages.</p>
-
+<section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter">Workflow commands for GitHub Actions</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240906091637/https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter">Archived</a> on 2024-09-06. Retrieved 2024-09-06.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/">GitHub Actions: Deprecating save-state and set-output commands</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240906091742/https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/">Archived</a> on 2024-09-06. Retrieved 2024-09-06.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/orgs/community/discussions/28146">How to set-output from a python script in Github workflow step. #28146</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240906085619/https://github.com/orgs/community/discussions/28146">Archived</a> on 2024-09-06. Retrieved 2024-09-06.
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -378,7 +354,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" class="category-chain-item">经验分享</a>
   
   
 
@@ -395,11 +371,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Julia/" class="print-no-link">#Julia</a>
+        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
       
-        <a href="/tags/%E6%80%A7%E8%83%BD/" class="print-no-link">#性能</a>
-      
-        <a href="/tags/Performance/" class="print-no-link">#Performance</a>
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
       
     </div>
   
@@ -411,44 +385,44 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Julia: @inbounds and @propagate_inbounds</div>
-      <div>https://blog.zhanganzhi.com/en/2024/08/7df2e472657e/</div>
+      <div>使用 Python 脚本设置 GitHub Action 输出</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2024/09/95ffc38bb186/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>Author</div>
+          <div>作者</div>
           <div>Andy Zhang</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>August 26, 2024</div>
+          <div>发布于</div>
+          <div>2024年9月6日</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>Licensed under</div>
+          <div>许可协议</div>
           <div>
             
               
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-cc-by"></i>
                   </span>
                 </a>
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
                     <i class="iconfont icon-cc-nc"></i>
                   </span>
                 </a>
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="ND - No derivative works">
+                  <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
                     <i class="iconfont icon-cc-nd"></i>
                   </span>
                 </a>
@@ -468,19 +442,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2024/09/95ffc38bb186/" title="使用 Python 脚本设置 GitHub Action 输出">
+                      <a href="/en/2024/09/3628682be12f/" title="Using Python Scripts to Set GitHub Action Outputs">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用 Python 脚本设置 GitHub Action 输出</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="hidden-mobile">Using Python Scripts to Set GitHub Action Outputs</span>
+                        <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zh-CN/2024/08/7df2e472657e/" title="Julia: @inbounds 和 @propagate_inbounds">
-                        <span class="hidden-mobile">Julia: @inbounds 和 @propagate_inbounds</span>
-                        <span class="visible-mobile">Next</span>
+                      <a href="/en/2024/08/7df2e472657e/" title="Julia: @inbounds and @propagate_inbounds">
+                        <span class="hidden-mobile">Julia: @inbounds and @propagate_inbounds</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -533,7 +507,7 @@
     <div id="toc">
   <p class="toc-header">
     <i class="iconfont icon-list"></i>
-    <span>Table of Contents</span>
+    <span>目录</span>
   </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
@@ -589,7 +563,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -597,7 +571,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -777,7 +751,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
 </body>
 </html>
