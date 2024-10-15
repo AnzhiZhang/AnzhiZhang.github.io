@@ -101,6 +101,15 @@
   </url>
   
   <url>
+    <loc>https://blog.zhanganzhi.com/en/2024/10/4ffcfc636790/</loc>
+    
+    <lastmod>2024-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zhanganzhi.com/zh-CN/2022/06/226b86b1999a/</loc>
     
     <lastmod>2022-06-04</lastmod>
@@ -347,6 +356,15 @@
     <loc>https://blog.zhanganzhi.com/zh-CN/2024/09/523202aa5e89/</loc>
     
     <lastmod>2024-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhanganzhi.com/zh-CN/2024/10/4036f0443a57/</loc>
+    
+    <lastmod>2024-10-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

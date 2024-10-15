@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   <link rel="icon" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   
-    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2024/09/a2d3aacb3fc0/"/>
+    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2024/10/4ffcfc636790/"/>
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -21,24 +21,30 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="The output format of GitHub Action is to write &#123;name&#125;&#x3D;&#123;value&#125; to the environment variable GITHUB_OUTPUT[1][2] This article shares how to set up the GitHub Action output using Pytho">
+    <meta name="description" content="This article introduces how to set up the development environment of xv6-riscv.  Introductionxv6 is a re-implementation of Dennis Ritchie’s and Ken Thompson’s Unix Version 6 (v6). The main purpose of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Using Python to Set GitHub Action Outputs">
-<meta property="og:url" content="https://blog.zhanganzhi.com/en/2024/09/a2d3aacb3fc0/">
+<meta property="og:title" content="Setup xv6-riscv Development Environment">
+<meta property="og:url" content="https://blog.zhanganzhi.com/en/2024/10/4ffcfc636790/">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="The output format of GitHub Action is to write &#123;name&#125;&#x3D;&#123;value&#125; to the environment variable GITHUB_OUTPUT[1][2] This article shares how to set up the GitHub Action output using Pytho">
+<meta property="og:description" content="This article introduces how to set up the development environment of xv6-riscv.  Introductionxv6 is a re-implementation of Dennis Ritchie’s and Ken Thompson’s Unix Version 6 (v6). The main purpose of">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://picture.zhanganzhi.com/2024/09/06/iysvz2k.png">
-<meta property="article:published_time" content="2024-09-06T17:08:07.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2024/10/15/ovjbnz2.png">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2024/10/15/n5slrkz.png">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2024/10/15/sfr2vqf.png">
+<meta property="article:published_time" content="2024-10-15T19:20:01.000Z">
 <meta property="article:author" content="Andy Zhang">
 <meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="汇编">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="xv6">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picture.zhanganzhi.com/2024/09/06/iysvz2k.png">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2024/10/15/ovjbnz2.png">
   
   
   
-  <title>Using Python to Set GitHub Action Outputs - Andy&#39;s Blog</title>
+  <title>Setup xv6-riscv Development Environment - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -244,7 +250,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Using Python to Set GitHub Action Outputs"></span>
+            <span id="subtitle" data-typed-text="Setup xv6-riscv Development Environment"></span>
           
         </div>
 
@@ -255,8 +261,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-06 17:08" pubdate>
-          September 6, 2024
+        <time datetime="2024-10-15 19:20" pubdate>
+          October 15, 2024
         </time>
       </span>
     
@@ -315,22 +321,41 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Using Python to Set GitHub Action Outputs</h1>
+            <h1 id="seo-header">Setup xv6-riscv Development Environment</h1>
             
             
               <div class="markdown-body">
                 
-                <p>The output format of GitHub Action is to write <code>&#123;name&#125;=&#123;value&#125;</code> to the environment variable <code>GITHUB_OUTPUT</code><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Workflow commands for GitHub Actions](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter). [Archived](https://web.archive.org/web/20240906091637/https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter) on 2024-09-06. Retrieved 2024-09-06.">[1]</span></a></sup><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[GitHub Actions: Deprecating save-state and set-output commands](https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/). [Archived](https://web.archive.org/web/20240906091742/https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/) on 2024-09-06. Retrieved 2024-09-06.">[2]</span></a></sup> This article shares how to set up the GitHub Action output using Python. The main content comes from this <a target="_blank" rel="noopener" href="https://github.com/orgs/community/discussions/28146">discussion</a><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[How to set-output from a python script in Github workflow step. #28146](https://github.com/orgs/community/discussions/28146). [Archived](https://web.archive.org/web/20240906085619/https://github.com/orgs/community/discussions/28146) on 2024-09-06. Retrieved 2024-09-06.">[3]</span></a></sup>.</p>
-<h2 id="Singleline"><a href="#Singleline" class="headerlink" title="Singleline"></a>Singleline</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br>name = <span class="hljs-string">&#x27;my_name&#x27;</span><br>value = <span class="hljs-string">&#x27;my_value&#x27;</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(os.environ[<span class="hljs-string">&#x27;GITHUB_OUTPUT&#x27;</span>], <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> fh:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;name&#125;</span>=<span class="hljs-subst">&#123;value&#125;</span>&#x27;</span>, file=fh)<br></code></pre></td></tr></table></figure>
+                <blockquote>
+<p>This article introduces how to set up the development environment of xv6-riscv.</p>
+</blockquote>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>xv6 is a re-implementation of Dennis Ritchie’s and Ken Thompson’s Unix Version 6 (v6). The main purpose of xv6 is as a teaching operating system for MIT’s 6.1810<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[xv6-riscv](https://github.com/mit-pdos/xv6-riscv). [Archived](https://web.archive.org/web/20240723225448/https://github.com/mit-pdos/xv6-riscv) on 2024-07-23. Retrieved 2024-10-15.">[1]</span></a></sup>.</p>
+<span id="more"></span>
 
-<h2 id="Multiline"><a href="#Multiline" class="headerlink" title="Multiline"></a>Multiline</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> uuid<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">set_multiline_output</span>(<span class="hljs-params">name, value</span>):<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(os.environ[<span class="hljs-string">&#x27;GITHUB_OUTPUT&#x27;</span>], <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> fh:<br>        delimiter = uuid.uuid1()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;name&#125;</span>&lt;&lt;<span class="hljs-subst">&#123;delimiter&#125;</span>&#x27;</span>, file=fh)<br>        <span class="hljs-built_in">print</span>(value, file=fh)<br>        <span class="hljs-built_in">print</span>(delimiter, file=fh)<br></code></pre></td></tr></table></figure>
+<h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><p>The system environment I use:</p>
+<ul>
+<li>Ubuntu 24.04.1 LTS</li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>We need to install related cross-compilation tools, as well as QEMU to simulate the RISC-V chip. The following commands are modified from <a target="_blank" rel="noopener" href="https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def">mmikaitis&#x2F;xv6-tools-container&#x2F;xv6-tools-container.def</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[xv6-tools-container.def](https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def). Retrieved 2024-10-15.">[2]</span></a></sup>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install -y build-essential gcc-riscv64-linux-gnu qemu-system-riscv64 gdb-multiarch<br></code></pre></td></tr></table></figure>
 
-<p>Just call it with</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">set_multiline_output(<span class="hljs-string">&quot;value&quot;</span>, my_multiline_string)<br></code></pre></td></tr></table></figure>
+<h2 id="Download-xv6-riscv"><a href="#Download-xv6-riscv" class="headerlink" title="Download xv6-riscv"></a>Download xv6-riscv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:mit-pdos/xv6-riscv.git<br><span class="hljs-built_in">cd</span> xv6-riscv<br></code></pre></td></tr></table></figure>
 
-<section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter">Workflow commands for GitHub Actions</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240906091637/https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-an-output-parameter">Archived</a> on 2024-09-06. Retrieved 2024-09-06.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/">GitHub Actions: Deprecating save-state and set-output commands</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240906091742/https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/">Archived</a> on 2024-09-06. Retrieved 2024-09-06.
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/orgs/community/discussions/28146">How to set-output from a python script in Github workflow step. #28146</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240906085619/https://github.com/orgs/community/discussions/28146">Archived</a> on 2024-09-06. Retrieved 2024-09-06.
+<h2 id="Compile-and-Run"><a href="#Compile-and-Run" class="headerlink" title="Compile and Run"></a>Compile and Run</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">make<br>make qemu<br></code></pre></td></tr></table></figure>
+
+<p>Now you can see the following output, which means the compilation and running are successful:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">xv6 kernel is booting<br><br>hart 2 starting<br>hart 1 starting<br>init: starting sh<br>$<br></code></pre></td></tr></table></figure>
+
+<p>To exit QEMU, you can press <code>Ctrl + A</code>, then press <code>X</code>.</p>
+<h3 id="QEMU-No-Response-After-Startup"><a href="#QEMU-No-Response-After-Startup" class="headerlink" title="QEMU No Response After Startup"></a>QEMU No Response After Startup</h3><p>I encountered the problem of no response after starting <code>make qemu</code> when setting up the environment. Finally, I found this <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/issues/76">issue</a>. The solution provided by the related <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/pull/62">PR</a> works. After my attempt, I can also update the system and QEMU to the latest version. I finally used <code>Ubuntu 24.04.1 LTS</code> and <code>QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.2)</code>.</p>
+<h2 id="IDE-Remote-Connection"><a href="#IDE-Remote-Connection" class="headerlink" title="IDE Remote Connection"></a>IDE Remote Connection</h2><p>The project is located on a remote Linux server. If we want to develop using a powerful IDE locally instead of using vim and other text editors on the server, we can use Clion to connect to the server via SSH for development.</p>
+<p><img src="https://picture.zhanganzhi.com/2024/10/15/ovjbnz2.png" srcset="/img/loading.gif" lazyload alt="Create SSH Connectio in Clion"></p>
+<p><img src="https://picture.zhanganzhi.com/2024/10/15/n5slrkz.png" srcset="/img/loading.gif" lazyload alt="Select Project Path and IDE Version"></p>
+<p>After the remote connection is established, you can develop as if you were working on a local project. Run <code>make qemu</code> in the terminal to run xv6-riscv.</p>
+<p><img src="https://picture.zhanganzhi.com/2024/10/15/sfr2vqf.png" srcset="/img/loading.gif" lazyload alt="IDE Interface"></p>
+<section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv">xv6-riscv</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240723225448/https://github.com/mit-pdos/xv6-riscv">Archived</a> on 2024-07-23. Retrieved 2024-10-15.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def">xv6-tools-container.def</a>. Retrieved 2024-10-15.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://kingofdark.top/2022/03/19/2022-03/2022-03-19%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%B3%BB%E5%88%97-xv6%E5%86%85%E6%A0%B8%E8%B0%83%E8%AF%95%E6%95%99%E7%A8%8B/#riscv-gnu-toolchain-%E5%AE%89%E8%A3%85">【99%环境搭建系列】xv6-riscv内核调试教程</a>. Retrieved 2024-10-15.
 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
@@ -354,8 +379,15 @@
   
     <span>></span>
     
-  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" class="category-chain-item">经验分享</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="category-chain-item">软件开发</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  
+  
+
   
 
   
@@ -373,7 +405,15 @@
       
         <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
       
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/%E6%B1%87%E7%BC%96/" class="print-no-link">#汇编</a>
+      
+        <a href="/tags/C/" class="print-no-link">#C</a>
+      
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#操作系统</a>
+      
+        <a href="/tags/xv6/" class="print-no-link">#xv6</a>
       
     </div>
   
@@ -385,8 +425,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Using Python to Set GitHub Action Outputs</div>
-      <div>https://blog.zhanganzhi.com/en/2024/09/a2d3aacb3fc0/</div>
+      <div>Setup xv6-riscv Development Environment</div>
+      <div>https://blog.zhanganzhi.com/en/2024/10/4ffcfc636790/</div>
     </div>
     <div class="license-meta">
       
@@ -398,7 +438,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>September 6, 2024</div>
+          <div>October 15, 2024</div>
         </div>
       
       
@@ -442,18 +482,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2024/10/4036f0443a57/" title="xv6-riscv 开发环境搭建">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">xv6-riscv 开发环境搭建</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zh-CN/2024/09/523202aa5e89/" title="使用 Python 设置 GitHub Action 输出">
-                        <span class="hidden-mobile">使用 Python 设置 GitHub Action 输出</span>
+                      <a href="/zh-CN/2024/10/4036f0443a57/" title="xv6-riscv 开发环境搭建">
+                        <span class="hidden-mobile">xv6-riscv 开发环境搭建</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
