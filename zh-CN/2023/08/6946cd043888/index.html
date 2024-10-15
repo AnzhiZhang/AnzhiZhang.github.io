@@ -326,7 +326,7 @@
 </blockquote>
 <span id="more"></span>
 
-<h2 id="PDF-js-简介"><a href="#PDF-js-简介" class="headerlink" title="PDF.js 简介"></a>PDF.js 简介</h2><p>PDF.js 是一个通用的、基于 Web 标准的平台，用于解析和呈现 PDF<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[pdf.js禁用打开打印下载功能](https://cloud.tencent.com/developer/article/1549679?from=15425). 似水的流年. 2019-12-05 [2023-08-17]. （原始内容[存档](https://web.archive.org/web/20230818123734/https://cloud.tencent.com/developer/article/1549679?from=15425)于2023-08-18）.">[1]</span></a></sup>。</p>
+<h2 id="PDF-js-简介"><a href="#PDF-js-简介" class="headerlink" title="PDF.js 简介"></a>PDF.js 简介</h2><p>PDF.js 是一个通用的、基于 Web 标准的平台，用于解析和呈现 PDF<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[PDF.js](https://mozilla.github.io/pdf.js/). Mozilla and individual contributors. [2023-08-17].">[1]</span></a></sup>。</p>
 <h2 id="禁用的原理"><a href="#禁用的原理" class="headerlink" title="禁用的原理"></a>禁用的原理</h2><p>禁用主要是依赖以下几个魔改，部分网站可能只有其中之一或几个：</p>
 <ol>
 <li>禁用右键菜单</li>
@@ -334,7 +334,7 @@
 <li>移除 PDF.js eventBus 的 openfile, save 和 print 事件</li>
 <li>移除 PDF.js 相关下载和打印的方法，避免从 Console 调用</li>
 </ol>
-<p>更多的详细信息可以参考 《<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1549679?from=15425">pdf.js禁用打开打印下载功能</a>》[^2]</p>
+<p>更多的详细信息可以参考 《<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1549679?from=15425">pdf.js禁用打开打印下载功能</a>》<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[pdf.js禁用打开打印下载功能](https://cloud.tencent.com/developer/article/1549679?from=15425). 似水的流年. 2019-12-05 [2023-08-17]. （原始内容[存档](https://web.archive.org/web/20230818123734/https://cloud.tencent.com/developer/article/1549679?from=15425)于2023-08-18）.">[2]</span></a></sup></p>
 <p><img src="https://picture.zhanganzhi.com/2023/08/18/uadnbjh.png" srcset="/img/loading.gif" lazyload alt="没有下载按钮，保存和打印的快捷键和右键也无效"></p>
 <h2 id="研究过程"><a href="#研究过程" class="headerlink" title="研究过程"></a>研究过程</h2><p>阅读 Sources，发现确实使用了文章中的类似方法，搜索 <code>download</code> 可以找到多处被注释的内容。</p>
 <p><img src="https://picture.zhanganzhi.com/2023/08/18/e3ns35c.png" srcset="/img/loading.gif" lazyload alt="被隐藏的相关方法"></p>
@@ -356,8 +356,8 @@
 
 <p><img src="https://picture.zhanganzhi.com/2023/08/18/kqz47lw.png" srcset="/img/loading.gif" lazyload alt="成功获取 blob 并下载"></p>
 <section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://mozilla.github.io/pdf.js/">PDF.js</a>. Mozilla and individual contributors. [2023-08-17].
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1549679?from=15425">pdf.js禁用打开打印下载功能</a>. 似水的流年. 2019-12-05 [2023-08-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20230818123734/https://cloud.tencent.com/developer/article/1549679?from=15425">存档</a>于2023-08-18）.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1549679?from=15425">pdf.js禁用打开打印下载功能</a>. 似水的流年. 2019-12-05 [2023-08-17]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20230818123734/https://cloud.tencent.com/developer/article/1549679?from=15425">存档</a>于2023-08-18）.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
