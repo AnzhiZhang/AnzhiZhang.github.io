@@ -358,7 +358,7 @@
 
 <p>要退出 QEMU，可以按下 <code>Ctrl + A</code>，然后按下 <code>X</code>。</p>
 <h3 id="QEMU-启动后无响应"><a href="#QEMU-启动后无响应" class="headerlink" title="QEMU 启动后无响应"></a>QEMU 启动后无响应</h3><p>我在搭建环境的时候遇到了 <code>make qemu</code> 启动后无响应的问题，最终查找到了这个 <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/issues/76">issue</a>，相关的 <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/pull/62">PR</a> 提供的解决方案是可用的。经过我的尝试，也可以将系统和 QEMU 更新到最新版本。我最终使用的是 <code>Ubuntu 24.04.1 LTS</code> 和 <code>QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.2)</code>。</p>
-<h2 id="IDE-远程连接"><a href="#IDE-远程连接" class="headerlink" title="IDE 远程连接"></a>IDE 远程连接</h2><p>项目位于远程 Linux 服务器上，如果我们希望在本地使用一个强大的 IDE 进行开发，而不是在服务器使用 vim 等文本编辑器，可以使用 Clion 通过 SSH 连接到服务器进行开发。</p>
+<h2 id="IDE-远程开发"><a href="#IDE-远程开发" class="headerlink" title="IDE 远程开发"></a>IDE 远程开发</h2><p>项目位于远程 Linux 服务器上，如果我们希望在本地使用一个强大的 IDE 进行开发，而不是在服务器使用 vim 等文本编辑器，可以使用 Clion 通过 SSH 连接到服务器进行开发。</p>
 <p><img src="https://picture.zhanganzhi.com/2024/10/15/ovjbnz2.png" srcset="/img/loading.gif" lazyload alt="在 Clion 中创建 SSH 连接"></p>
 <p><img src="https://picture.zhanganzhi.com/2024/10/15/n5slrkz.png" srcset="/img/loading.gif" lazyload alt="选择项目路径和 IDE 版本"></p>
 <p>连接后即可和本地项目一样进行开发，在 terminal 中执行 <code>make qemu</code> 即可运行 xv6-riscv。</p>
