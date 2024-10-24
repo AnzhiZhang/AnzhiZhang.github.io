@@ -284,7 +284,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          622 字
+          716 字
         
       </span>
     
@@ -347,7 +347,7 @@
 <ul>
 <li>Ubuntu 24.04.1 LTS</li>
 </ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我们需要安装相关交叉编译工具，以及 QEMU 以模拟 RISC-V 芯片。以下命令修改自 <a target="_blank" rel="noopener" href="https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def">mmikaitis&#x2F;xv6-tools-container&#x2F;xv6-tools-container.def</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[xv6-tools-container.def](https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def). Retrieved 2024-10-15.">[2]</span></a></sup>。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我们需要安装相关交叉编译工具，以及 QEMU 以模拟 RISC-V 芯片。以下命令修改自 <a target="_blank" rel="noopener" href="https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def">mmikaitis&#x2F;xv6-tools-container&#x2F;xv6-tools-container.def</a><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[xv6-tools-container.def](https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def). 2024-09-07. Retrieved 2024-10-15.">[2]</span></a></sup>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install -y build-essential gcc-riscv64-linux-gnu qemu-system-riscv64 gdb-multiarch<br></code></pre></td></tr></table></figure>
 
 <h2 id="下载-xv6-riscv"><a href="#下载-xv6-riscv" class="headerlink" title="下载 xv6-riscv"></a>下载 xv6-riscv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:mit-pdos/xv6-riscv.git<br><span class="hljs-built_in">cd</span> xv6-riscv<br></code></pre></td></tr></table></figure>
@@ -358,7 +358,14 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">xv6 kernel is booting<br><br>hart 2 starting<br>hart 1 starting<br>init: starting sh<br>$<br></code></pre></td></tr></table></figure>
 
 <p>要退出 QEMU，可以按下 <code>Ctrl + A</code>，然后按下 <code>X</code>。</p>
-<h3 id="QEMU-启动后无响应"><a href="#QEMU-启动后无响应" class="headerlink" title="QEMU 启动后无响应"></a>QEMU 启动后无响应</h3><p>我在搭建环境的时候遇到了 <code>make qemu</code> 启动后无响应的问题，最终查找到了这个 <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/issues/76">issue</a>，相关的 <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/pull/62">PR</a> 提供的解决方案是可用的。经过我的尝试，也可以将系统和 QEMU 更新到最新版本。我最终使用的是 <code>Ubuntu 24.04.1 LTS</code> 和 <code>QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.2)</code>。</p>
+<h3 id="QEMU-启动后无响应"><a href="#QEMU-启动后无响应" class="headerlink" title="QEMU 启动后无响应"></a>QEMU 启动后无响应</h3><p>我在搭建环境的时候遇到了 <code>make qemu</code> 启动后无响应的问题，最终查找到了这个 <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/issues/76">issue</a>，相关的 <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv/pull/62">PR</a> 提供的解决方案是可用的。</p>
+<p>经过我的尝试，将系统和 QEMU 更新到最新版本也可以解决问题。我最终使用的是 <code>Ubuntu 24.04.1 LTS</code> 和 <code>QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.2)</code>。</p>
+<p>也可以下载编译安装新版 QEMU<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="rovast. [qemu-system-riscv64 is not found in package qemu-system-misc](https://stackoverflow.com/questions/66718225/qemu-system-riscv64-is-not-found-in-package-qemu-system-misc/71367297#71367297). 2022-03-06. Retrieved 2024-10-24.">[3]</span></a></sup>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://download.qemu.org/qemu-8.2.2.tar.xz<br>tar -xf qemu-8.2.2.tar.xz<br><span class="hljs-built_in">cd</span> qemu-8.2.2<br>./configure --disable-kvm --disable-werror --prefix=/usr/local --target-list=<span class="hljs-string">&quot;riscv64-softmmu&quot;</span><br>make<br>sudo make install<br><span class="hljs-built_in">cd</span> ..<br></code></pre></td></tr></table></figure>
+
+<p>在编译 QEMU 时，可能需要<a target="_blank" rel="noopener" href="https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages">安装 Ninja</a><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="Oleksii Chernykh. [Pre built Ninja packages](https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages). 2024-04-09. Retrieved 2024-10-24.">[4]</span></a></sup>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install ninja-build<br></code></pre></td></tr></table></figure>
+
 <h2 id="IDE-远程开发"><a href="#IDE-远程开发" class="headerlink" title="IDE 远程开发"></a>IDE 远程开发</h2><p>项目位于远程 Linux 服务器上，如果我们希望在本地使用一个强大的 IDE 进行开发，而不是在服务器使用 vim 等文本编辑器，可以使用 Clion 通过 SSH 连接到服务器进行开发。</p>
 <p><img src="https://picture.zhanganzhi.com/2024/10/15/ovjbnz2.png" srcset="/img/loading.gif" lazyload alt="在 Clion 中创建 SSH 连接"></p>
 <p><img src="https://picture.zhanganzhi.com/2024/10/15/n5slrkz.png" srcset="/img/loading.gif" lazyload alt="选择项目路径和 IDE 版本"></p>
@@ -388,10 +395,12 @@
 <p><img src="https://picture.zhanganzhi.com/2024/10/17/2f62iu2.png" srcset="/img/loading.gif" lazyload alt="用户程序调试"></p>
 <p><img src="https://picture.zhanganzhi.com/2024/10/17/ejteonx.png" srcset="/img/loading.gif" lazyload alt="用户程序的断点"></p>
 <section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>mit-pdos. <a target="_blank" rel="noopener" href="https://github.com/mit-pdos/xv6-riscv">xv6-riscv</a>. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20240723225448/https://github.com/mit-pdos/xv6-riscv">Archived</a> on 2024-07-23. Retrieved 2024-10-15.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def">xv6-tools-container.def</a>. Retrieved 2024-10-15.
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>Zhang Yuxuan. <a target="_blank" rel="noopener" href="https://kingofdark.top/2022/03/19/2022-03/2022-03-19%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%B3%BB%E5%88%97-xv6%E5%86%85%E6%A0%B8%E8%B0%83%E8%AF%95%E6%95%99%E7%A8%8B/#riscv-gnu-toolchain-%E5%AE%89%E8%A3%85">【99%环境搭建系列】xv6-riscv内核调试教程</a>. Retrieved 2024-10-15.
-<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span>钟万祥. <a target="_blank" rel="noopener" href="https://shawnzhong.com/2019/02/16/xv6-remote-debug-using-clion/">xv6 Remote Debug using CLion</a>. Retrieved 2024-10-17.
-<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/mmikaitis/xv6-tools-container/blob/main/xv6-tools-container.def">xv6-tools-container.def</a>. 2024-09-07. Retrieved 2024-10-15.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>rovast. <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/66718225/qemu-system-riscv64-is-not-found-in-package-qemu-system-misc/71367297#71367297">qemu-system-riscv64 is not found in package qemu-system-misc</a>. 2022-03-06. Retrieved 2024-10-24.
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span>Oleksii Chernykh. <a target="_blank" rel="noopener" href="https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages">Pre built Ninja packages</a>. 2024-04-09. Retrieved 2024-10-24.
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:5" class="footnote-text"><span>Zhang Yuxuan. <a target="_blank" rel="noopener" href="https://kingofdark.top/2022/03/19/2022-03/2022-03-19%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%B3%BB%E5%88%97-xv6%E5%86%85%E6%A0%B8%E8%B0%83%E8%AF%95%E6%95%99%E7%A8%8B/">【99%环境搭建系列】xv6-riscv内核调试教程</a>. 2022-03-19. Retrieved 2024-10-15.
+<a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:6" class="footnote-text"><span>钟万祥. <a target="_blank" rel="noopener" href="https://shawnzhong.com/2019/02/16/xv6-remote-debug-using-clion/">xv6 Remote Debug using CLion</a>. 2019-02-16. Retrieved 2024-10-17.
+<a href="#fnref:6" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
