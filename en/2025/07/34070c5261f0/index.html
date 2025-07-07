@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picture.zhanganzhi.com/common/avatar.jpg">
+  <link rel="icon" href="https://picture.zhanganzhi.com/common/avatar.jpg">
+  
+    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2025/07/34070c5261f0/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Andy Zhang">
+  <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
+  
+    <meta name="description" content="This article describes how to set up the Baidu Apollo development environment.  IntroductionApollo is a high performance, flexible architecture which accelerates the development, testing, and deploym">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apollo Development Environment Setup">
+<meta property="og:url" content="https://blog.zhanganzhi.com/en/2025/07/34070c5261f0/">
+<meta property="og:site_name" content="Andy&#39;s Blog">
+<meta property="og:description" content="This article describes how to set up the Baidu Apollo development environment.  IntroductionApollo is a high performance, flexible architecture which accelerates the development, testing, and deploym">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2025/07/07/2lofmx3.png">
+<meta property="article:published_time" content="2025-07-07T11:40:25.000Z">
+<meta property="article:author" content="Andy Zhang">
+<meta property="article:tag" content="Apollo">
+<meta property="article:tag" content="自动驾驶">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2025/07/07/2lofmx3.png">
+  
+  
+  
+  <title>Apollo Development Environment Setup - Andy&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.zhanganzhi.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-PMM77KFF7F"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"n7I9EuYN7JyRKrHnyO7lKPvK-MdYXbMMI","app_key":"YmP05m7YTm0Fmzytbmf5FD5f","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-PMM77KFF7F", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-PMM77KFF7F');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Andy's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Andy&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Apollo Development Environment Setup"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-07 11:40" pubdate>
+          July 7, 2025
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          302 words
+        
+      </span>
+    
+
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Apollo Development Environment Setup</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>This article describes how to set up the Baidu Apollo development environment.</p>
+</blockquote>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a target="_blank" rel="noopener" href="https://apollo.auto/">Apollo</a> is a high performance, flexible architecture which accelerates the development, testing, and deployment of Autonomous Vehicles.</p>
+<span id="more"></span>
+
+<p>This article was written on July 7, 2025, based on Apollo version 10.0.</p>
+<h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><p>My system environment:</p>
+<ul>
+<li>Intel(R) Core(TM) i9-14900K</li>
+<li>NVIDIA GeForce RTX 2080 Ti</li>
+<li>Ubuntu 22.04.5 LTS</li>
+</ul>
+<p>Please install Docker Engine and GPU support yourself. You may refer to the <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">Docker official documentation</a> and <a target="_blank" rel="noopener" href="https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html">Apollo Installation Guide</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Baidu. [安装指南](https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html). 2024. [Archived](https://web.archive.org/web/20250707190258/https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html) on 2025-07-07. Retrieved 2025-07-07.">[1]</span></a></sup>.</p>
+<h2 id="Install-Apollo-Environment-Manager"><a href="#Install-Apollo-Environment-Manager" class="headerlink" title="Install Apollo Environment Manager"></a>Install Apollo Environment Manager</h2><p>Apollo Environment Manager is a command-line tool that helps manage and launch Apollo environments.</p>
+<h3 id="1-Install-required-dependencies"><a href="#1-Install-required-dependencies" class="headerlink" title="1. Install required dependencies"></a>1. Install required dependencies</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get update<br>sudo apt-get install ca-certificates curl gnupg<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-Add-Apollo-software-source-GPG-key-and-configure-source"><a href="#2-Add-Apollo-software-source-GPG-key-and-configure-source" class="headerlink" title="2. Add Apollo software source GPG key and configure source"></a>2. Add Apollo software source GPG key and configure source</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Add GPG key</span><br>sudo install -m 0755 -d /etc/apt/keyrings<br>curl -fsSL https://apollo-pkg-beta.cdn.bcebos.com/neo/beta/key/deb.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/apolloauto.gpg<br>sudo <span class="hljs-built_in">chmod</span> a+r /etc/apt/keyrings/apolloauto.gpg<br><br><span class="hljs-comment"># Configure source and update</span><br><span class="hljs-built_in">echo</span> \<br>    <span class="hljs-string">&quot;deb [arch=&quot;</span>$(dpkg --print-architecture)<span class="hljs-string">&quot; signed-by=/etc/apt/keyrings/apolloauto.gpg] https://apollo-pkg-beta.cdn.bcebos.com/apollo/core&quot;</span>\<br>    $(. /etc/os-release &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$VERSION_CODENAME</span>&quot;</span>) <span class="hljs-string">&quot;main&quot;</span> | \<br>    sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list.d/apolloauto.list<br>sudo apt-get update<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-Install-aem"><a href="#3-Install-aem" class="headerlink" title="3. Install aem"></a>3. Install aem</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install apollo-neo-env-manager-dev --reinstall<br></code></pre></td></tr></table></figure>
+
+<p>After installation, you can use:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">aem -h<br></code></pre></td></tr></table></figure>
+
+<h2 id="Install-Example-Project"><a href="#Install-Example-Project" class="headerlink" title="Install Example Project"></a>Install Example Project</h2><h3 id="1-Select-an-example-project"><a href="#1-Select-an-example-project" class="headerlink" title="1. Select an example project"></a>1. Select an example project</h3><p>Apollo currently provides 3 example projects. You can choose one as needed:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ApolloAuto/application-core">application-core</a>: contains all open-source Apollo packages, suitable for building your own application.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ApolloAuto/application-pnc">application-pnc</a>: contains only planning and control packages, suitable for users focusing on that area.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ApolloAuto/application-perception">application-perception</a>: contains only perception-related packages.</p>
+</li>
+</ul>
+<blockquote>
+<p>Alternatively, you can use the full Apollo source project: <a target="_blank" rel="noopener" href="https://github.com/ApolloAuto/apollo">apollo</a></p>
+<p>Note: Starting from Apollo 10.0, both source and package modes use the same build tool. It is recommended to use the unified build commands below. Scripts such as dev_start.sh, dev_into.sh, apollo.sh are no longer recommended.</p>
+</blockquote>
+<h3 id="2-Clone-the-project"><a href="#2-Clone-the-project" class="headerlink" title="2. Clone the project"></a>2. Clone the project</h3><p>Taking application-core as an example:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/ApolloAuto/application-core.git<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-Start-and-enter-the-Apollo-environment"><a href="#3-Start-and-enter-the-Apollo-environment" class="headerlink" title="3. Start and enter the Apollo environment"></a>3. Start and enter the Apollo environment</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Enter project directory</span><br>cd application-core<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Switch environment configuration, will automatically recognize your host environment to switch .<span class="hljs-built_in">env</span> and .workspace.json configuration</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">If you use apollo <span class="hljs-built_in">source</span> code, you don<span class="hljs-string">&#x27;t need to perform this step, aem will automatically recognize the starting environment.</span></span><br>bash setup.sh<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">Start container</span></span><br>aem start<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">If you prefer using host machine instead of docker:</span></span><br>aem start -b host<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Note: In host mode, subsequent operations are the same as in container mode. You can later run aem enter in the project root to enter the environment, either as a docker container or an Apollo bash shell.</p>
+</blockquote>
+<h3 id="4-Install-packages"><a href="#4-Install-packages" class="headerlink" title="4. Install packages"></a>4. Install packages</h3><p>The example project includes a <code>core</code> directory with <code>core/cyberfile.xml</code> that describes dependencies to install:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">buildtool build -p core<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Or build all code and packages:</span><br>buildtool build<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>This command builds the core package. Since it contains no source code, this step only installs dependencies from core&#x2F;cyberfile.xml.</p>
+<p>Note: New buildtool versions use –opt –gpu by default (if GPU is available). Use –dbg for gdb debugging.</p>
+</blockquote>
+<p>You might encounter permission errors:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">PermissionError: [Errno 13] Permission denied: &#x27;tools/proto/proto.bzl&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>Use <code>sudo chmod 777 tools/proto/proto.bzl</code> to resolve. Repeat for other files as needed.</p>
+<h3 id="5-Select-vehicle-profile"><a href="#5-Select-vehicle-profile" class="headerlink" title="5. Select vehicle profile"></a>5. Select vehicle profile</h3><p>The <code>profiles/sample</code> directory provides an official config with 1 radar and 2 cameras. You can create your own vehicle profile based on this. To apply a profile:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Example: apply sample profile</span><br>aem profile use sample<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-Play-record-data"><a href="#6-Play-record-data" class="headerlink" title="6. Play record data"></a>6. Play record data</h3><h4 id="Get-the-record"><a href="#Get-the-record" class="headerlink" title="Get the record"></a>Get the record</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://apollo-system.cdn.bcebos.com/dataset/6.0_edu/demo_3.5.record -P $HOME/.apollo/resources/records/<br></code></pre></td></tr></table></figure>
+
+<h4 id="Get-map-for-the-record"><a href="#Get-map-for-the-record" class="headerlink" title="Get map for the record"></a>Get map for the record</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">buildtool map get sunnyvale<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Starting with version 9.0.0-rc-r10, map data is no longer bundled and must be downloaded separately. Use buildtool map list to view all available maps.</p>
+</blockquote>
+<h4 id="Launch-Dreamview"><a href="#Launch-Dreamview" class="headerlink" title="Launch Dreamview+"></a>Launch Dreamview+</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">aem bootstrap start --plus<br></code></pre></td></tr></table></figure>
+
+<h5 id="Play-record-in-Dreamview"><a href="#Play-record-in-Dreamview" class="headerlink" title="Play record in Dreamview+"></a>Play record in Dreamview+</h5><p>After launching Dreamview+, go to <code>localhost:8888</code> in your browser. You can select Default Mode or other modes. We’ll use Default Mode here.</p>
+<p><img src="https://picture.zhanganzhi.com/2025/07/07/ybx2zd9.png" srcset="/img/loading.gif" lazyload alt="Dreamview+ Welcome Page"></p>
+<ol>
+<li>Select <strong>Default Mode</strong>.</li>
+<li>Check <strong>Accept the User Agreement and Privacy Policy</strong>, then click <strong>Enter this Mode</strong>.</li>
+<li>On <strong>Mode Settings</strong> page:<ul>
+<li>Under <strong>Operations</strong>, select <strong>Record</strong></li>
+<li>Under <strong>Environment Resources &gt; Records</strong>, select the desired record</li>
+<li>Under <strong>Environment Resources &gt; HDMap</strong>, select <strong>Sunnyvale Big Loop</strong></li>
+</ul>
+</li>
+<li>Click the Play button at the bottom<br><img src="https://picture.zhanganzhi.com/2025/07/07/azpt4rp.png" srcset="/img/loading.gif" lazyload alt="Play Record"><br>You’ll see the record playback in the Vehicle Visualization panel.</li>
+</ol>
+<h5 id="Play-record-via-command-line"><a href="#Play-record-via-command-line" class="headerlink" title="Play record via command line"></a>Play record via command line</h5><ol>
+<li>Enter docker environment.</li>
+<li>After downloading the record in Dreamview+ &gt; Resource Manager &gt; Records, run:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cyber_recorder play -f ~/.apollo/resources/records/demo_3.5.record<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Tip: Add <code>-l</code> to loop playback. Without <code>-l</code>, it plays once.</p>
+</blockquote>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><ol>
+<li>If you see a blank page at <code>localhost:8888</code>, try clearing your browser cache.</li>
+</ol>
+<section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>Baidu. <a target="_blank" rel="noopener" href="https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html">安装指南</a>. 2024. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20250707190258/https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html">Archived</a> on 2025-07-07. Retrieved 2025-07-07.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" class="category-chain-item">自动驾驶</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Apollo/" class="print-no-link">#Apollo</a>
+      
+        <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" class="print-no-link">#自动驾驶</a>
+      
+        <a href="/tags/%E6%95%99%E7%A8%8B/" class="print-no-link">#教程</a>
+      
+        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
+      
+        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Apollo Development Environment Setup</div>
+      <div>https://blog.zhanganzhi.com/en/2025/07/34070c5261f0/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Andy Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 7, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="ND - No derivative works">
+                    <i class="iconfont icon-cc-nd"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/zh-CN/2025/07/f73e7b8e88c3/" title="Aollo 开发环境搭建">
+                        <span class="hidden-mobile">Aollo 开发环境搭建</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"comment.blog.zhanganzhi.com","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":[],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/tieba","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/tw-emoji","https://cdn.jsdelivr.net/gh/walinejs/emojis/tw-symbol","https://cdn.jsdelivr.net/gh/walinejs/emojis/tw-flag"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"locale":{"nick":"昵称（可选）","mail":"邮箱（可选，接收回复通知）","link":"网址（可选）"},"commentSorting":"hottest","search":false},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
