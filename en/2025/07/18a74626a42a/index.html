@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   <link rel="icon" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   
-    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2025/07/34070c5261f0/"/>
+    <link rel="canonical" href="https://blog.zhanganzhi.com/en/2025/07/18a74626a42a/"/>
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -21,12 +21,12 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="This article describes how to set up the Baidu Apollo development environment.  IntroductionApollo is a high performance, flexible architecture which accelerates the development, testing, and deploym">
+    <meta name="description" content="This article describes how to set up the Baidu Apollo development environment.  IntroductionApollo is a high performance, flexible architecture which accelerates the development, testing, and deplo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apollo Development Environment Setup">
-<meta property="og:url" content="https://blog.zhanganzhi.com/en/2025/07/34070c5261f0/">
+<meta property="og:url" content="https://blog.zhanganzhi.com/en/2025/07/18a74626a42a/">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="This article describes how to set up the Baidu Apollo development environment.  IntroductionApollo is a high performance, flexible architecture which accelerates the development, testing, and deploym">
+<meta property="og:description" content="This article describes how to set up the Baidu Apollo development environment.  IntroductionApollo is a high performance, flexible architecture which accelerates the development, testing, and deplo">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://picture.zhanganzhi.com/2025/07/07/2lofmx3.png">
 <meta property="article:published_time" content="2025-07-07T11:40:25.000Z">
@@ -270,7 +270,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          302 words
+          573 words
         
       </span>
     
@@ -323,7 +323,9 @@
             
               <div class="markdown-body">
                 
-                <blockquote>
+                <!-- markdownlint-disable-file MD024 -->
+
+<blockquote>
 <p>This article describes how to set up the Baidu Apollo development environment.</p>
 </blockquote>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><a target="_blank" rel="noopener" href="https://apollo.auto/">Apollo</a> is a high performance, flexible architecture which accelerates the development, testing, and deployment of Autonomous Vehicles.</p>
@@ -337,17 +339,17 @@
 <li>Ubuntu 22.04.5 LTS</li>
 </ul>
 <p>Please install Docker Engine and GPU support yourself. You may refer to the <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">Docker official documentation</a> and <a target="_blank" rel="noopener" href="https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html">Apollo Installation Guide</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Baidu. [安装指南](https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html). 2024. [Archived](https://web.archive.org/web/20250707190258/https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html) on 2025-07-07. Retrieved 2025-07-07.">[1]</span></a></sup>.</p>
-<h2 id="Install-Apollo-Environment-Manager"><a href="#Install-Apollo-Environment-Manager" class="headerlink" title="Install Apollo Environment Manager"></a>Install Apollo Environment Manager</h2><p>Apollo Environment Manager is a command-line tool that helps manage and launch Apollo environments.</p>
-<h3 id="1-Install-required-dependencies"><a href="#1-Install-required-dependencies" class="headerlink" title="1. Install required dependencies"></a>1. Install required dependencies</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get update<br>sudo apt-get install ca-certificates curl gnupg<br></code></pre></td></tr></table></figure>
+<h2 id="Package-Management-Installation"><a href="#Package-Management-Installation" class="headerlink" title="Package Management Installation"></a>Package Management Installation</h2><h3 id="Install-Apollo-Environment-Manager"><a href="#Install-Apollo-Environment-Manager" class="headerlink" title="Install Apollo Environment Manager"></a>Install Apollo Environment Manager</h3><p>Apollo Environment Manager is a command-line tool that helps manage and launch Apollo environments.</p>
+<h4 id="1-Install-required-dependencies"><a href="#1-Install-required-dependencies" class="headerlink" title="1. Install required dependencies"></a>1. Install required dependencies</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get update<br>sudo apt-get install ca-certificates curl gnupg<br></code></pre></td></tr></table></figure>
 
-<h3 id="2-Add-Apollo-software-source-GPG-key-and-configure-source"><a href="#2-Add-Apollo-software-source-GPG-key-and-configure-source" class="headerlink" title="2. Add Apollo software source GPG key and configure source"></a>2. Add Apollo software source GPG key and configure source</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Add GPG key</span><br>sudo install -m 0755 -d /etc/apt/keyrings<br>curl -fsSL https://apollo-pkg-beta.cdn.bcebos.com/neo/beta/key/deb.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/apolloauto.gpg<br>sudo <span class="hljs-built_in">chmod</span> a+r /etc/apt/keyrings/apolloauto.gpg<br><br><span class="hljs-comment"># Configure source and update</span><br><span class="hljs-built_in">echo</span> \<br>    <span class="hljs-string">&quot;deb [arch=&quot;</span>$(dpkg --print-architecture)<span class="hljs-string">&quot; signed-by=/etc/apt/keyrings/apolloauto.gpg] https://apollo-pkg-beta.cdn.bcebos.com/apollo/core&quot;</span>\<br>    $(. /etc/os-release &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$VERSION_CODENAME</span>&quot;</span>) <span class="hljs-string">&quot;main&quot;</span> | \<br>    sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list.d/apolloauto.list<br>sudo apt-get update<br></code></pre></td></tr></table></figure>
+<h4 id="2-Add-Apollo-software-source-GPG-key-and-configure-source"><a href="#2-Add-Apollo-software-source-GPG-key-and-configure-source" class="headerlink" title="2. Add Apollo software source GPG key and configure source"></a>2. Add Apollo software source GPG key and configure source</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Add GPG key</span><br>sudo install -m 0755 -d /etc/apt/keyrings<br>curl -fsSL https://apollo-pkg-beta.cdn.bcebos.com/neo/beta/key/deb.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/apolloauto.gpg<br>sudo <span class="hljs-built_in">chmod</span> a+r /etc/apt/keyrings/apolloauto.gpg<br><br><span class="hljs-comment"># Configure source and update</span><br><span class="hljs-built_in">echo</span> \<br>    <span class="hljs-string">&quot;deb [arch=&quot;</span>$(dpkg --print-architecture)<span class="hljs-string">&quot; signed-by=/etc/apt/keyrings/apolloauto.gpg] https://apollo-pkg-beta.cdn.bcebos.com/apollo/core&quot;</span>\<br>    $(. /etc/os-release &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$VERSION_CODENAME</span>&quot;</span>) <span class="hljs-string">&quot;main&quot;</span> | \<br>    sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list.d/apolloauto.list<br>sudo apt-get update<br></code></pre></td></tr></table></figure>
 
-<h3 id="3-Install-aem"><a href="#3-Install-aem" class="headerlink" title="3. Install aem"></a>3. Install aem</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install apollo-neo-env-manager-dev --reinstall<br></code></pre></td></tr></table></figure>
+<h4 id="3-Install-aem"><a href="#3-Install-aem" class="headerlink" title="3. Install aem"></a>3. Install aem</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install apollo-neo-env-manager-dev --reinstall<br></code></pre></td></tr></table></figure>
 
 <p>After installation, you can use:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">aem -h<br></code></pre></td></tr></table></figure>
 
-<h2 id="Install-Example-Project"><a href="#Install-Example-Project" class="headerlink" title="Install Example Project"></a>Install Example Project</h2><h3 id="1-Select-an-example-project"><a href="#1-Select-an-example-project" class="headerlink" title="1. Select an example project"></a>1. Select an example project</h3><p>Apollo currently provides 3 example projects. You can choose one as needed:</p>
+<h3 id="Install-Example-Project"><a href="#Install-Example-Project" class="headerlink" title="Install Example Project"></a>Install Example Project</h3><h4 id="1-Select-an-example-project"><a href="#1-Select-an-example-project" class="headerlink" title="1. Select an example project"></a>1. Select an example project</h4><p>Apollo currently provides 3 example projects. You can choose one as needed:</p>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/ApolloAuto/application-core">application-core</a>: contains all open-source Apollo packages, suitable for building your own application.</p>
 </li>
@@ -360,38 +362,66 @@
 <p>Alternatively, you can use the full Apollo source project: <a target="_blank" rel="noopener" href="https://github.com/ApolloAuto/apollo">apollo</a></p>
 <p>Note: Starting from Apollo 10.0, both source and package modes use the same build tool. It is recommended to use the unified build commands below. Scripts such as dev_start.sh, dev_into.sh, apollo.sh are no longer recommended.</p>
 </blockquote>
-<h3 id="2-Clone-the-project"><a href="#2-Clone-the-project" class="headerlink" title="2. Clone the project"></a>2. Clone the project</h3><p>Taking application-core as an example:</p>
+<h4 id="2-Clone-the-project"><a href="#2-Clone-the-project" class="headerlink" title="2. Clone the project"></a>2. Clone the project</h4><p>Taking application-core as an example:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/ApolloAuto/application-core.git<br></code></pre></td></tr></table></figure>
 
-<h3 id="3-Start-and-enter-the-Apollo-environment"><a href="#3-Start-and-enter-the-Apollo-environment" class="headerlink" title="3. Start and enter the Apollo environment"></a>3. Start and enter the Apollo environment</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Enter project directory</span><br>cd application-core<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Switch environment configuration, will automatically recognize your host environment to switch .<span class="hljs-built_in">env</span> and .workspace.json configuration</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">If you use apollo <span class="hljs-built_in">source</span> code, you don<span class="hljs-string">&#x27;t need to perform this step, aem will automatically recognize the starting environment.</span></span><br>bash setup.sh<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">Start container</span></span><br>aem start<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">If you prefer using host machine instead of docker:</span></span><br>aem start -b host<br></code></pre></td></tr></table></figure>
+<h4 id="3-Start-and-enter-the-Apollo-environment"><a href="#3-Start-and-enter-the-Apollo-environment" class="headerlink" title="3. Start and enter the Apollo environment"></a>3. Start and enter the Apollo environment</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Enter project directory</span><br>cd application-core<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Switch environment configuration, will automatically recognize your host environment to switch .<span class="hljs-built_in">env</span> and .workspace.json configuration</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">If you use apollo <span class="hljs-built_in">source</span> code, you don<span class="hljs-string">&#x27;t need to perform this step, aem will automatically recognize the starting environment.</span></span><br>bash setup.sh<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">Start container</span></span><br>aem start<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">If you prefer using host machine instead of docker:</span></span><br>aem start -b host<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Note: In host mode, subsequent operations are the same as in container mode. You can later run aem enter in the project root to enter the environment, either as a docker container or an Apollo bash shell.</p>
 </blockquote>
-<h3 id="4-Install-packages"><a href="#4-Install-packages" class="headerlink" title="4. Install packages"></a>4. Install packages</h3><p>The example project includes a <code>core</code> directory with <code>core/cyberfile.xml</code> that describes dependencies to install:</p>
+<h4 id="4-Install-packages"><a href="#4-Install-packages" class="headerlink" title="4. Install packages"></a>4. Install packages</h4><p>The example project includes a <code>core</code> directory with <code>core/cyberfile.xml</code> that describes dependencies to install:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">buildtool build -p core<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Or build all code and packages:</span><br>buildtool build<br></code></pre></td></tr></table></figure>
 
 <blockquote>
-<p>This command builds the core package. Since it contains no source code, this step only installs dependencies from core&#x2F;cyberfile.xml.</p>
+<p>This command builds the <code>core</code> package. Since it contains no source code, this step only installs dependencies from <code>core/cyberfile.xml</code>.</p>
 <p>Note: New buildtool versions use –opt –gpu by default (if GPU is available). Use –dbg for gdb debugging.</p>
 </blockquote>
 <p>You might encounter permission errors:</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">PermissionError: [Errno 13] Permission denied: &#x27;tools/proto/proto.bzl&#x27;<br></code></pre></td></tr></table></figure>
 
 <p>Use <code>sudo chmod 777 tools/proto/proto.bzl</code> to resolve. Repeat for other files as needed.</p>
-<h3 id="5-Select-vehicle-profile"><a href="#5-Select-vehicle-profile" class="headerlink" title="5. Select vehicle profile"></a>5. Select vehicle profile</h3><p>The <code>profiles/sample</code> directory provides an official config with 1 radar and 2 cameras. You can create your own vehicle profile based on this. To apply a profile:</p>
+<h4 id="5-Select-vehicle-profile"><a href="#5-Select-vehicle-profile" class="headerlink" title="5. Select vehicle profile"></a>5. Select vehicle profile</h4><p>The <code>profiles/sample</code> directory provides an official config with 1 radar and 2 cameras. You can create your own vehicle profile based on this. To apply a profile:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Example: apply sample profile</span><br>aem profile use sample<br></code></pre></td></tr></table></figure>
 
-<h3 id="6-Play-record-data"><a href="#6-Play-record-data" class="headerlink" title="6. Play record data"></a>6. Play record data</h3><h4 id="Get-the-record"><a href="#Get-the-record" class="headerlink" title="Get the record"></a>Get the record</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://apollo-system.cdn.bcebos.com/dataset/6.0_edu/demo_3.5.record -P $HOME/.apollo/resources/records/<br></code></pre></td></tr></table></figure>
-
-<h4 id="Get-map-for-the-record"><a href="#Get-map-for-the-record" class="headerlink" title="Get map for the record"></a>Get map for the record</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">buildtool map get sunnyvale<br></code></pre></td></tr></table></figure>
+<h4 id="6-Play-record-data"><a href="#6-Play-record-data" class="headerlink" title="6. Play record data"></a>6. Play record data</h4><h5 id="Get-map-for-the-record"><a href="#Get-map-for-the-record" class="headerlink" title="Get map for the record"></a>Get map for the record</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">buildtool map get sunnyvale<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Starting with version 9.0.0-rc-r10, map data is no longer bundled and must be downloaded separately. Use buildtool map list to view all available maps.</p>
 </blockquote>
-<h4 id="Launch-Dreamview"><a href="#Launch-Dreamview" class="headerlink" title="Launch Dreamview+"></a>Launch Dreamview+</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">aem bootstrap start --plus<br></code></pre></td></tr></table></figure>
+<h5 id="Launch-Dreamview"><a href="#Launch-Dreamview" class="headerlink" title="Launch Dreamview+"></a>Launch Dreamview+</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">aem bootstrap start --plus<br></code></pre></td></tr></table></figure>
 
-<h5 id="Play-record-in-Dreamview"><a href="#Play-record-in-Dreamview" class="headerlink" title="Play record in Dreamview+"></a>Play record in Dreamview+</h5><p>After launching Dreamview+, go to <code>localhost:8888</code> in your browser. You can select Default Mode or other modes. We’ll use Default Mode here.</p>
+<p>Other steps can be found in the <a href="#play-record">Play Record</a> section below.</p>
+<h2 id="Source-Code-Installation"><a href="#Source-Code-Installation" class="headerlink" title="Source Code Installation"></a>Source Code Installation</h2><h3 id="Download-and-Install-Apollo-Source-Code"><a href="#Download-and-Install-Apollo-Source-Code" class="headerlink" title="Download and Install Apollo Source Code"></a>Download and Install Apollo Source Code</h3><h4 id="1-Clone-Apollo-source-code"><a href="#1-Clone-Apollo-source-code" class="headerlink" title="1. Clone Apollo source code"></a>1. Clone Apollo source code</h4><p>Execute the following commands to clone Apollo source code:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">SSH method</span><br>git clone git@github.com:ApolloAuto/apollo.git<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">HTTPS method</span><br>git clone https://github.com/ApolloAuto/apollo.git<br></code></pre></td></tr></table></figure>
+
+<p>Check out to the latest branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> apollo<br>git checkout master<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-Start-Apollo-environment-container"><a href="#2-Start-Apollo-environment-container" class="headerlink" title="2. Start Apollo environment container"></a>2. Start Apollo environment container</h4><p>In the apollo directory, enter the following command to start the environment container:</p>
+<blockquote>
+<p>Note: If your graphics card is RTX 40 series and you have properly installed the drivers, refer to <a target="_blank" rel="noopener" href="https://apollo.baidu.com/community/article/1212">RTX 40 series image support</a> for operations.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash docker/scripts/dev_start.sh<br></code></pre></td></tr></table></figure>
+
+<p>After successful operation, you will see the following output:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[ OK ] Congratulations! You have successfully finished setting up Apollo Dev Environment.<br>[ OK ] To login into the newly created apollo_dev_michael container, please run the following <span class="hljs-built_in">command</span>:<br>[ OK ]   bash docker/scripts/dev_into.sh<br>[ OK ] Enjoy!<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-Enter-Apollo-environment-container"><a href="#3-Enter-Apollo-environment-container" class="headerlink" title="3. Enter Apollo environment container"></a>3. Enter Apollo environment container</h4><p>In the apollo directory, enter the following command to enter the container:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash docker/scripts/dev_into.sh<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-Build"><a href="#4-Build" class="headerlink" title="4. Build"></a>4. Build</h4><p>In the &#x2F;apollo directory inside the container, execute the following command to build the entire project:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./apollo.sh build<br></code></pre></td></tr></table></figure>
+
+<p>If you need to enable build optimization, use the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./apollo.sh build_opt<br></code></pre></td></tr></table></figure>
+
+<h4 id="5-Start-Apollo-for-record-playback-verification"><a href="#5-Start-Apollo-for-record-playback-verification" class="headerlink" title="5. Start Apollo for record playback verification"></a>5. Start Apollo for record playback verification</h4><h5 id="Launch-Dreamview-1"><a href="#Launch-Dreamview-1" class="headerlink" title="Launch Dreamview+"></a>Launch Dreamview+</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">bash scripts/bootstrap.sh start_plus<br></code></pre></td></tr></table></figure>
+
+<p>Other steps can be found in the <a href="#play-record">Play Record</a> section below.</p>
+<h2 id="Play-Record"><a href="#Play-Record" class="headerlink" title="Play Record"></a>Play Record</h2><h3 id="Get-the-record"><a href="#Get-the-record" class="headerlink" title="Get the record"></a>Get the record</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://apollo-system.cdn.bcebos.com/dataset/6.0_edu/demo_3.5.record -P $HOME/.apollo/resources/records/<br></code></pre></td></tr></table></figure>
+
+<h3 id="Play-record-in-Dreamview"><a href="#Play-record-in-Dreamview" class="headerlink" title="Play record in Dreamview+"></a>Play record in Dreamview+</h3><p>After launching Dreamview+, go to <code>localhost:8888</code> in your browser. You can select Default Mode or other modes. We’ll use Default Mode here.</p>
 <p><img src="https://picture.zhanganzhi.com/2025/07/07/ybx2zd9.png" srcset="/img/loading.gif" lazyload alt="Dreamview+ Welcome Page"></p>
 <ol>
 <li>Select <strong>Default Mode</strong>.</li>
@@ -404,7 +434,7 @@
 </li>
 <li>Click the Play button at the bottom<br><img src="https://picture.zhanganzhi.com/2025/07/07/azpt4rp.png" srcset="/img/loading.gif" lazyload alt="Play Record"><br>You’ll see the record playback in the Vehicle Visualization panel.</li>
 </ol>
-<h5 id="Play-record-via-command-line"><a href="#Play-record-via-command-line" class="headerlink" title="Play record via command line"></a>Play record via command line</h5><ol>
+<h3 id="Play-record-via-command-line"><a href="#Play-record-via-command-line" class="headerlink" title="Play record via command line"></a>Play record via command line</h3><ol>
 <li>Enter docker environment.</li>
 <li>After downloading the record in Dreamview+ &gt; Resource Manager &gt; Records, run:</li>
 </ol>
@@ -415,9 +445,17 @@
 </blockquote>
 <h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><ol>
 <li>If you see a blank page at <code>localhost:8888</code>, try clearing your browser cache.</li>
+<li>After <code>git clone</code>, remember to <code>git checkout</code> to the correct version.</li>
+<li>When building Apollo 7.0 from source, you might encounter the following issues:</li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">(21:25:48) ERROR: An error occurred during the fetch of repository <span class="hljs-string">&#x27;zlib&#x27;</span>:<br>   Traceback (most recent call last):<br>        File <span class="hljs-string">&quot;/apollo/.cache/bazel/540135163923dd7d5820f3ee4b306b32/external/bazel_tools/tools/build_defs/repo/http.bzl&quot;</span>, line 111, column 45, <span class="hljs-keyword">in</span> _http_archive_impl<br>                download_info = ctx.download_and_extract(<br>Error <span class="hljs-keyword">in</span> download_and_extract: java.io.IOException: Error downloading [https://zlib.net/zlib-1.2.11.tar.gz] to /apollo/.cache/bazel/540135163923dd7d5820f3ee4b306b32/external/zlib/temp2343066494928926687/zlib-1.2.11.tar.gz: GET returned 404 Not Found<br>(21:25:49) ERROR: /apollo/.cache/bazel/540135163923dd7d5820f3ee4b306b32/external/com_google_protobuf/BUILD:210:11: @com_google_protobuf//:protobuf depends on @zlib//:zlib <span class="hljs-keyword">in</span> repository @zlib <span class="hljs-built_in">which</span> failed to fetch. no such package <span class="hljs-string">&#x27;@zlib//&#x27;</span>: java.io.IOException: Error downloading [https://zlib.net/zlib-1.2.11.tar.gz] to /apollo/.cache/bazel/540135163923dd7d5820f3ee4b306b32/external/zlib/temp2343066494928926687/zlib-1.2.11.tar.gz: GET returned 404 Not Found<br></code></pre></td></tr></table></figure>
+
+<p>At this point, you need to add the following content to the <code>WORKSPACE</code> file in the apollo directory to fix the zlib download address. This should be added after <code>workspace(name = &quot;apollo&quot;)</code> on the first line of the file.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bzl">load(&quot;@bazel_tools//tools/build_defs/repo:http.bzl&quot;, &quot;http_archive&quot;)<br>http_archive(<br>    name = &quot;zlib&quot;,<br>    urls = [&quot;https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz&quot;],<br>    sha256 = &quot;629380c90a77b964d896ed37163f5c3a34f6e6d897311f1df2a7016355c45eff&quot;,<br>    strip_prefix = &quot;zlib-1.2.11&quot;,<br>    build_file_content = &quot;&quot;&quot;<br>cc_library(<br>    name = &quot;zlib&quot;,<br>    srcs = glob([&quot;*.c&quot;]),<br>    hdrs = glob([&quot;*.h&quot;]),<br>    includes = [&quot;.&quot;],<br>    visibility = [&quot;//visibility:public&quot;],<br>)<br>    &quot;&quot;&quot;,<br>)<br></code></pre></td></tr></table></figure>
+
 <section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>Baidu. <a target="_blank" rel="noopener" href="https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html">安装指南</a>. 2024. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20250707190258/https://apollo.baidu.com/docs/apollo/10.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97.html">Archived</a> on 2025-07-07. Retrieved 2025-07-07.
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>Baidu. <a target="_blank" rel="noopener" href="https://apollo.baidu.com/docs/apollo/9.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE6_xBA_x90_xE7_xA0_x81_xE5_xAE_x89_c6622abe953930b2197ae66df0a51dcd.html#autotoc_md57">源码安装方式</a>. 2023. <a target="_blank" rel="noopener" href="https://web.archive.org/web/20250716213629/https://apollo.baidu.com/docs/apollo/9.x/md_docs_2_xE5_xAE_x89_xE8_xA3_x85_xE6_x8C_x87_xE5_x8D_x97_2_xE6_xBA_x90_xE7_xA0_x81_xE5_xAE_x89_c6622abe953930b2197ae66df0a51dcd.html">Archived</a> on 2025-07-16. Retrieved 2025-07-16.
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -478,7 +516,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Apollo Development Environment Setup</div>
-      <div>https://blog.zhanganzhi.com/en/2025/07/34070c5261f0/</div>
+      <div>https://blog.zhanganzhi.com/en/2025/07/18a74626a42a/</div>
     </div>
     <div class="license-meta">
       
@@ -538,8 +576,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zh-CN/2025/07/f73e7b8e88c3/" title="Aollo 开发环境搭建">
-                        <span class="hidden-mobile">Aollo 开发环境搭建</span>
+                      <a href="/zh-CN/2025/07/1d260f43e20f/" title="Apollo 开发环境搭建">
+                        <span class="hidden-mobile">Apollo 开发环境搭建</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
