@@ -270,7 +270,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          915 字
+          938 字
         
       </span>
     
@@ -388,7 +388,7 @@
 
 <p><img src="https://picture.zhanganzhi.com/2025/07/20/79r5zk7.png" srcset="/img/loading.gif" lazyload alt="运行场景测试模拟"></p>
 <h2 id="运行时环境"><a href="#运行时环境" class="headerlink" title="运行时环境"></a>运行时环境</h2><h3 id="下载地图和数据"><a href="#下载地图和数据" class="headerlink" title="下载地图和数据"></a>下载地图和数据</h3><p>在主机上运行以下命令下载地图，请自行安装 <code>gdown</code> 和 <code>unzip</code>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gdown -O ~/autoware_map/ <span class="hljs-string">&#x27;https://docs.google.com/uc?export=download&amp;id=1499_nsbUbIeturZaDj7jhUownh5fvXHd&#x27;</span><br>unzip -d ~/autoware_map ~/autoware_map/sample-map-planning.zip<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">gdown -O ~/autoware_map/ <span class="hljs-string">&#x27;https://docs.google.com/uc?export=download&amp;id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI&#x27;</span><br>unzip -d ~/autoware_map/ ~/autoware_map/sample-map-rosbag.zip<br>gdown -O ~/autoware_map/ <span class="hljs-string">&#x27;https://docs.google.com/uc?export=download&amp;id=1499_nsbUbIeturZaDj7jhUownh5fvXHd&#x27;</span><br>unzip -d ~/autoware_map ~/autoware_map/sample-map-planning.zip<br></code></pre></td></tr></table></figure>
 
 <p>安装 ansible，该步骤仅首次安装需要。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Remove apt installed ansible (In Ubuntu 22.04, ansible the version is old)</span><br>sudo apt-get purge ansible<br><br><span class="hljs-comment"># Install pipx</span><br>sudo apt-get -y update<br>sudo apt-get -y install pipx<br><br><span class="hljs-comment"># Add pipx to the system PATH</span><br>python3 -m pipx ensurepath<br><br><span class="hljs-comment"># Install ansible</span><br>pipx install --include-deps --force <span class="hljs-string">&quot;ansible==6.*&quot;</span><br></code></pre></td></tr></table></figure>
