@@ -6,7 +6,7 @@
   <link href="https://blog.zhanganzhi.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zhanganzhi.com/"/>
-  <updated>2025-07-19T15:11:36.000Z</updated>
+  <updated>2025-09-22T18:40:40.000Z</updated>
   <id>https://blog.zhanganzhi.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记一次非常曲折的软路由及家里云系统更新</title>
+    <link href="https://blog.zhanganzhi.com/zh-CN/2025/09/95687a4df9d5/"/>
+    <id>https://blog.zhanganzhi.com/zh-CN/2025/09/95687a4df9d5/</id>
+    <published>2025-09-22T18:40:40.000Z</published>
+    <updated>2025-09-22T18:40:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>事情的起因是软路由系统很多年了，到现在经历了 Clash 更新，之前用的第三方编译有一堆用不上的软件包，也不怎么稳定了，正好官方现在提供编译固件了，索性打算升级一下。</p><p>想着既然折腾了，就把家里云的树莓派系统也重装一下，之前的 21 LTS 升级到 24 LTS 后有点不稳定，顺便改成桌面版。</p><span id="more"></span><hr><p>先说家里云这边，系统被我一通折腾后开不开机了，于是斥巨资15元购入一个 Micro HDMI 转接头，果然是启动卡住了，解决后备份文件，准备刷系统。</p><p>接下来来到软路由那边，用 sysupgrade 升级了新系统，软件包都被删掉了，而且系统被分区为了一个 100M 的系统分区，其它空间空闲了。</p><p>所以我需要做两个工作，安装需要的服务并配置，还有扩展系统分区。折腾一番后配置好了，但昨天夜里 OpenClash 自动更新数据库时网络直接寄了，DDNS 服务器也消失了。关闭和重置 OpenClash 后还没好，而且 Meta 内核也消失了，自动更新失败，手动上传发现空间不够了，于是猜测昨天断网也是由于空间不够导致 dnsmasq 的 DDNS 服务器一起出了问题。</p><hr><p>既然空间不够了，那拖了好几天的扩容分区不得不干了，拔下来插到 Windows 电脑上，簇标记有问题 DiskGenius 不给扩容，各种折腾后放弃了，毕竟是 ext4，也理解，打算用 Linux 扩容了。此时戏剧性的事情来了，我家唯一的 Linux 设备是我的家里云，然而它只有一个系统 SD 卡槽，所以我打算电脑上用 USB 启动一个 Linux 系统，那么就需要一个 USB A 口的读卡器。</p><p>但我的 USB A 万用读卡器前几周刚被我卖了，因为现在读卡用的是 Type C 扩展坞，想着 2025 年了谁还用这读卡器，我也不读 TF 卡……于是再次斥巨资13元购入了个绿联廉价读卡器，打算插电脑上用。</p><p>（我写这个文章的时候才想起来电脑有 Type C 插扩展坞读卡，而且我还用它尝试了 Windows DiskGenius 调分区，所以同样也可以 USB 启动个 Linux 然后调分区……）</p><p>与此同时，搞了一下树莓派的 USB 启动发现能行，就刷了个系统成功启动起来，插入软路由的 SD 卡成功扩容。插回软路由配置好，软路由这边算告一段落了。</p><p>然后是树莓派这边，刷好系统开始配置，然后装软件把之前的服务启动起来，又是一番折腾，现在还没完全搞完。不过这个桌面系统看着确实挺爽。</p><hr><p>顺便再聊两句AI。生成式AI聊天软件在这种运维工作中有很大的用途，极大地提高了工作效率。传统运维方式很多资料需要自己谷歌搜索，然后再筛选修改，而使用AI可以彻底改变这个工作流。第一是提供各种命令，尤其是拥有路径和系统环境等上下文信息时，可以直接提供需要的命令，不会出现过旧和不兼容的命令，也不需要将查出来的命令自己修改路径等信息。第二是提供咨询服务，当我们对一些配置不清楚的时候，可以通过几轮对话快速学习和判断，了解不同配置的作用和利弊。</p><hr><p>至于那个读卡器，打算退了😂</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;事情的起因是软路由系统很多年了，到现在经历了 Clash 更新，之前用的第三方编译有一堆用不上的软件包，也不怎么稳定了，正好官方现在提供编译固件了，索性打算升级一下。&lt;/p&gt;
+&lt;p&gt;想着既然折腾了，就把家里云的树莓派系统也重装一下，之前的 21 LTS 升级到 24 LTS 后有点不稳定，顺便改成桌面版。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="运维" scheme="https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="Ubuntu" scheme="https://blog.zhanganzhi.com/tags/Ubuntu/"/>
+    
+    <category term="运维" scheme="https://blog.zhanganzhi.com/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+    <category term="Linux" scheme="https://blog.zhanganzhi.com/tags/Linux/"/>
+    
+    <category term="OpenWrt" scheme="https://blog.zhanganzhi.com/tags/OpenWrt/"/>
+    
+    <category term="树莓派" scheme="https://blog.zhanganzhi.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    <category term="软路由" scheme="https://blog.zhanganzhi.com/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>Autoware Development Environment Setup</title>
