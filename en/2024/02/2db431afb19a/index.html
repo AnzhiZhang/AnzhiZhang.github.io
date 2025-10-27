@@ -116,7 +116,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Andy's Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.0"><link rel="alternate" href="/atom.xml" title="Andy's Blog" type="application/atom+xml">
 </head>
 
 
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          294 words
+          292 words
         
       </span>
     
@@ -338,7 +338,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">person</span> &#123;</span><br>  <span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">()</span> &#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>is not legal.</p>
-<p>I don’t think this idea is valid because reciprocally, the definition of an array should look like this: <code>char name[20] = &#123;&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;&#125;;</code>, because on the function we also define the contents, or codes of the function.</p>
+<p>I don’t think this idea is valid because reciprocally, the definition of an array should look like this: <code>char name[20] = {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;};</code>, because on the function we also define the contents, or codes of the function.</p>
 <h3 id="Another-Justification"><a href="#Another-Justification" class="headerlink" title="Another Justification"></a>Another Justification</h3><p>To justify my point, there is another argument.</p>
 <p>When using a function pointer, there are two ways, <code>(*p1.fun)(10);</code> and <code>p1.fun(10);</code>, because the function name is a pointer, so they can be used interchangeably. Due to historical reasons, Bell Labs uses the first form 1, while Berkeley uses the second form. For compatibility with existing codes, ANSI C considers these two forms equivalent. Subsequent standards standards also continue this contradictory harmony.</p>
 <p>The name of an array is the address of the first element of the array, although they can be used interchangeably because there will be an implicitly conversion:</p>
