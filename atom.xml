@@ -6,7 +6,7 @@
   <link href="https://blog.zhanganzhi.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zhanganzhi.com/"/>
-  <updated>2025-09-22T18:40:40.000Z</updated>
+  <updated>2026-01-25T19:41:43.000Z</updated>
   <id>https://blog.zhanganzhi.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeanCloud 停止服务相关的博客更新</title>
+    <link href="https://blog.zhanganzhi.com/zh-CN/2026/01/d370a8febe32/"/>
+    <id>https://blog.zhanganzhi.com/zh-CN/2026/01/d370a8febe32/</id>
+    <published>2026-01-25T19:41:43.000Z</published>
+    <updated>2026-01-25T19:41:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>2026 年 1 月 12 日，LeanCloud 宣布一年后停止服务<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[关于 LeanCloud 停止对外提供服务的通知](https://docs.leancloud.app/sdk/announcements/sunset-announcement/). LeanCloud. 2026-01-12 [2026-01-25]. （原始内容[存档](https://web.archive.org/web/20260125194517/https://docs.leancloud.app/sdk/announcements/sunset-announcement/)于2026-01-25）.">[1]</span></a></sup>，许多博客使用了相关服务，例如 <a href="https://waline.js.org/">Waline</a> 评论和访问统计等。因此，需要对数据进行迁移，本文以我使用的 Waline 和 Hexo + Fluid 为例，介绍如何进行相关的更新。</p></blockquote><span id="more"></span><h2 id="迁移-Waline"><a href="#迁移-Waline" class="headerlink" title="迁移 Waline"></a>迁移 Waline</h2><p>首先，登录管理后台，左上角选择「管理」-&gt;「导入导出」，点击导出，下载数据。</p><p><img src="https://picture.zhanganzhi.com/2026/01/25/aopgo5b.png" alt="后台导入导出"></p><p>然后，跟随 Waline <a href="https://waline.js.org/guide/get-started/">文档</a>，部署新的 Vercel 项目、创建 Neon 数据库、将域名切换到新项目、配置环境变量。</p><p>最后，重新进入管理后台，在导入导出中导入数据。</p><p><img src="https://picture.zhanganzhi.com/2026/01/25/64bjyvo.png" alt="在 LeanCloud 中的数据"></p><p><img src="https://picture.zhanganzhi.com/2026/01/25/bx2hyfu.png" alt="在 Neon 中的数据"></p><p>注：我在 LeanCloud 的 Counter 数据是 Fluid 管理的，Waline 导出的数据也会包含这些内容，由于与 Waline 不兼容，可以在 JSON 文件中手动删除，也可以直接导入，会丢失 URL 信息，理论上将导出的 <code>target</code> 改为 <code>url</code> 即可，我计划在 Fluid 提过更新后处理访问量计数的问题（见下文）。</p><h2 id="迁移-Fluid-访问统计"><a href="#迁移-Fluid-访问统计" class="headerlink" title="迁移 Fluid 访问统计"></a>迁移 Fluid 访问统计</h2><p>Fluid 尚未提过相关更新，可以改为不蒜子，我计划等待一段时间，看是否可以支持其他方案，例如 Waline 的计数功能，解决后会更新这篇文章。</p><p>相关 Issue：<a href="https://github.com/fluid-dev/hexo-theme-fluid/issues/1234">https://github.com/fluid-dev/hexo-theme-fluid/issues/1234</a></p><section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://docs.leancloud.app/sdk/announcements/sunset-announcement/">关于 LeanCloud 停止对外提供服务的通知</a>. LeanCloud. 2026-01-12 [2026-01-25]. （原始内容<a href="https://web.archive.org/web/20260125194517/https://docs.leancloud.app/sdk/announcements/sunset-announcement/">存档</a>于2026-01-25）.<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;2026 年 1 月 12 日，LeanCloud 宣布一年后停止服务&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span class=&quot;hint--top hint--rounded&quot; aria-label=&quot;[关于 LeanCloud 停止对外提供服务的通知](https://docs.leancloud.app/sdk/announcements/sunset-announcement/). LeanCloud. 2026-01-12 [2026-01-25]. （原始内容[存档](https://web.archive.org/web/20260125194517/https://docs.leancloud.app/sdk/announcements/sunset-announcement/)于2026-01-25）.&quot;&gt;[1]&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;，许多博客使用了相关服务，例如 &lt;a href=&quot;https://waline.js.org/&quot;&gt;Waline&lt;/a&gt; 评论和访问统计等。因此，需要对数据进行迁移，本文以我使用的 Waline 和 Hexo + Fluid 为例，介绍如何进行相关的更新。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="经验分享" scheme="https://blog.zhanganzhi.com/categories/%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="博客" scheme="https://blog.zhanganzhi.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="LeanCloud" scheme="https://blog.zhanganzhi.com/tags/LeanCloud/"/>
+    
+    <category term="Waline" scheme="https://blog.zhanganzhi.com/tags/Waline/"/>
+    
+    <category term="Hexo" scheme="https://blog.zhanganzhi.com/tags/Hexo/"/>
+    
+    <category term="Fluid" scheme="https://blog.zhanganzhi.com/tags/Fluid/"/>
+    
+  </entry>
   
   <entry>
     <title>记一次非常曲折的软路由及家里云系统更新</title>

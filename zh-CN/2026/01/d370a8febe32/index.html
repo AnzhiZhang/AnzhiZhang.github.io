@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   <link rel="icon" href="https://picture.zhanganzhi.com/common/avatar.jpg">
   
-    <link rel="canonical" href="https://blog.zhanganzhi.com/zh-CN/2025/09/95687a4df9d5/"/>
+    <link rel="canonical" href="https://blog.zhanganzhi.com/zh-CN/2026/01/d370a8febe32/"/>
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -21,26 +21,27 @@
   <meta name="author" content="Andy Zhang">
   <meta name="keywords" content="Blog, 博客, Andy, Andy Zhang, Anzhi Zhang">
   
-    <meta name="description" content="事情的起因是软路由系统很多年了，到现在经历了 Clash 更新，之前用的第三方编译有一堆用不上的软件包，也不怎么稳定了，正好官方现在提供编译固件了，索性打算升级一下。 想着既然折腾了，就把家里云的树莓派系统也重装一下，之前的 21 LTS 升级到 24 LTS 后有点不稳定，顺便改成桌面版。">
+    <meta name="description" content="2026 年 1 月 12 日，LeanCloud 宣布一年后停止服务[1]，许多博客使用了相关服务，例如 Waline 评论和访问统计等。因此，需要对数据进行迁移，本文以我使用的 Waline 和 Hexo + Fluid 为例，介绍如何进行相关的更新。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次非常曲折的软路由及家里云系统更新">
-<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2025/09/95687a4df9d5/">
+<meta property="og:title" content="LeanCloud 停止服务相关的博客更新">
+<meta property="og:url" content="https://blog.zhanganzhi.com/zh-CN/2026/01/d370a8febe32/">
 <meta property="og:site_name" content="Andy&#39;s Blog">
-<meta property="og:description" content="事情的起因是软路由系统很多年了，到现在经历了 Clash 更新，之前用的第三方编译有一堆用不上的软件包，也不怎么稳定了，正好官方现在提供编译固件了，索性打算升级一下。 想着既然折腾了，就把家里云的树莓派系统也重装一下，之前的 21 LTS 升级到 24 LTS 后有点不稳定，顺便改成桌面版。">
+<meta property="og:description" content="2026 年 1 月 12 日，LeanCloud 宣布一年后停止服务[1]，许多博客使用了相关服务，例如 Waline 评论和访问统计等。因此，需要对数据进行迁移，本文以我使用的 Waline 和 Hexo + Fluid 为例，介绍如何进行相关的更新。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-09-22T18:40:40.000Z">
+<meta property="og:image" content="https://picture.zhanganzhi.com/2022/06/19/jbqr9cy.png">
+<meta property="article:published_time" content="2026-01-25T19:41:43.000Z">
 <meta property="article:author" content="Andy Zhang">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="OpenWrt">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="树莓派">
-<meta property="article:tag" content="软路由">
-<meta property="article:tag" content="运维">
+<meta property="article:tag" content="Fluid">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="LeanCloud">
+<meta property="article:tag" content="Waline">
+<meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://picture.zhanganzhi.com/2022/06/19/jbqr9cy.png">
   
   
   
-  <title>记一次非常曲折的软路由及家里云系统更新 - Andy&#39;s Blog</title>
+  <title>LeanCloud 停止服务相关的博客更新 - Andy&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -240,13 +241,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://picture.zhanganzhi.com/2022/06/19/10g3qsl.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="记一次非常曲折的软路由及家里云系统更新"></span>
+            <span id="subtitle" data-typed-text="LeanCloud 停止服务相关的博客更新"></span>
           
         </div>
 
@@ -257,8 +258,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-09-22 18:40" pubdate>
-          2025年9月22日
+        <time datetime="2026-01-25 19:41" pubdate>
+          2026年1月25日
         </time>
       </span>
     
@@ -269,7 +270,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          939 字
+          351 字
         
       </span>
     
@@ -317,30 +318,27 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">记一次非常曲折的软路由及家里云系统更新</h1>
+            <h1 id="seo-header">LeanCloud 停止服务相关的博客更新</h1>
             
             
               <div class="markdown-body">
                 
-                <p>事情的起因是软路由系统很多年了，到现在经历了 Clash 更新，之前用的第三方编译有一堆用不上的软件包，也不怎么稳定了，正好官方现在提供编译固件了，索性打算升级一下。</p>
-<p>想着既然折腾了，就把家里云的树莓派系统也重装一下，之前的 21 LTS 升级到 24 LTS 后有点不稳定，顺便改成桌面版。</p>
+                <blockquote>
+<p>2026 年 1 月 12 日，LeanCloud 宣布一年后停止服务<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[关于 LeanCloud 停止对外提供服务的通知](https://docs.leancloud.app/sdk/announcements/sunset-announcement/). LeanCloud. 2026-01-12 [2026-01-25]. （原始内容[存档](https://web.archive.org/web/20260125194517/https://docs.leancloud.app/sdk/announcements/sunset-announcement/)于2026-01-25）.">[1]</span></a></sup>，许多博客使用了相关服务，例如 <a target="_blank" rel="noopener" href="https://waline.js.org/">Waline</a> 评论和访问统计等。因此，需要对数据进行迁移，本文以我使用的 Waline 和 Hexo + Fluid 为例，介绍如何进行相关的更新。</p>
+</blockquote>
 <span id="more"></span>
 
-<hr>
-<p>先说家里云这边，系统被我一通折腾后开不开机了，于是斥巨资15元购入一个 Micro HDMI 转接头，果然是启动卡住了，解决后备份文件，准备刷系统。</p>
-<p>接下来来到软路由那边，用 sysupgrade 升级了新系统，软件包都被删掉了，而且系统被分区为了一个 100M 的系统分区，其它空间空闲了。</p>
-<p>所以我需要做两个工作，安装需要的服务并配置，还有扩展系统分区。折腾一番后配置好了，但昨天夜里 OpenClash 自动更新数据库时网络直接寄了，DDNS 服务器也消失了。关闭和重置 OpenClash 后还没好，而且 Meta 内核也消失了，自动更新失败，手动上传发现空间不够了，于是猜测昨天断网也是由于空间不够导致 dnsmasq 的 DDNS 服务器一起出了问题。</p>
-<hr>
-<p>既然空间不够了，那拖了好几天的扩容分区不得不干了，拔下来插到 Windows 电脑上，簇标记有问题 DiskGenius 不给扩容，各种折腾后放弃了，毕竟是 ext4，也理解，打算用 Linux 扩容了。此时戏剧性的事情来了，我家唯一的 Linux 设备是我的家里云，然而它只有一个系统 SD 卡槽，所以我打算电脑上用 USB 启动一个 Linux 系统，那么就需要一个 USB A 口的读卡器。</p>
-<p>但我的 USB A 万用读卡器前几周刚被我卖了，因为现在读卡用的是 Type C 扩展坞，想着 2025 年了谁还用这读卡器，我也不读 TF 卡……于是再次斥巨资13元购入了个绿联廉价读卡器，打算插电脑上用。</p>
-<p>（我写这个文章的时候才想起来电脑有 Type C 插扩展坞读卡，而且我还用它尝试了 Windows DiskGenius 调分区，所以同样也可以 USB 启动个 Linux 然后调分区……）</p>
-<p>与此同时，搞了一下树莓派的 USB 启动发现能行，就刷了个系统成功启动起来，插入软路由的 SD 卡成功扩容。插回软路由配置好，软路由这边算告一段落了。</p>
-<p>然后是树莓派这边，刷好系统开始配置，然后装软件把之前的服务启动起来，又是一番折腾，现在还没完全搞完。不过这个桌面系统看着确实挺爽。</p>
-<hr>
-<p>顺便再聊两句AI。生成式AI聊天软件在这种运维工作中有很大的用途，极大地提高了工作效率。传统运维方式很多资料需要自己谷歌搜索，然后再筛选修改，而使用AI可以彻底改变这个工作流。第一是提供各种命令，尤其是拥有路径和系统环境等上下文信息时，可以直接提供需要的命令，不会出现过旧和不兼容的命令，也不需要将查出来的命令自己修改路径等信息。第二是提供咨询服务，当我们对一些配置不清楚的时候，可以通过几轮对话快速学习和判断，了解不同配置的作用和利弊。</p>
-<hr>
-<p>至于那个读卡器，打算退了😂</p>
-
+<h2 id="迁移-Waline"><a href="#迁移-Waline" class="headerlink" title="迁移 Waline"></a>迁移 Waline</h2><p>首先，登录管理后台，左上角选择「管理」-&gt;「导入导出」，点击导出，下载数据。</p>
+<p><img src="https://picture.zhanganzhi.com/2026/01/25/aopgo5b.png" srcset="/img/loading.gif" lazyload alt="后台导入导出"></p>
+<p>然后，跟随 Waline <a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started/">文档</a>，部署新的 Vercel 项目、创建 Neon 数据库、将域名切换到新项目、配置环境变量。</p>
+<p>最后，重新进入管理后台，在导入导出中导入数据。</p>
+<p><img src="https://picture.zhanganzhi.com/2026/01/25/64bjyvo.png" srcset="/img/loading.gif" lazyload alt="在 LeanCloud 中的数据"></p>
+<p><img src="https://picture.zhanganzhi.com/2026/01/25/bx2hyfu.png" srcset="/img/loading.gif" lazyload alt="在 Neon 中的数据"></p>
+<p>注：我在 LeanCloud 的 Counter 数据是 Fluid 管理的，Waline 导出的数据也会包含这些内容，由于与 Waline 不兼容，可以在 JSON 文件中手动删除，也可以直接导入，会丢失 URL 信息，理论上将导出的 <code>target</code> 改为 <code>url</code> 即可，我计划在 Fluid 提过更新后处理访问量计数的问题（见下文）。</p>
+<h2 id="迁移-Fluid-访问统计"><a href="#迁移-Fluid-访问统计" class="headerlink" title="迁移 Fluid 访问统计"></a>迁移 Fluid 访问统计</h2><p>Fluid 尚未提过相关更新，可以改为不蒜子，我计划等待一段时间，看是否可以支持其他方案，例如 Waline 的计数功能，解决后会更新这篇文章。</p>
+<p>相关 Issue：<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/issues/1234">https://github.com/fluid-dev/hexo-theme-fluid/issues/1234</a></p>
+<section class="footnotes"><h2 id="References">References</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.leancloud.app/sdk/announcements/sunset-announcement/">关于 LeanCloud 停止对外提供服务的通知</a>. LeanCloud. 2026-01-12 [2026-01-25]. （原始内容<a target="_blank" rel="noopener" href="https://web.archive.org/web/20260125194517/https://docs.leancloud.app/sdk/announcements/sunset-announcement/">存档</a>于2026-01-25）.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -363,7 +361,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" class="category-chain-item">经验分享</a>
   
   
 
@@ -380,17 +378,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
+        <a href="/tags/%E5%8D%9A%E5%AE%A2/" class="print-no-link">#博客</a>
       
-        <a href="/tags/%E8%BF%90%E7%BB%B4/" class="print-no-link">#运维</a>
+        <a href="/tags/LeanCloud/" class="print-no-link">#LeanCloud</a>
       
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+        <a href="/tags/Waline/" class="print-no-link">#Waline</a>
       
-        <a href="/tags/OpenWrt/" class="print-no-link">#OpenWrt</a>
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
       
-        <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" class="print-no-link">#树莓派</a>
-      
-        <a href="/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/" class="print-no-link">#软路由</a>
+        <a href="/tags/Fluid/" class="print-no-link">#Fluid</a>
       
     </div>
   
@@ -402,8 +398,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>记一次非常曲折的软路由及家里云系统更新</div>
-      <div>https://blog.zhanganzhi.com/zh-CN/2025/09/95687a4df9d5/</div>
+      <div>LeanCloud 停止服务相关的博客更新</div>
+      <div>https://blog.zhanganzhi.com/zh-CN/2026/01/d370a8febe32/</div>
     </div>
     <div class="license-meta">
       
@@ -415,7 +411,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年9月22日</div>
+          <div>2026年1月25日</div>
         </div>
       
       
@@ -459,18 +455,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zh-CN/2026/01/d370a8febe32/" title="LeanCloud 停止服务相关的博客更新">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeanCloud 停止服务相关的博客更新</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/en/2025/07/ef9e4425c7c1/" title="Autoware Development Environment Setup">
-                        <span class="hidden-mobile">Autoware Development Environment Setup</span>
+                      <a href="/zh-CN/2025/09/95687a4df9d5/" title="记一次非常曲折的软路由及家里云系统更新">
+                        <span class="hidden-mobile">记一次非常曲折的软路由及家里云系统更新</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
