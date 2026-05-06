@@ -94,8 +94,6 @@
     
     <tags>
       
-      <tag>Autoware</tag>
-      
       <tag>自动驾驶</tag>
       
       <tag>教程</tag>
@@ -103,6 +101,8 @@
       <tag>Ubuntu</tag>
       
       <tag>Docker</tag>
+      
+      <tag>Autoware</tag>
       
     </tags>
     
@@ -129,8 +129,6 @@
     
     <tags>
       
-      <tag>Autoware</tag>
-      
       <tag>自动驾驶</tag>
       
       <tag>教程</tag>
@@ -138,6 +136,8 @@
       <tag>Ubuntu</tag>
       
       <tag>Docker</tag>
+      
+      <tag>Autoware</tag>
       
     </tags>
     
@@ -164,6 +164,8 @@
     
     <tags>
       
+      <tag>Apollo</tag>
+      
       <tag>自动驾驶</tag>
       
       <tag>教程</tag>
@@ -171,8 +173,6 @@
       <tag>Ubuntu</tag>
       
       <tag>Docker</tag>
-      
-      <tag>Apollo</tag>
       
     </tags>
     
@@ -199,6 +199,8 @@
     
     <tags>
       
+      <tag>Apollo</tag>
+      
       <tag>自动驾驶</tag>
       
       <tag>教程</tag>
@@ -206,8 +208,6 @@
       <tag>Ubuntu</tag>
       
       <tag>Docker</tag>
-      
-      <tag>Apollo</tag>
       
     </tags>
     
@@ -238,11 +238,11 @@
       
       <tag>GitHub</tag>
       
+      <tag>C</tag>
+      
       <tag>C++</tag>
       
       <tag>汇编</tag>
-      
-      <tag>C</tag>
       
       <tag>操作系统</tag>
       
@@ -277,11 +277,11 @@
       
       <tag>GitHub</tag>
       
+      <tag>C</tag>
+      
       <tag>C++</tag>
       
       <tag>汇编</tag>
-      
-      <tag>C</tag>
       
       <tag>操作系统</tag>
       
@@ -459,11 +459,11 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
+      
+      <tag>Java</tag>
       
       <tag>Redis</tag>
       
@@ -496,11 +496,11 @@
       
       <tag>杂谈</tag>
       
-      <tag>大学</tag>
-      
       <tag>中国</tag>
       
       <tag>教育</tag>
+      
+      <tag>大学</tag>
       
     </tags>
     
@@ -717,11 +717,11 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
+      
+      <tag>Java</tag>
       
       <tag>Spring Data JPA</tag>
       
@@ -756,11 +756,11 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
+      
+      <tag>Java</tag>
       
       <tag>Spring Data JPA</tag>
       
@@ -795,11 +795,11 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
+      
+      <tag>Java</tag>
       
       <tag>Spring Cloud</tag>
       
@@ -830,11 +830,11 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
+      
+      <tag>Java</tag>
       
       <tag>Spring Cloud</tag>
       
@@ -995,13 +995,13 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
       
       <tag>Spring Security</tag>
+      
+      <tag>Java</tag>
       
       <tag>注解</tag>
       
