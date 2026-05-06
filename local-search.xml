@@ -238,11 +238,11 @@
       
       <tag>GitHub</tag>
       
-      <tag>C</tag>
-      
       <tag>C++</tag>
       
       <tag>汇编</tag>
+      
+      <tag>C</tag>
       
       <tag>操作系统</tag>
       
@@ -277,11 +277,11 @@
       
       <tag>GitHub</tag>
       
-      <tag>C</tag>
-      
       <tag>C++</tag>
       
       <tag>汇编</tag>
+      
+      <tag>C</tag>
       
       <tag>操作系统</tag>
       
@@ -459,11 +459,11 @@
     
     <tags>
       
+      <tag>Java</tag>
+      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
-      
-      <tag>Java</tag>
       
       <tag>Redis</tag>
       
@@ -494,13 +494,13 @@
       
       <tag>生活</tag>
       
-      <tag>杂谈</tag>
+      <tag>大学</tag>
       
       <tag>中国</tag>
       
       <tag>教育</tag>
       
-      <tag>大学</tag>
+      <tag>杂谈</tag>
       
     </tags>
     
@@ -595,11 +595,11 @@
     
     <tags>
       
-      <tag>全球化</tag>
-      
       <tag>中国</tag>
       
       <tag>美国</tag>
+      
+      <tag>全球化</tag>
       
     </tags>
     
@@ -653,9 +653,9 @@
     
     <tags>
       
-      <tag>草台班子</tag>
-      
       <tag>全球化</tag>
+      
+      <tag>草台班子</tag>
       
       <tag>东欧</tag>
       
@@ -717,11 +717,11 @@
     
     <tags>
       
+      <tag>Java</tag>
+      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
-      
-      <tag>Java</tag>
       
       <tag>Spring Data JPA</tag>
       
@@ -756,11 +756,11 @@
     
     <tags>
       
+      <tag>Java</tag>
+      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
-      
-      <tag>Java</tag>
       
       <tag>Spring Data JPA</tag>
       
@@ -795,11 +795,11 @@
     
     <tags>
       
+      <tag>Java</tag>
+      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
-      
-      <tag>Java</tag>
       
       <tag>Spring Cloud</tag>
       
@@ -830,11 +830,11 @@
     
     <tags>
       
+      <tag>Java</tag>
+      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
-      
-      <tag>Java</tag>
       
       <tag>Spring Cloud</tag>
       
@@ -865,11 +865,11 @@
       
       <tag>GitHub</tag>
       
+      <tag>杂谈</tag>
+      
       <tag>Gitea</tag>
       
       <tag>社区</tag>
-      
-      <tag>杂谈</tag>
       
     </tags>
     
@@ -995,13 +995,13 @@
     
     <tags>
       
+      <tag>Java</tag>
+      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
       
       <tag>Spring Security</tag>
-      
-      <tag>Java</tag>
       
       <tag>注解</tag>
       
@@ -1226,9 +1226,9 @@
     
     <tags>
       
-      <tag>Minecraft</tag>
-      
       <tag>MCDReforged</tag>
+      
+      <tag>Minecraft</tag>
       
       <tag>Python</tag>
       
@@ -1257,9 +1257,9 @@
     
     <tags>
       
-      <tag>Minecraft</tag>
-      
       <tag>MCDReforged</tag>
+      
+      <tag>Minecraft</tag>
       
       <tag>Python</tag>
       
